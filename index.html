@@ -540,6 +540,7 @@
             shadow-intensity="1"
             exposure="1"
             alt="3D Product Model"
+            touch-action="pan-y"
           ></model-viewer>
         </div>
 
@@ -596,59 +597,47 @@
   </div>
 
   <script>
-    // 3D Models Data - FIXED: Using .gib extension instead of .glb
+    // 3D Models Data - Using Cloudflare R2 Bucket URLs
     const models = [
       {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/Iphone%2017-air.glb',
-        name: 'iPhone 17-air'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/iPhone%2017%20Pro.glb',
-        name: 'iPhone 17 Pro'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/samsung%20s25%20ultra.glb',
-        name: 'Samsung S25 Ultra'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/google_pixel_8_pro.glb',
-        name: 'Google Pixel 8 Pro'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/nothing_phone_2a.glb',
-        name: 'Nothing Phone 2A'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/instax_mini_8_instant_camera.glb',
-        name: 'Instax Mini 8 Camera'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/ps5%20pro.glb',
-        name: 'PS5 Pro'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/airpods_max.glb',
-        name: 'AirPods Max'
-      },
-      {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/AirPods%20Pro%203.glb',
+        url: 'https://models.valts.online/AirPods%20Pro%203.glb',
         name: 'AirPods Pro 3'
       },
       {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/jbl-tour-pro-2-black-android-ar-asset.glb',
-        name: 'JBL Tour Pro 2'
+        url: 'https://models.valts.online/Iphone%2017-air.glb',
+        name: 'iPhone 17-air'
       },
       {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/jbl-tune-720bt-black-android-ar-asset.glb',
-        name: 'JBL Tune 720BT'
+        url: 'https://models.valts.online/apple_mac_mini_m1.glb',
+        name: 'Apple Mac Mini M1'
       },
       {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/clip-4-black-android-ar-asset.glb',
+        url: 'https://models.valts.online/clip-4-black-android-ar-asset.glb',
         name: 'JBL Clip 4'
       },
       {
-        url: 'https://raw.githubusercontent.com/toren0--jn/3D-models/main/apple_mac_mini_m1.glb',
-        name: 'Apple Mac Mini M1'
+        url: 'https://models.valts.online/google_pixel_8_pro.glb',
+        name: 'Google Pixel 8 Pro'
+      },
+      {
+        url: 'https://models.valts.online/iPhone%2017%20Pro.glb',
+        name: 'iPhone 17 Pro'
+      },
+      {
+        url: 'https://models.valts.online/instax_mini_8_instant_camera.glb',
+        name: 'Instax Mini 8 Camera'
+      },
+      {
+        url: 'https://models.valts.online/jbl-tour-pro-2-black-android-ar-asset.glb',
+        name: 'JBL Tour Pro 2'
+      },
+      {
+        url: 'https://models.valts.online/jbl-tune-720bt-black-android-ar-asset.glb',
+        name: 'JBL Tune 720BT'
+      },
+      {
+        url: 'https://models.valts.online/nothing_phone_2a.glb',
+        name: 'Nothing Phone 2A'
       }
     ];
 
@@ -684,8 +673,8 @@
         modelViewer.src = models[index].url;
         modelName.textContent = models[index].name;
       } catch (error) {
-        console.log('Error loading model:', error);
-        modelName.textContent = 'Model loading...';
+        console.log('Loading model from Cloudflare R2:', models[index].url);
+        modelName.textContent = models[index].name + ' - Loading...';
       }
     }
 
@@ -716,12 +705,36 @@
     loadModel(0);
 
     // Auto-rotate through models every 5 seconds
-    setInterval(() => {
+    let autoRotateInterval = setInterval(() => {
       nextModel();
     }, 5000);
 
-    // Note: All Appwrite code has been removed completely
-    // Google Forms will handle all form submissions automatically
+    // Pause auto-rotation when user interacts
+    modelViewer.addEventListener('mousedown', () => {
+      clearInterval(autoRotateInterval);
+    });
+
+    modelViewer.addEventListener('touchstart', () => {
+      clearInterval(autoRotateInterval);
+    });
+
+    // Resume auto-rotation after 10 seconds of inactivity
+    let inactivityTimer;
+    function resetAutoRotate() {
+      clearInterval(autoRotateInterval);
+      clearTimeout(inactivityTimer);
+      
+      inactivityTimer = setTimeout(() => {
+        autoRotateInterval = setInterval(() => {
+          nextModel();
+        }, 5000);
+      }, 10000);
+    }
+
+    // Track user interaction
+    document.addEventListener('mousemove', resetAutoRotate);
+    document.addEventListener('touchstart', resetAutoRotate);
+    document.addEventListener('click', resetAutoRotate);
   </script>
 </body>
 </html>
