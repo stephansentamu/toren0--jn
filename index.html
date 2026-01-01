@@ -377,110 +377,70 @@
       50% { filter: blur(8px); }
     }
 
-    /* 3D Gesture Hint */
+    /* 3D Gesture Hint - Minimal hand emoji */
     .gesture-hint {
       position: absolute;
       bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--accent);
-      font-size: 0.9rem;
-      opacity: 0.8;
-      animation: gesture-pulse 2s ease-in-out infinite;
+      right: 20px;
+      font-size: 2.5rem;
+      opacity: 0.9;
+      animation: gesture-blink-blur 3s ease-in-out infinite;
       pointer-events: none;
       z-index: 5;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      padding: 8px 15px;
-      border-radius: 20px;
-      border: 1px solid rgba(110, 231, 183, 0.3);
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+      transition: opacity 0.3s ease;
     }
 
-    .gesture-hint svg {
-      width: 30px;
-      height: 30px;
-      fill: currentColor;
-    }
-
-    @keyframes gesture-pulse {
+    @keyframes gesture-blink-blur {
       0%, 100% { 
-        opacity: 0.8;
-        transform: translateX(-50%) scale(1);
+        opacity: 0.9;
+        filter: blur(0) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
       }
       50% { 
-        opacity: 1;
-        transform: translateX(-50%) scale(1.1);
+        opacity: 0.5;
+        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
       }
     }
 
-    /* Scroll Down Arrow */
+    /* Scroll Down Arrow - Bottom left of 3D model, always visible on mobile */
     .scroll-down-arrow {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background: var(--glass-dark);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 2.5rem;
       cursor: pointer;
       z-index: 100;
       transition: all 0.3s ease;
-      animation: bounce-blink 2s ease-in-out infinite;
-      box-shadow: 0 4px 15px rgba(110, 231, 183, 0.3);
+      animation: arrow-blink-bounce 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
+      opacity: 0.9;
     }
 
-    body.light-mode .scroll-down-arrow {
-      background: var(--glass-light);
-      border-color: var(--accent);
-    }
-
-    @keyframes bounce-blink {
+    @keyframes arrow-blink-bounce {
       0%, 100% { 
         transform: translateY(0);
-        filter: blur(0);
-        opacity: 1;
+        filter: blur(0) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
+        opacity: 0.9;
       }
       25% {
-        filter: blur(1px);
-        opacity: 0.8;
+        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
+        opacity: 0.5;
       }
       50% { 
-        transform: translateY(-10px);
-        filter: blur(0);
-        opacity: 1;
+        transform: translateY(-8px);
+        filter: blur(0) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
+        opacity: 0.9;
       }
       75% {
-        filter: blur(1px);
-        opacity: 0.8;
+        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
+        opacity: 0.5;
       }
     }
 
     .scroll-down-arrow:hover {
-      transform: scale(1.1);
+      transform: scale(1.2);
       animation: none;
-      background: rgba(110, 231, 183, 0.2);
-    }
-
-    .scroll-down-arrow svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--accent);
-      fill: none;
-      stroke-width: 2.5;
-    }
-
-    .scroll-down-arrow.hidden {
-      opacity: 0;
-      pointer-events: none;
+      opacity: 1;
     }
     
     /* Hide scroll arrow on desktop */
@@ -868,13 +828,11 @@
             interaction-prompt="none"
           ></model-viewer>
           
-          <!-- 3D Gesture Hint -->
-          <div class="gesture-hint" id="gestureHint">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C10.9 2 10 2.9 10 4V10C10 11.1 10.9 12 12 12C13.1 12 14 11.1 14 10V4C14 2.9 13.1 2 12 2ZM18 8C16.9 8 16 8.9 16 10V12C16 13.1 16.9 14 18 14C19.1 14 20 13.1 20 12V10C20 8.9 19.1 8 18 8ZM6 8C4.9 8 4 8.9 4 10V12C4 13.1 4.9 14 6 14C7.1 14 8 13.1 8 12V10C8 8.9 7.1 8 6 8ZM12 14C8.69 14 6 16.69 6 20V22H18V20C18 16.69 15.31 14 12 14Z"/>
-            </svg>
-            <span>Drag to rotate 360°</span>
-          </div>
+          <!-- 3D Gesture Hint - Just hand emoji -->
+          <div class="gesture-hint" id="gestureHint">👆</div>
+          
+          <!-- Scroll Down Arrow - Bottom left of model -->
+          <div class="scroll-down-arrow" id="scrollDownBtn">↓</div>
         </div>
 
         <button class="carousel-btn next" id="nextBtn" aria-label="Next model">
@@ -884,13 +842,6 @@
 
       <div class="model-name" id="modelName">Loading...</div>
     </div>
-
-    <!-- Scroll Down Arrow -->
-    <button class="scroll-down-arrow" id="scrollDownBtn" aria-label="Scroll to form">
-      <svg viewBox="0 0 24 24">
-        <path d="M7 10l5 5 5-5z"/>
-      </svg>
-    </button>
 
     <!-- MESSAGE SECTION - 5 Lines -->
     <div class="message-section">
@@ -1176,17 +1127,6 @@
         behavior: 'smooth', 
         block: 'start' 
       });
-    });
-
-    // Hide scroll button when user scrolls past carousel
-    window.addEventListener('scroll', () => {
-      const carouselRect = document.querySelector('.carousel-section').getBoundingClientRect();
-      
-      if (carouselRect.bottom < window.innerHeight / 2) {
-        scrollDownBtn.classList.add('hidden');
-      } else {
-        scrollDownBtn.classList.remove('hidden');
-      }
     });
     if (window.innerWidth <= 768) {
       window.addEventListener('scroll', () => {
