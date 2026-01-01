@@ -227,6 +227,92 @@
       width: 100%;
       height: 100%;
       --poster-color: transparent;
+      --progress-bar-color: var(--accent);
+      cursor: grab;
+      /* Prevent scrolling on touch devices until activated */
+      touch-action: none;
+    }
+    
+    model-viewer.active {
+      touch-action: auto;
+    }
+    
+    /* Loading Overlay */
+    .model-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    .model-loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(110, 231, 183, 0.2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+      margin-top: 20px;
+      color: var(--accent);
+      font-size: 1rem;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Click to Interact Overlay */
+    .click-to-interact {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 15;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    
+    .click-to-interact.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .tap-instruction {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      animation: pulse 2s ease-in-out infinite;
     }
 
     /* Carousel Navigation Buttons */
@@ -289,6 +375,157 @@
     @keyframes text-blur-load {
       0%, 90% { filter: blur(0); }
       50% { filter: blur(8px); }
+    }
+
+    /* 3D Gesture Hint */
+    .gesture-hint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      opacity: 0.8;
+      animation: gesture-pulse 2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: 1px solid rgba(110, 231, 183, 0.3);
+    }
+
+    .gesture-hint svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+
+    @keyframes gesture-pulse {
+      0%, 100% { 
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1);
+      }
+      50% { 
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
+
+    /* Scroll Down Arrow */
+    .scroll-down-arrow {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--glass-dark);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s ease;
+      animation: bounce-blink 2s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(110, 231, 183, 0.3);
+    }
+
+    body.light-mode .scroll-down-arrow {
+      background: var(--glass-light);
+      border-color: var(--accent);
+    }
+
+    @keyframes bounce-blink {
+      0%, 100% { 
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+      }
+      25% {
+        filter: blur(1px);
+        opacity: 0.8;
+      }
+      50% { 
+        transform: translateY(-10px);
+        filter: blur(0);
+        opacity: 1;
+      }
+      75% {
+        filter: blur(1px);
+        opacity: 0.8;
+      }
+    }
+
+    .scroll-down-arrow:hover {
+      transform: scale(1.1);
+      animation: none;
+      background: rgba(110, 231, 183, 0.2);
+    }
+
+    .scroll-down-arrow svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2.5;
+    }
+
+    .scroll-down-arrow.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    /* Hide scroll arrow on desktop */
+    @media (min-width: 768px) {
+      .scroll-down-arrow {
+        display: none;
+      }
+    }
+      background: var(--glass-light);
+      border-color: var(--accent);
+    }
+
+    @keyframes bounce-blink {
+      0%, 100% { 
+        transform: translateX(-50%) translateY(0);
+        filter: blur(0);
+        opacity: 1;
+      }
+      50% { 
+        transform: translateX(-50%) translateY(10px);
+        filter: blur(1px);
+        opacity: 0.7;
+      }
+    }
+
+    .scroll-down-arrow:hover {
+      transform: translateX(-50%) scale(1.2);
+      background: rgba(110, 231, 183, 0.3);
+      animation: none;
+    }
+
+    .scroll-down-arrow svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Hide scroll arrow on mobile when near bottom */
+    @media (max-width: 768px) {
+      .scroll-down-arrow.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
 
     /* MESSAGE SECTION - 5 Lines */
@@ -607,6 +844,20 @@
         </button>
 
         <div class="model-viewer-wrapper">
+          <!-- Loading Overlay -->
+          <div class="model-loading" id="modelLoading">
+            <div class="loader"></div>
+            <div class="loading-text">Loading 3D model...</div>
+          </div>
+          
+          <!-- Click to Interact Overlay (Mobile) -->
+          <div class="click-to-interact" id="clickToInteract">
+            <div class="tap-instruction">👆 Tap to interact</div>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C10.9 2 10 2.9 10 4V10C10 11.1 10.9 12 12 12C13.1 12 14 11.1 14 10V4C14 2.9 13.1 2 12 2ZM18 8C16.9 8 16 8.9 16 10V12C16 13.1 16.9 14 18 14C19.1 14 20 13.1 20 12V10C20 8.9 19.1 8 18 8ZM6 8C4.9 8 4 8.9 4 10V12C4 13.1 4.9 14 6 14C7.1 14 8 13.1 8 12V10C8 8.9 7.1 8 6 8ZM12 14C8.69 14 6 16.69 6 20V22H18V20C18 16.69 15.31 14 12 14Z"/>
+            </svg>
+          </div>
+          
           <model-viewer
             id="modelViewer"
             camera-controls
@@ -614,7 +865,16 @@
             shadow-intensity="1"
             exposure="1"
             alt="3D Product Model"
+            interaction-prompt="none"
           ></model-viewer>
+          
+          <!-- 3D Gesture Hint -->
+          <div class="gesture-hint" id="gestureHint">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C10.9 2 10 2.9 10 4V10C10 11.1 10.9 12 12 12C13.1 12 14 11.1 14 10V4C14 2.9 13.1 2 12 2ZM18 8C16.9 8 16 8.9 16 10V12C16 13.1 16.9 14 18 14C19.1 14 20 13.1 20 12V10C20 8.9 19.1 8 18 8ZM6 8C4.9 8 4 8.9 4 10V12C4 13.1 4.9 14 6 14C7.1 14 8 13.1 8 12V10C8 8.9 7.1 8 6 8ZM12 14C8.69 14 6 16.69 6 20V22H18V20C18 16.69 15.31 14 12 14Z"/>
+            </svg>
+            <span>Drag to rotate 360°</span>
+          </div>
         </div>
 
         <button class="carousel-btn next" id="nextBtn" aria-label="Next model">
@@ -624,6 +884,13 @@
 
       <div class="model-name" id="modelName">Loading...</div>
     </div>
+
+    <!-- Scroll Down Arrow -->
+    <button class="scroll-down-arrow" id="scrollDownBtn" aria-label="Scroll to form">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </button>
 
     <!-- MESSAGE SECTION - 5 Lines -->
     <div class="message-section">
@@ -761,16 +1028,76 @@
       localStorage.setItem('theme', theme);
     });
 
-    // 3D Model Carousel
+    // 3D Model Carousel with Caching
     let currentModelIndex = 0;
     const modelViewer = document.getElementById('modelViewer');
     const modelName = document.getElementById('modelName');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const modelLoading = document.getElementById('modelLoading');
+    const clickToInteract = document.getElementById('clickToInteract');
+    const gestureHint = document.getElementById('gestureHint');
+    
+    // Cache for loaded models (Feature 5: Local Storage)
+    const modelCache = new Map();
+    let isInteractionEnabled = false;
+    let isMobile = window.innerWidth < 768;
+    
+    // Preload models in background
+    async function preloadModel(url) {
+      if (modelCache.has(url)) return;
+      
+      try {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        const objectURL = URL.createObjectURL(blob);
+        modelCache.set(url, objectURL);
+      } catch (error) {
+        console.log('Preload failed for:', url);
+      }
+    }
+    
+    // Preload all models after first load
+    function preloadAllModels() {
+      models.forEach((model, index) => {
+        if (index !== 0) { // Don't preload first model again
+          setTimeout(() => preloadModel(model.url), index * 1000);
+        }
+      });
+    }
 
-    function loadModel(index) {
-      modelViewer.src = models[index].url;
-      modelName.textContent = models[index].name;
+    function showLoading() {
+      modelLoading.classList.remove('hidden');
+    }
+    
+    function hideLoading() {
+      modelLoading.classList.add('hidden');
+    }
+
+    async function loadModel(index) {
+      showLoading();
+      
+      const modelData = models[index];
+      let modelUrl = modelData.url;
+      
+      // Use cached version if available (Feature 5)
+      if (modelCache.has(modelUrl)) {
+        modelUrl = modelCache.get(modelUrl);
+      } else {
+        // Cache this model for future use
+        try {
+          const response = await fetch(modelUrl);
+          const blob = await response.blob();
+          const objectURL = URL.createObjectURL(blob);
+          modelCache.set(modelData.url, objectURL);
+          modelUrl = objectURL;
+        } catch (error) {
+          console.log('Failed to cache model:', error);
+        }
+      }
+      
+      modelViewer.src = modelUrl;
+      modelName.textContent = modelData.name;
     }
 
     function nextModel() {
@@ -786,18 +1113,93 @@
     prevBtn.addEventListener('click', prevModel);
     nextBtn.addEventListener('click', nextModel);
 
-    // Allow scrolling through models
-    modelViewer.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      if (e.deltaY > 0) {
-        nextModel();
-      } else {
-        prevModel();
-      }
+    // Model viewer events for loading state (Feature 4)
+    modelViewer.addEventListener('load', () => {
+      hideLoading();
+      
+      // Show gesture hint for 3 seconds after load
+      gestureHint.style.opacity = '1';
+      setTimeout(() => {
+        gestureHint.style.opacity = '0';
+      }, 3000);
+    });
+    
+    modelViewer.addEventListener('error', () => {
+      hideLoading();
+      modelName.textContent = 'Failed to load model';
     });
 
-    // Load first model
+    // Feature 2: Click to interact on mobile
+    if (isMobile) {
+      clickToInteract.classList.remove('hidden');
+      modelViewer.classList.remove('active');
+      
+      clickToInteract.addEventListener('click', () => {
+        clickToInteract.classList.add('hidden');
+        modelViewer.classList.add('active');
+        isInteractionEnabled = true;
+        
+        // Show gesture hint
+        gestureHint.style.opacity = '1';
+        setTimeout(() => {
+          gestureHint.style.opacity = '0';
+        }, 4000);
+      });
+    } else {
+      clickToInteract.classList.add('hidden');
+      modelViewer.classList.add('active');
+      isInteractionEnabled = true;
+    }
+
+    // Allow desktop wheel scrolling through models
+    if (!isMobile) {
+      modelViewer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (e.deltaY > 0) {
+          nextModel();
+        } else {
+          prevModel();
+        }
+      });
+    }
+
+    // Load first model and start preloading
     loadModel(0);
+    setTimeout(preloadAllModels, 2000);
+
+    // Feature 1: Scroll Down Button
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    const messageSection = document.querySelector('.message-section');
+
+    scrollDownBtn.addEventListener('click', () => {
+      messageSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    });
+
+    // Hide scroll button when user scrolls past carousel
+    window.addEventListener('scroll', () => {
+      const carouselRect = document.querySelector('.carousel-section').getBoundingClientRect();
+      
+      if (carouselRect.bottom < window.innerHeight / 2) {
+        scrollDownBtn.classList.add('hidden');
+      } else {
+        scrollDownBtn.classList.remove('hidden');
+      }
+    });
+    if (window.innerWidth <= 768) {
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+        
+        if (scrollPosition > pageHeight - 300) {
+          scrollDownBtn.classList.add('hidden');
+        } else {
+          scrollDownBtn.classList.remove('hidden');
+        }
+      });
+    }
 
     // Waitlist Form Submission - CLOUDFLARE WORKER
     const waitlistForm = document.getElementById('waitlistForm');
