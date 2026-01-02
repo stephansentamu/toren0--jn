@@ -530,7 +530,7 @@
       }
     }
 
-    /* MESSAGE SECTION - 5 Lines */
+    /* MESSAGE SECTION - 6 Lines */
     .message-section {
       text-align: center;
       margin: 3rem auto;
@@ -550,6 +550,7 @@
     .message-section p:nth-child(3) { animation-delay: 1.6s; }
     .message-section p:nth-child(4) { animation-delay: 1.8s; }
     .message-section p:nth-child(5) { animation-delay: 2s; }
+    .message-section p:nth-child(6) { animation-delay: 2.2s; }
     
     @keyframes message-fade-in {
       from {
@@ -585,7 +586,7 @@
       gap: 1rem;
       margin: 2rem auto;
       max-width: 500px;
-      animation: form-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 2.2s backwards;
+      animation: form-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 2.4s backwards;
     }
     
     @keyframes form-entrance {
@@ -651,6 +652,67 @@
       cursor: pointer;
       transition: all 0.3s ease;
       margin-top: 0.5rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+    
+    .submit-btn .btn-text {
+      display: inline-block;
+    }
+    
+    .submit-btn .btn-morph {
+      position: relative;
+      display: inline-block;
+      width: 70px;
+      height: 1.2em;
+    }
+    
+    .submit-btn .morph-word {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      animation: word-morph 4s ease-in-out infinite;
+    }
+    
+    .submit-btn .morph-word:nth-child(1) {
+      animation-delay: 0s;
+    }
+    
+    .submit-btn .morph-word:nth-child(2) {
+      animation-delay: 2s;
+    }
+    
+    @keyframes word-morph {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+      }
+      10% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+      40% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(-10px);
+      }
     }
 
     body.light-mode .submit-btn {
@@ -746,6 +808,11 @@
     .powered-by {
       font-size: 0.9rem;
       animation: text-blur-load 3s linear infinite;
+    }
+    
+    @keyframes text-blur-load {
+      0%, 90% { filter: blur(0); }
+      50% { filter: blur(3px); }
     }
 
     .powered-by .valts-text {
@@ -908,13 +975,14 @@
       <div class="model-name" id="modelName">Loading...</div>
     </div>
 
-    <!-- MESSAGE SECTION - 5 Lines -->
+    <!-- MESSAGE SECTION - 6 Lines -->
     <div class="message-section">
-      <p>The gadget store built different. Smarter service.</p>
-      <p>Phones, accessories, and AI-powered assistance.</p>
-      <p>Buy the best. Sell your old. Swap to get new. Get it fixed.</p>
+      <p>Gadget Store - Reimagined.</p>
+      <p>Phones, accessories, and AI-personalized Picks.</p>
+      <p>Buy. Sell your old. Swap to get new. Get it fixed.</p>
       <p>All in one place.</p>
-      <p>Launching soon — Join the wait-list : Get early <span class="valt-text">V.A.L.T</span> access + get 10% off first order <span class="arrow-down">↓</span></p>
+      <p>Launching soon — Join the wait-list.</p>
+      <p>Get early <span class="valt-text">V.A.L.T</span> access + Member Perks! <span class="arrow-down">↓</span></p>
     </div>
 
     <!-- WAITLIST FORM - 2 INPUTS ONLY -->
@@ -933,7 +1001,13 @@
         placeholder="Email / Phone number" 
         required
       />
-      <button type="submit" class="submit-btn" id="submitBtn">Get notified</button>
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-text">Get </span>
+        <span class="btn-morph">
+          <span class="morph-word">notified</span>
+          <span class="morph-word">perks</span>
+        </span>
+      </button>
       <div class="success-message" id="successMessage" style="display: none;"></div>
     </form>
 
@@ -1206,7 +1280,7 @@
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
+      submitBtn.innerHTML = 'Submitting...';
 
       try {
         // Determine if contact is email or phone
@@ -1255,7 +1329,7 @@
         successMessage.style.color = '#ff6b6b';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Get notified';
+        submitBtn.innerHTML = '<span class="btn-text">Get </span><span class="btn-morph"><span class="morph-word">notified</span><span class="morph-word">perks</span></span>';
         setTimeout(() => {
           successMessage.style.display = 'none';
         }, 5000);
