@@ -425,25 +425,26 @@
       }
     }
 
-    /* Carousel Navigation Buttons */
+    /* Carousel Navigation Buttons - FLOATING BLUR BLINKING ICONS */
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: var(--glass-dark);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: none;
       border-radius: 50%;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s ease;
       z-index: 10;
-      animation: button-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s backwards;
+      animation: button-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s backwards, btn-glow-blink 3s ease-in-out infinite;
+      opacity: 0.8;
     }
     
     @keyframes button-pop-in {
@@ -452,30 +453,60 @@
         transform: translateY(-50%) scale(0);
       }
       to {
-        opacity: 1;
+        opacity: 0.8;
         transform: translateY(-50%) scale(1);
+      }
+    }
+    
+    @keyframes btn-glow-blink {
+      0%, 100% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 5px rgba(110, 231, 183, 0.5)) blur(0.5px);
+      }
+      50% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 15px rgba(110, 231, 183, 0.8)) blur(1.5px);
       }
     }
 
     body.light-mode .carousel-btn {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      animation: button-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s backwards, btn-glow-blink-light 3s ease-in-out infinite;
+    }
+    
+    @keyframes btn-glow-blink-light {
+      0%, 100% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) blur(0.5px);
+      }
+      50% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8)) blur(1.5px);
+      }
     }
 
     .carousel-btn:hover {
-      transform: translateY(-50%) scale(1.1);
-      background: rgba(110, 231, 183, 0.2);
+      transform: translateY(-50%) scale(1.15);
+      animation: none;
+      opacity: 1;
+      filter: drop-shadow(0 0 20px rgba(110, 231, 183, 0.9)) blur(0);
     }
 
-    .carousel-btn.prev { left: -30px; }
-    .carousel-btn.next { right: -30px; }
+    .carousel-btn.prev { left: -25px; }
+    .carousel-btn.next { right: -25px; }
 
     .carousel-btn svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
+      width: 28px;
+      height: 28px;
+      stroke: var(--text-dark); /* White in dark mode */
       fill: none;
       stroke-width: 2;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      transition: stroke 0.3s ease;
+    }
+    
+    /* FIX: 3D Model Changers follow color logic - Black in light mode */
+    body.light-mode .carousel-btn svg {
+      stroke: #000000 !important; /* Black in light mode */
     }
 
     /* Model Name */
@@ -518,16 +549,16 @@
     .gesture-hint svg {
       width: 100%;
       height: 100%;
-      fill: var(--text-dark);
+      fill: var(--text-dark); /* White in dark mode */
     }
     
+    /* FIX: In light mode, make icon BLACK */
     body.light-mode .gesture-hint {
       filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
     }
     
-    /* SPECIFIC FIX: White text in light mode for gesture hint */
     body.light-mode .gesture-hint svg {
-      fill: #ffffff !important;
+      fill: #000000 !important; /* Black in light mode */
     }
 
     @keyframes gesture-blink-blur {
@@ -1099,7 +1130,7 @@
       }
     }
 
-    /* Liquid Toggle */
+    /* Liquid Toggle - ENHANCED BLINKING GLOW EFFECT */
     .liquid-toggle {
       --primary: #fff;
       --secondary: #000;
@@ -1120,11 +1151,82 @@
       mix-blend-mode: darken;
       overflow: hidden;
       font-size: 8px;
+      animation: toggle-glow-pulse 2s ease-in-out infinite;
+      z-index: 1;
+    }
+    
+    @keyframes toggle-glow-pulse {
+      0%, 100% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 15px rgba(110, 231, 183, 0.8),
+          0 0 25px rgba(110, 231, 183, 0.6);
+      }
+      25% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 20px rgba(110, 231, 183, 1),
+          0 0 35px rgba(110, 231, 183, 0.8),
+          0 0 50px rgba(110, 231, 183, 0.4);
+        filter: blur(0.66em) contrast(25);
+      }
+      50% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 25px rgba(110, 231, 183, 1.2),
+          0 0 45px rgba(110, 231, 183, 1),
+          0 0 65px rgba(110, 231, 183, 0.6),
+          0 0 85px rgba(110, 231, 183, 0.3);
+        filter: blur(0.66em) contrast(30);
+      }
+      75% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 20px rgba(110, 231, 183, 1),
+          0 0 35px rgba(110, 231, 183, 0.8),
+          0 0 50px rgba(110, 231, 183, 0.4);
+        filter: blur(0.66em) contrast(25);
+      }
     }
 
     .liquid-toggle.light-mode {
       --primary: #000;
       --secondary: #fff;
+      animation: toggle-glow-pulse-light 2s ease-in-out infinite;
+    }
+    
+    @keyframes toggle-glow-pulse-light {
+      0%, 100% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 15px rgba(0, 0, 0, 0.8),
+          0 0 25px rgba(0, 0, 0, 0.6);
+      }
+      25% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 20px rgba(0, 0, 0, 1),
+          0 0 35px rgba(0, 0, 0, 0.8),
+          0 0 50px rgba(0, 0, 0, 0.4);
+        filter: blur(0.66em) contrast(25);
+      }
+      50% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 25px rgba(0, 0, 0, 1.2),
+          0 0 45px rgba(0, 0, 0, 1),
+          0 0 65px rgba(0, 0, 0, 0.6),
+          0 0 85px rgba(0, 0, 0, 0.3);
+        filter: blur(0.66em) contrast(30);
+      }
+      75% {
+        box-shadow: 
+          0 0 0 1em var(--secondary),
+          0 0 20px rgba(0, 0, 0, 1),
+          0 0 35px rgba(0, 0, 0, 0.8),
+          0 0 50px rgba(0, 0, 0, 0.4);
+        filter: blur(0.66em) contrast(25);
+      }
     }
 
     .liquid-toggle::before {
@@ -1192,21 +1294,22 @@
     .chat-icon svg {
       width: 100%;
       height: 100%;
-      fill: var(--text-dark);
+      fill: var(--text-dark); /* White in dark mode */
     }
     
+    /* FIX: In light mode, make icon BLACK */
     body.light-mode .chat-icon {
       filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
     }
     
-    /* SPECIFIC FIX: White icon in light mode */
     body.light-mode .chat-icon svg {
-      fill: #ffffff !important;
+      fill: #000000 !important; /* Black in light mode */
     }
     
     .chat-icon:hover {
       transform: scale(1.1);
       opacity: 1;
+      animation: none;
     }
 
     @keyframes chat-blink-blur {
@@ -1218,6 +1321,10 @@
         opacity: 0.5;
         filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
       }
+    }
+    
+    body.light-mode .chat-icon {
+      animation: chat-blink-blur-light 3s ease-in-out infinite;
     }
     
     @keyframes chat-blink-blur-light {
@@ -1328,14 +1435,6 @@
     body.light-mode .chat-box {
       background: var(--glass-light);
       border: 1px solid rgba(0, 0, 0, 0.2);
-    }
-    
-    /* SPECIFIC FIX: White text in light mode for chat box */
-    body.light-mode .chat-box,
-    body.light-mode .chat-message,
-    body.light-mode .chat-input,
-    body.light-mode .chat-action-btn {
-      color: #ffffff !important;
     }
     
     .chat-messages {
@@ -1593,12 +1692,12 @@
       }
 
       .carousel-btn {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
       }
 
-      .carousel-btn.prev { left: -10px; }
-      .carousel-btn.next { right: -10px; }
+      .carousel-btn.prev { left: -15px; }
+      .carousel-btn.next { right: -15px; }
 
       .message-section {
         margin: 2rem auto;
@@ -1655,6 +1754,10 @@
       .bottom-loader {
         width: 150px;
       }
+      
+      .liquid-toggle {
+        font-size: 7px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -1668,6 +1771,16 @@
       
       .bottom-loader {
         width: 120px;
+      }
+      
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .carousel-btn svg {
+        width: 24px;
+        height: 24px;
       }
     }
   </style>
@@ -1833,7 +1946,7 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- Liquid Toggle -->
+      <!-- Liquid Toggle WITH ENHANCED BLINKING GLOW EFFECT -->
       <input type="checkbox" class="liquid-toggle" id="themeToggle" />
 
       <!-- Social Section -->
@@ -1849,7 +1962,7 @@
             <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
           </a>
           <a href="https://wa.me/256707859985?text=hey%20V.A.L.T" target="_blank" class="social-icon" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           </a>
         </div>
       </div>
@@ -2133,7 +2246,7 @@
       }
     });
 
-    // CHAT FUNCTIONALITY
+    // CHAT FUNCTIONALITY - WITH UPDATED SUBMISSION LOGIC
     const chatIcon = document.getElementById('chatIcon');
     const chatOverlay = document.getElementById('chatOverlay');
     const chatClose = document.getElementById('chatClose');
@@ -2144,10 +2257,10 @@
     const chatContactForm = document.getElementById('chatContactForm');
     
     let userRequest = '';
-    let chatState = 'initial'; // initial, awaiting_action, awaiting_contact
+    let chatState = 'initial';
     
     // Chat history cleanup system (1 hour)
-    const CHAT_EXPIRY_TIME = 60 * 60 * 1000; // 1 hour in milliseconds
+    const CHAT_EXPIRY_TIME = 60 * 60 * 1000;
     const CHAT_STORAGE_KEY = 'valts_chat_history';
     const CHAT_TIMESTAMP_KEY = 'valts_chat_timestamp';
     
@@ -2346,7 +2459,15 @@
         try {
           const isEmail = contact.includes('@');
           
-          // Send to Cloudflare Worker with request attached
+          // CRUCIAL FIX: Send user request in same sentence as contact
+          let contactWithRequest;
+          if (isEmail) {
+            contactWithRequest = contact + " - " + userRequest;
+          } else {
+            contactWithRequest = contact + " - " + userRequest;
+          }
+          
+          // Send to Cloudflare Worker - with user request appended to contact
           const response = await fetch('https://signup-api.stephansentamu.workers.dev/', {
             method: 'POST',
             headers: {
@@ -2354,9 +2475,10 @@
             },
             body: JSON.stringify({
               name: name,
-              email: isEmail ? contact : '',
-              phoneNo: isEmail ? '' : contact,
-              request: userRequest // Add the user's request
+              email: isEmail ? contactWithRequest : '', // Email field contains email + request
+              phoneNo: isEmail ? '' : contactWithRequest, // Phone field contains phone + request
+              // We still send request separately for backward compatibility
+              request: userRequest
             })
           });
           
@@ -2446,7 +2568,7 @@
         // Determine if contact is email or phone
         const isEmail = contact.includes('@');
         
-        // Send to Cloudflare Worker
+        // Send to Cloudflare Worker - REGULAR WAITLIST (no request)
         const response = await fetch('https://signup-api.stephansentamu.workers.dev/', {
           method: 'POST',
           headers: {
@@ -2456,6 +2578,7 @@
             name: name,
             email: isEmail ? contact : '',
             phoneNo: isEmail ? '' : contact
+            // No request field for regular waitlist
           })
         });
 
