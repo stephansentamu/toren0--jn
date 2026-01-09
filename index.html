@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Valts Gadgets™ — Smart Tech. Smarter Service.</title>
-  <meta name="description" content="The gadget store built different. Buy, sell, swap, and repair phones with AI-powered assistance. Launching soon." />
+  <meta name="description" content="The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!" />
   <meta name="keywords" content="Valts Gadgets, Valts, V.A.L.T, phones, accessories, electronics, buy phones, sell phones, swap phones, repair phones, tech store, next-gen gadgets" />
   <link rel="canonical" href="https://valts.online/" />
   
@@ -19,7 +19,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Valts Gadgets™ — Smart Tech. Smarter Service." />
-  <meta property="og:description" content="The gadget store built different. Buy, sell, swap, and repair phones with AI-powered assistance." />
+  <meta property="og:description" content="The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://valts.online/" />
   <meta property="og:image" content="https://valts.online/logo.png" />
@@ -27,7 +27,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Valts Gadgets™ — Smart Tech. Smarter Service." />
-  <meta name="twitter:description" content="The gadget store built different. Buy, sell, swap, and repair phones with AI-powered assistance." />
+  <meta name="twitter:description" content="The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!" />
   <meta name="twitter:image" content="https://valts.online/logo.png" />
 
   <!-- JSON-LD Structured Data -->
@@ -37,7 +37,7 @@
     "@type": "Organization",
     "name": "Valts Gadgets",
     "alternateName": ["VALTS Gadgets", "Valts", "V.A.L.T"],
-    "url": "https://valts.online",
+    "url": "https://valts.online/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://valts.online/logo.png",
@@ -49,7 +49,7 @@
       "https://www.tiktok.com/@valts.gadgets",
       "https://wa.me/256707859985"
     ],
-    "description": "The gadget store built different. Buy, sell, swap, and repair phones with AI-powered assistance.",
+    "description": "The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!",
     "foundingDate": "2025",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -1130,125 +1130,109 @@
       }
     }
 
-    /* Liquid Toggle - ENHANCED BLINKING GLOW EFFECT */
-    .liquid-toggle {
-      --primary: #fff;
-      --secondary: #000;
-      --time: 0.6s;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      position: relative;
-      cursor: pointer;
-      width: 3.5em;
-      aspect-ratio: 2 / 1;
-      background: var(--primary);
-      border-radius: 20em;
-      box-shadow: 0 0 0 1em var(--secondary);
-      transform: translateX(0.5px);
-      transition: transform var(--time) cubic-bezier(0.75, 0, 0.75, 1);
-      filter: blur(0.66em) contrast(20);
-      mix-blend-mode: darken;
-      overflow: hidden;
-      font-size: 8px;
-      animation: toggle-glow-pulse 2s ease-in-out infinite;
-      z-index: 1;
-    }
-    
-    @keyframes toggle-glow-pulse {
-      0%, 100% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 15px rgba(110, 231, 183, 0.8),
-          0 0 25px rgba(110, 231, 183, 0.6);
-      }
-      25% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 20px rgba(110, 231, 183, 1),
-          0 0 35px rgba(110, 231, 183, 0.8),
-          0 0 50px rgba(110, 231, 183, 0.4);
-        filter: blur(0.66em) contrast(25);
-      }
-      50% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 25px rgba(110, 231, 183, 1.2),
-          0 0 45px rgba(110, 231, 183, 1),
-          0 0 65px rgba(110, 231, 183, 0.6),
-          0 0 85px rgba(110, 231, 183, 0.3);
-        filter: blur(0.66em) contrast(30);
-      }
-      75% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 20px rgba(110, 231, 183, 1),
-          0 0 35px rgba(110, 231, 183, 0.8),
-          0 0 50px rgba(110, 231, 183, 0.4);
-        filter: blur(0.66em) contrast(25);
-      }
+    /* EXACT 3D TOGGLE YOU PROVIDED - with theme-aware colors */
+    .custom-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
+      perspective: 32em;
+      transform: scale(0.7); /* Smaller to match minimal design */
+      transform-origin: left center; /* Always stays in bottom left */
     }
 
-    .liquid-toggle.light-mode {
-      --primary: #000;
-      --secondary: #fff;
-      animation: toggle-glow-pulse-light 2s ease-in-out infinite;
-    }
-    
-    @keyframes toggle-glow-pulse-light {
-      0%, 100% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 15px rgba(0, 0, 0, 0.8),
-          0 0 25px rgba(0, 0, 0, 0.6);
-      }
-      25% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 20px rgba(0, 0, 0, 1),
-          0 0 35px rgba(0, 0, 0, 0.8),
-          0 0 50px rgba(0, 0, 0, 0.4);
-        filter: blur(0.66em) contrast(25);
-      }
-      50% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 25px rgba(0, 0, 0, 1.2),
-          0 0 45px rgba(0, 0, 0, 1),
-          0 0 65px rgba(0, 0, 0, 0.6),
-          0 0 85px rgba(0, 0, 0, 0.3);
-        filter: blur(0.66em) contrast(30);
-      }
-      75% {
-        box-shadow: 
-          0 0 0 1em var(--secondary),
-          0 0 20px rgba(0, 0, 0, 1),
-          0 0 35px rgba(0, 0, 0, 0.8),
-          0 0 50px rgba(0, 0, 0, 0.4);
-        filter: blur(0.66em) contrast(25);
-      }
-    }
-
-    .liquid-toggle::before {
-      content: "";
+    .custom-toggle [type="checkbox"] {
       position: absolute;
-      width: 200%;
-      height: 100%;
-      transform: translate(-25%, -50%);
-      left: 50%;
-      top: 50%;
-      background: 
-        radial-gradient(closest-side circle at 12.5% 50%, var(--secondary) 50%, transparent 0), 
-        radial-gradient(closest-side circle at 87.5% 50%, var(--secondary) 50%, transparent 0);
-      transition: transform var(--time) cubic-bezier(0.75, 0, 0.75, 1.3);
+      left: -1440px;
     }
 
-    .liquid-toggle:checked {
-      transform: translateX(-0.5px);
+    .custom-toggle [type="checkbox"] + label {
+      --s: 0;
+      position: relative;
+      border: solid 0.625rem #f0f0f0;
+      width: 176px;
+      height: 100px;
+      border-radius: 5rem;
+      transform-style: preserve-3d;
+      transform: rotatex(90deg) rotate(22.5deg) rotatey(22.5deg);
+      box-shadow:
+        0.5rem 0.875rem 0 -0.25rem #73ad6b,
+        0.625rem 0.625rem 0 -0.25rem #b9d6ac,
+        0.5rem 0.875rem 0.625rem -0.125rem rgba(44, 161, 60, 0.75),
+        inset 0.125rem -0.125rem 0.5rem rgba(196, 192, 192, 0.5),
+        inset 0.75rem 0.75rem #51754d,
+        inset 0.75rem 0.75rem 0.75rem rgba(66, 129, 82, 0.85),
+        inset 0 1rem 0.75rem rgba(93, 201, 93, 0.65);
+      color: transparent;
+      font-size: 0;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+      transition: all 0.6s cubic-bezier(0.21, 0.61, 0.35, 1);
     }
 
-    .liquid-toggle:checked::before {
-      transform: translate(-75%, -50%);
+    /* LIGHT MODE VERSION - Black and white */
+    body.light-mode .custom-toggle [type="checkbox"] + label {
+      border: solid 0.625rem #333333;
+      box-shadow:
+        0.5rem 0.875rem 0 -0.25rem #666666,
+        0.625rem 0.625rem 0 -0.25rem #888888,
+        0.5rem 0.875rem 0.625rem -0.125rem rgba(0, 0, 0, 0.75),
+        inset 0.125rem -0.125rem 0.5rem rgba(150, 150, 150, 0.5),
+        inset 0.75rem 0.75rem #ffffff,
+        inset 0.75rem 0.75rem 0.75rem rgba(200, 200, 200, 0.85),
+        inset 0 1rem 0.75rem rgba(220, 220, 220, 0.65);
+    }
+
+    .custom-toggle [type="checkbox"] + label:before,
+    .custom-toggle [type="checkbox"] + label:after {
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      transition: 2s cubic-bezier(0.21, 0.61, 0.35, 1);
+      content: "";
+    }
+
+    .custom-toggle [type="checkbox"] + label:before {
+      top: calc(50% + 0.875rem);
+      transform-origin: 100% 0;
+      transform: translate(calc(var(--s) * (100% + 1rem))) scale(0.8)
+        skewx(-22.5deg);
+      background: radial-gradient(
+        at 50% 25%,
+        rgba(160, 160, 160, 0.65),
+        transparent 70%
+      );
+      filter: blur(3px);
+    }
+
+    .custom-toggle [type="checkbox"] + label:after {
+      top: 0.875rem;
+      left: 0.75rem;
+      transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-22.5deg)
+        rotate(-22.5deg) rotatex(-90deg) translatey(-50%) rotate(45deg);
+      box-shadow: -1px 1px 0.125rem rgba(206, 255, 206, 0.5);
+      background:
+        radial-gradient(at 0 50%, #52a066, transparent 2.5rem) 0 50% / 65% 50%
+          no-repeat,
+        radial-gradient(at 50% 0%, #88d1a0 15%, #68b47d 35%, #66b47b, #77c28e 65%)
+          50% / 200%;
+      filter: grayscale(calc(1 - var(--s)));
+    }
+
+    /* LIGHT MODE BALL */
+    body.light-mode .custom-toggle [type="checkbox"] + label:after {
+      background:
+        radial-gradient(at 0 50%, #888888, transparent 2.5rem) 0 50% / 65% 50%
+          no-repeat,
+        radial-gradient(at 50% 0%, #cccccc 15%, #aaaaaa 35%, #999999, #bbbbbb 65%)
+          50% / 200%;
+      box-shadow: -1px 1px 0.125rem rgba(150, 150, 150, 0.5);
+    }
+
+    .custom-toggle [type="checkbox"]:checked + label {
+      --s: 1;
     }
 
     /* GET BUTTON */
@@ -1717,6 +1701,15 @@
         order: 3;
       }
       
+      /* TOGGLE STAYS IN BOTTOM LEFT ON MOBILE */
+      .custom-toggle {
+        order: 1;
+        justify-self: start;
+        align-self: flex-start;
+        transform: scale(0.6); /* Even smaller on mobile */
+        transform-origin: left center;
+      }
+      
       .chat-container {
         width: 95%;
         height: 80vh;
@@ -1754,10 +1747,6 @@
       .bottom-loader {
         width: 150px;
       }
-      
-      .liquid-toggle {
-        font-size: 7px;
-      }
     }
     
     @media (max-width: 480px) {
@@ -1781,6 +1770,20 @@
       .carousel-btn svg {
         width: 24px;
         height: 24px;
+      }
+      
+      .custom-toggle {
+        transform: scale(0.5); /* Smallest on very small screens */
+      }
+      
+      .social-icon {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .social-icon svg {
+        width: 20px;
+        height: 20px;
       }
     }
   </style>
@@ -1911,11 +1914,11 @@
     <!-- MESSAGE SECTION - 6 Lines -->
     <div class="message-section">
       <p>Gadget Store - Reimagined.</p>
-      <p>Phones, accessories, and AI-personalized Picks.</p>
+      <p>Phones, accessories, Smart upgrades.</p>
       <p>Buy everything. Sell your old. Swap to get new. Get it fixed.</p>
       <p>All in one place.</p>
       <p>App Launching soon — Join the wait-list.</p>
-      <p>Get early <span class="valt-text">V.A.L.T</span> access + Member Perks! <span class="arrow-down">↓</span></p>
+      <p>Get early access + Member Perks! <span class="arrow-down">↓</span></p>
     </div>
 
     <!-- WAITLIST FORM - 2 INPUTS ONLY -->
@@ -1946,10 +1949,13 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- Liquid Toggle WITH ENHANCED BLINKING GLOW EFFECT -->
-      <input type="checkbox" class="liquid-toggle" id="themeToggle" />
+      <!-- EXACT 3D TOGGLE - Your provided toggle with theme colors -->
+      <div class="custom-toggle">
+        <input type="checkbox" id="themeToggle" />
+        <label for="themeToggle">Theme toggle</label>
+      </div>
 
-      <!-- Social Section -->
+      <!-- Social Section WITH YOUR EXACT ICONS -->
       <div class="social-section">
         <div class="shop-today">
           Or shop today <span class="shop-arrow">↓</span>
@@ -1962,7 +1968,7 @@
             <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
           </a>
           <a href="https://wa.me/256707859985?text=hey%20V.A.L.T" target="_blank" class="social-icon" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462,1.065,2.875,1.213,3.074.149.198,2.096,3.2,5.077,4.487.709.306,1.262.489,1.694.625.712.227,1.36.195,1.871.118.571-.085,1.758-.719,2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45,4.436-9.884,9.888-9.884,2.64 0,5.122,1.03,6.988,2.898a9.825 9.825 0 012.893,6.994c-.003 5.45-4.437,9.884-9.885,9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142,1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683,1.448h.005c6.554 0,11.89-5.335,11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           </a>
         </div>
       </div>
@@ -1987,7 +1993,7 @@
       <div class="chat-box">
         <div class="chat-messages" id="chatMessages">
           <div class="chat-message bot">
-            Welcome to Valts Gadgets! What specific gadget are you looking to get today?
+            Welcome to Valts Gadgets! What specific gadget are you looking to get today? , we can't chat here , but input your need in the input box below and get sorted instantly ✨.
           </div>
         </div>
         
@@ -2021,13 +2027,11 @@
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       body.classList.add('light-mode');
-      themeToggle.classList.add('light-mode');
       themeToggle.checked = true;
     }
 
     themeToggle.addEventListener('change', () => {
       body.classList.toggle('light-mode');
-      themeToggle.classList.toggle('light-mode');
       
       const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
       localStorage.setItem('theme', theme);
@@ -2214,7 +2218,7 @@
     
     getButton.addEventListener('click', () => {
       const currentModel = models[currentModelIndex];
-      const message = encodeURIComponent(`Hey, V.A.L.T I want to know more about this ${currentModel.name}`);
+      const message = encodeURIComponent(`Hey, I want to know more about this ${currentModel.name}`);
       const whatsappUrl = `https://wa.me/256707859985?text=${message}`;
       window.open(whatsappUrl, '_blank');
       
@@ -2311,7 +2315,7 @@
     // Load chat history on page load
     const hasHistory = loadChatHistory();
     if (!hasHistory) {
-      chatMessages.innerHTML = '<div class="chat-message bot">Welcome to Valts Gadgets! What specific gadget are you looking to get today?</div>';
+      chatMessages.innerHTML = '<div class="chat-message bot">Welcome to Valts Gadgets! What specific gadget are you looking to get today? , we can\'t chat here , but input your need in the input box below and get sorted instantly ✨.</div>';
     }
     
     // Open chat
@@ -2391,7 +2395,7 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
       
       document.getElementById('getTodayBtn').addEventListener('click', () => {
-        const message = encodeURIComponent(`Hey, V.A.L.T I want to know more about: ${userRequest}`);
+        const message = encodeURIComponent(`Hey, I want to know more about: ${userRequest}`);
         const whatsappUrl = `https://wa.me/256707859985?text=${message}`;
         window.open(whatsappUrl, '_blank');
         
@@ -2485,11 +2489,11 @@
           const result = await response.json();
           
           if (response.ok) {
-            // Show success message
+            // Show success message with updated text
             chatContactForm.classList.remove('visible');
             const botMsg = document.createElement('div');
             botMsg.className = 'chat-message bot';
-            botMsg.textContent = 'V.A.L.T will get to you soon. 😊';
+            botMsg.innerHTML = 'We will get to you soon.😊 Welcome to <span style="font-family: \'Iceberg\', sans-serif;">valts</span>';
             chatMessages.appendChild(botMsg);
             chatMessages.scrollTop = chatMessages.scrollHeight;
             
@@ -2585,7 +2589,8 @@
         const result = await response.json();
 
         if (response.ok) {
-          successMessage.textContent = '✅ V.A.L.T will see you soon.';
+          // Show success message with updated text
+          successMessage.innerHTML = '☑️ Welcome to <span style="font-family: \'Iceberg\', sans-serif;">valts</span>😶‍🌫️';
           successMessage.style.display = 'block';
           successMessage.style.color = '#6ee7b7';
           
