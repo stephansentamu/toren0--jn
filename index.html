@@ -1271,7 +1271,7 @@
       }
     }
 
-    /* FIXED EXACT 3D TOGGLE - BIGGER AND MORE VISIBLE */
+    /* ==================== FIXED TOGGLE - FROM YESTERDAY'S PERFECT VERSION ==================== */
     .custom-toggle {
       display: flex;
       align-items: center;
@@ -1279,8 +1279,6 @@
       margin: 0;
       perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
       perspective: 32em;
-      transform: scale(0.8);
-      transform-origin: left center;
     }
 
     .custom-toggle [type="checkbox"] {
@@ -1292,8 +1290,8 @@
       --s: 0;
       position: relative;
       border: solid 0.625rem #f0f0f0;
-      width: 220px; /* Increased from 176px */
-      height: 125px; /* Increased from 100px */
+      width: 176px;
+      height: 100px;
       border-radius: 5rem;
       transform-style: preserve-3d;
       transform: rotatex(90deg) rotate(22.5deg) rotatey(22.5deg);
@@ -1309,10 +1307,9 @@
       font-size: 0;
       -webkit-tap-highlight-color: transparent;
       cursor: pointer;
-      transition: all 0.6s cubic-bezier(0.21, 0.61, 0.35, 1);
     }
 
-    /* LIGHT MODE VERSION - Black and white */
+    /* Light mode - black toggle */
     body.light-mode .custom-toggle [type="checkbox"] + label {
       border: solid 0.625rem #333333;
       box-shadow:
@@ -1328,8 +1325,8 @@
     .custom-toggle [type="checkbox"] + label:before,
     .custom-toggle [type="checkbox"] + label:after {
       position: absolute;
-      width: 6.5rem; /* Increased from 5rem */
-      height: 6.5rem; /* Increased from 5rem */
+      width: 5rem;
+      height: 5rem;
       border-radius: 50%;
       transition: 2s cubic-bezier(0.21, 0.61, 0.35, 1);
       content: "";
@@ -1349,8 +1346,8 @@
     }
 
     .custom-toggle [type="checkbox"] + label:after {
-      top: 1rem; /* Adjusted */
-      left: 1rem; /* Adjusted */
+      top: 0.875rem;
+      left: 0.75rem;
       transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-22.5deg)
         rotate(-22.5deg) rotatex(-90deg) translatey(-50%) rotate(45deg);
       box-shadow: -1px 1px 0.125rem rgba(206, 255, 206, 0.5);
@@ -1362,19 +1359,19 @@
       filter: grayscale(calc(1 - var(--s)));
     }
 
-    /* LIGHT MODE BALL - BIGGER */
+    /* Light mode - black knob */
     body.light-mode .custom-toggle [type="checkbox"] + label:after {
       background:
         radial-gradient(at 0 50%, #888888, transparent 2.5rem) 0 50% / 65% 50%
           no-repeat,
         radial-gradient(at 50% 0%, #cccccc 15%, #aaaaaa 35%, #999999, #bbbbbb 65%)
           50% / 200%;
-      box-shadow: -1px 1px 0.125rem rgba(150, 150, 150, 0.5);
     }
 
     .custom-toggle [type="checkbox"]:checked + label {
       --s: 1;
     }
+    /* ==================== END FIXED TOGGLE ==================== */
 
     /* GET BUTTON */
     .get-button {
@@ -1795,7 +1792,7 @@
       color: rgba(255, 255, 255, 0.7) !important;
     }
 
-    /* RESPONSIVE - FIXED TOGGLE FOR MOBILE */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .container {
         padding: 1rem;
@@ -1841,29 +1838,11 @@
         order: 3;
       }
       
-      /* FIXED TOGGLE FOR MOBILE - BIGGER BALL */
+      /* PERFECT TOGGLE FOR MOBILE - FROM YESTERDAY'S VERSION */
       .custom-toggle {
         order: 1;
-        justify-self: start;
-        align-self: flex-start;
-        transform: scale(0.6);
-        transform-origin: left center;
-        perspective: 20em;
-        margin-top: -10px;
-        margin-bottom: 10px;
-      }
-      
-      .custom-toggle [type="checkbox"] + label {
-        width: 180px; /* Adjusted for mobile */
-        height: 100px; /* Adjusted for mobile */
-        transform: rotatex(45deg) rotate(15deg) rotatey(15deg) scale(0.9);
-      }
-      
-      .custom-toggle [type="checkbox"] + label:after {
-        width: 5rem; /* Keep it relatively large */
-        height: 5rem; /* Keep it relatively large */
-        transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-15deg)
-          rotate(-15deg) rotatex(-60deg) translatey(-50%) rotate(45deg) scale(0.9);
+        justify-self: center;
+        transform: scale(0.8);
       }
       
       .chat-container {
@@ -1945,21 +1924,7 @@
       
       /* FURTHER ADJUSTMENT FOR VERY SMALL SCREENS */
       .custom-toggle {
-        transform: scale(0.5);
-        perspective: 16em;
-      }
-      
-      .custom-toggle [type="checkbox"] + label {
-        width: 160px;
-        height: 90px;
-        transform: rotatex(30deg) rotate(10deg) rotatey(10deg) scale(0.8);
-      }
-      
-      .custom-toggle [type="checkbox"] + label:after {
-        width: 4rem;
-        height: 4rem;
-        transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-10deg)
-          rotate(-10deg) rotatex(-45deg) translatey(-50%) rotate(45deg) scale(0.8);
+        transform: scale(0.7);
       }
       
       .social-icon {
@@ -2160,7 +2125,7 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- FIXED EXACT 3D TOGGLE - Your provided toggle with theme colors -->
+      <!-- FIXED PERFECT 3D TOGGLE - From yesterday's version -->
       <div class="custom-toggle">
         <input type="checkbox" id="themeToggle" />
         <label for="themeToggle">Theme toggle</label>
@@ -2230,16 +2195,18 @@
   </div>
 
   <script>
-    // LOADING SCREEN FUNCTIONALITY
+    // LOADING SCREEN FUNCTIONALITY WITH FASTER DECRYPTION
     const loadingScreen = document.getElementById('loadingScreen');
     const gadgetsTextElement = document.getElementById('gadgetsText');
     const finalText = "Gadgets";
     const characters = "!@#$%^&*()_+[]{}|;:,.<>?/\\|=~";
     
+    // FASTER DECRYPTION FUNCTION - Changed interval to 80ms for faster scrambling
     function decryptText(element, finalText, duration) {
       let currentIteration = 0;
       const totalIterations = finalText.length;
-      const intervalTime = duration / totalIterations;
+      const revealInterval = duration / totalIterations; // ~714ms per letter (same as before)
+      const scrambleInterval = 80; // CHANGED: MUCH FASTER - from 100ms to 80ms
       
       // Set initial text to random characters
       let initialText = "";
@@ -2250,28 +2217,31 @@
         `<span class="encrypted-char">${char}</span>`
       ).join('');
       
-      const interval = setInterval(() => {
-        let newHTML = "";
+      // Interval for fast scrambling
+      const scramble = setInterval(() => {
+        // Update only the letters that are not yet revealed
         const spans = element.querySelectorAll('span');
-        
-        for (let i = 0; i < finalText.length; i++) {
-          if (currentIteration > i) {
-            newHTML += `<span class="revealed-char">${finalText[i]}</span>`;
-          } else {
-            newHTML += `<span class="encrypted-char">${characters[Math.floor(Math.random() * characters.length)]}</span>`;
-          }
+        for (let i = currentIteration; i < finalText.length; i++) {
+          spans[i].textContent = characters[Math.floor(Math.random() * characters.length)];
+        }
+      }, scrambleInterval);
+      
+      // Interval for revealing at the same rate
+      const reveal = setInterval(() => {
+        // Reveal one more letter
+        const spans = element.querySelectorAll('span');
+        if (currentIteration < finalText.length) {
+          spans[currentIteration].textContent = finalText[currentIteration];
+          spans[currentIteration].className = 'revealed-char';
+          spans[currentIteration].style.animation = 'charReveal 0.2s ease-out'; // Slightly faster reveal
+          currentIteration++;
         }
         
-        element.innerHTML = newHTML;
-        
-        currentIteration++;
-        if (currentIteration > totalIterations) {
-          clearInterval(interval);
-          element.innerHTML = finalText.split('').map(char => 
-            `<span class="revealed-char">${char}</span>`
-          ).join('');
+        if (currentIteration === totalIterations) {
+          clearInterval(scramble);
+          clearInterval(reveal);
         }
-      }, intervalTime);
+      }, revealInterval);
     }
     
     // Start loading screen sequence
