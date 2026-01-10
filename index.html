@@ -87,6 +87,149 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer@3.3.0/dist/model-viewer.min.js"></script>
 
   <style>
+    /* LOADING SCREEN STYLES */
+    #loadingScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 2.5s ease-in-out;
+    }
+    
+    #loadingScreen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      background: rgba(0, 0, 0, 0);
+    }
+    
+    .valts-title-loading {
+      font-family: 'Iceberg', sans-serif;
+      font-size: 6rem;
+      color: #fff;
+      margin-bottom: 3rem;
+      animation: glow-and-blur 7s ease-in-out forwards;
+    }
+    
+    @keyframes glow-and-blur {
+      0% {
+        filter: blur(0px) brightness(1);
+        opacity: 1;
+        transform: scale(1);
+      }
+      30% {
+        filter: blur(0px) brightness(2);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        filter: blur(2px) brightness(1.5);
+        opacity: 0.7;
+        transform: scale(1);
+      }
+      100% {
+        filter: blur(15px) brightness(0.5);
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    }
+    
+    .loader-container {
+      width: 300px;
+      height: 2px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1px;
+    }
+    
+    .loader-container .loader {
+      height: 100%;
+      width: 100%;
+      background: rgb(44, 44, 44);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loader-container .loader .black_overlay {
+      background: linear-gradient(
+        87deg,
+        rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.14) 30%,
+        rgba(0, 0, 0, 0.14) 70%,
+        rgb(0, 0, 0) 100%
+      );
+      position: absolute;
+      inset: 0px;
+    }
+    
+    .loader-container .loader .light {
+      width: 70px;
+      height: 100%;
+      position: absolute;
+      left: -20%;
+      top: 0px;
+      background: linear-gradient(
+        87deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0, 204, 255) 40%,
+        rgb(0, 204, 255) 60%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      animation: light 2s infinite ease-in-out;
+      filter: blur(1.5px);
+    }
+    
+    @keyframes light {
+      from {
+        left: -30%;
+        filter: blur(1.5px);
+      }
+      to {
+        left: 100%;
+        filter: blur(1px);
+      }
+    }
+    
+    .gadgets-decrypt {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+    
+    .encrypted-char {
+      display: inline-block;
+      opacity: 0.7;
+    }
+    
+    .revealed-char {
+      display: inline-block;
+      color: #fff;
+      animation: charReveal 0.3s ease-out;
+    }
+    
+    @keyframes charReveal {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     :root { 
       --bg-dark: #0b0b0b;
       --bg-light: #f5f5f5;
@@ -1128,7 +1271,7 @@
       }
     }
 
-    /* EXACT 3D TOGGLE YOU PROVIDED - with theme-aware colors - FIXED FOR MOBILE */
+    /* FIXED EXACT 3D TOGGLE - BIGGER AND MORE VISIBLE */
     .custom-toggle {
       display: flex;
       align-items: center;
@@ -1136,7 +1279,7 @@
       margin: 0;
       perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
       perspective: 32em;
-      transform: scale(0.7);
+      transform: scale(0.8);
       transform-origin: left center;
     }
 
@@ -1149,8 +1292,8 @@
       --s: 0;
       position: relative;
       border: solid 0.625rem #f0f0f0;
-      width: 176px;
-      height: 100px;
+      width: 220px; /* Increased from 176px */
+      height: 125px; /* Increased from 100px */
       border-radius: 5rem;
       transform-style: preserve-3d;
       transform: rotatex(90deg) rotate(22.5deg) rotatey(22.5deg);
@@ -1185,8 +1328,8 @@
     .custom-toggle [type="checkbox"] + label:before,
     .custom-toggle [type="checkbox"] + label:after {
       position: absolute;
-      width: 5rem;
-      height: 5rem;
+      width: 6.5rem; /* Increased from 5rem */
+      height: 6.5rem; /* Increased from 5rem */
       border-radius: 50%;
       transition: 2s cubic-bezier(0.21, 0.61, 0.35, 1);
       content: "";
@@ -1206,8 +1349,8 @@
     }
 
     .custom-toggle [type="checkbox"] + label:after {
-      top: 0.875rem;
-      left: 0.75rem;
+      top: 1rem; /* Adjusted */
+      left: 1rem; /* Adjusted */
       transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-22.5deg)
         rotate(-22.5deg) rotatex(-90deg) translatey(-50%) rotate(45deg);
       box-shadow: -1px 1px 0.125rem rgba(206, 255, 206, 0.5);
@@ -1219,7 +1362,7 @@
       filter: grayscale(calc(1 - var(--s)));
     }
 
-    /* LIGHT MODE BALL */
+    /* LIGHT MODE BALL - BIGGER */
     body.light-mode .custom-toggle [type="checkbox"] + label:after {
       background:
         radial-gradient(at 0 50%, #888888, transparent 2.5rem) 0 50% / 65% 50%
@@ -1698,7 +1841,7 @@
         order: 3;
       }
       
-      /* FIXED TOGGLE FOR MOBILE - REDUCED PERSPECTIVE AND ADJUSTED TRANSFORM */
+      /* FIXED TOGGLE FOR MOBILE - BIGGER BALL */
       .custom-toggle {
         order: 1;
         justify-self: start;
@@ -1711,10 +1854,14 @@
       }
       
       .custom-toggle [type="checkbox"] + label {
+        width: 180px; /* Adjusted for mobile */
+        height: 100px; /* Adjusted for mobile */
         transform: rotatex(45deg) rotate(15deg) rotatey(15deg) scale(0.9);
       }
       
       .custom-toggle [type="checkbox"] + label:after {
+        width: 5rem; /* Keep it relatively large */
+        height: 5rem; /* Keep it relatively large */
         transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-15deg)
           rotate(-15deg) rotatex(-60deg) translatey(-50%) rotate(45deg) scale(0.9);
       }
@@ -1756,6 +1903,21 @@
       .bottom-loader {
         width: 150px;
       }
+      
+      /* Loading screen responsive */
+      .valts-title-loading {
+        font-size: 4rem;
+      }
+      
+      .loader-container {
+        width: 250px;
+      }
+      
+      .gadgets-decrypt {
+        font-size: 1.4rem;
+        bottom: 20px;
+        right: 20px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -1788,10 +1950,14 @@
       }
       
       .custom-toggle [type="checkbox"] + label {
+        width: 160px;
+        height: 90px;
         transform: rotatex(30deg) rotate(10deg) rotatey(10deg) scale(0.8);
       }
       
       .custom-toggle [type="checkbox"] + label:after {
+        width: 4rem;
+        height: 4rem;
         transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-10deg)
           rotate(-10deg) rotatex(-45deg) translatey(-50%) rotate(45deg) scale(0.8);
       }
@@ -1805,10 +1971,35 @@
         width: 20px;
         height: 20px;
       }
+      
+      /* Loading screen mobile */
+      .valts-title-loading {
+        font-size: 3rem;
+      }
+      
+      .loader-container {
+        width: 200px;
+      }
+      
+      .gadgets-decrypt {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- LOADING SCREEN -->
+  <div id="loadingScreen">
+    <div class="valts-title-loading">VALTS</div>
+    <div class="loader-container">
+      <div class="loader">
+        <div class="black_overlay"></div>
+        <div class="light"></div>
+      </div>
+    </div>
+    <div class="gadgets-decrypt" id="gadgetsText"></div>
+  </div>
+
   <!-- 3D Instructions Modal -->
   <div class="instructions-modal" id="instructionsModal">
     <div class="instructions-content">
@@ -1969,7 +2160,7 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- EXACT 3D TOGGLE - Your provided toggle with theme colors -->
+      <!-- FIXED EXACT 3D TOGGLE - Your provided toggle with theme colors -->
       <div class="custom-toggle">
         <input type="checkbox" id="themeToggle" />
         <label for="themeToggle">Theme toggle</label>
@@ -2039,6 +2230,65 @@
   </div>
 
   <script>
+    // LOADING SCREEN FUNCTIONALITY
+    const loadingScreen = document.getElementById('loadingScreen');
+    const gadgetsTextElement = document.getElementById('gadgetsText');
+    const finalText = "Gadgets";
+    const characters = "!@#$%^&*()_+[]{}|;:,.<>?/\\|=~";
+    
+    function decryptText(element, finalText, duration) {
+      let currentIteration = 0;
+      const totalIterations = finalText.length;
+      const intervalTime = duration / totalIterations;
+      
+      // Set initial text to random characters
+      let initialText = "";
+      for (let i = 0; i < finalText.length; i++) {
+        initialText += characters[Math.floor(Math.random() * characters.length)];
+      }
+      element.innerHTML = initialText.split('').map(char => 
+        `<span class="encrypted-char">${char}</span>`
+      ).join('');
+      
+      const interval = setInterval(() => {
+        let newHTML = "";
+        const spans = element.querySelectorAll('span');
+        
+        for (let i = 0; i < finalText.length; i++) {
+          if (currentIteration > i) {
+            newHTML += `<span class="revealed-char">${finalText[i]}</span>`;
+          } else {
+            newHTML += `<span class="encrypted-char">${characters[Math.floor(Math.random() * characters.length)]}</span>`;
+          }
+        }
+        
+        element.innerHTML = newHTML;
+        
+        currentIteration++;
+        if (currentIteration > totalIterations) {
+          clearInterval(interval);
+          element.innerHTML = finalText.split('').map(char => 
+            `<span class="revealed-char">${char}</span>`
+          ).join('');
+        }
+      }, intervalTime);
+    }
+    
+    // Start loading screen sequence
+    setTimeout(() => {
+      decryptText(gadgetsTextElement, finalText, 5000);
+    }, 500);
+    
+    // Fade out loading screen after 7 seconds
+    setTimeout(() => {
+      loadingScreen.classList.add('fade-out');
+      
+      // Remove loading screen completely after transition
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 2500);
+    }, 7000);
+    
     // THEME TOGGLE
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -2230,8 +2480,10 @@
     }
 
     // Load first model and start preloading
-    loadModel(0);
-    setTimeout(preloadAllModels, 2000);
+    setTimeout(() => {
+      loadModel(0);
+      setTimeout(preloadAllModels, 2000);
+    }, 7000);
 
     // GET BUTTON - WhatsApp functionality
     const getButton = document.getElementById('getButton');
