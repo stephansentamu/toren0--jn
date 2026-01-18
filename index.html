@@ -1274,7 +1274,7 @@
       }
     }
 
-    /* ==================== FIXED TOGGLE - NOW PROPERLY WORKING ON MOBILE ==================== */
+    /* ==================== FIXED TOGGLE - NOW AT BOTTOM LEFT (NOT FIXED) ==================== */
     .custom-toggle {
       display: flex;
       align-items: center;
@@ -1283,7 +1283,7 @@
       perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
       perspective: 32em;
       position: relative;
-      z-index: 1;
+      z-index: 1; /* Lower z-index so it stays in flow */
     }
 
     .custom-toggle [type="checkbox"] {
@@ -1856,7 +1856,7 @@
         margin: 0;
       }
       
-      /* FIXED TOGGLE FOR MOBILE - MUCH BETTER VISIBLE BALL */
+      /* FIXED TOGGLE FOR MOBILE - BELOW SOCIAL ICONS, LEFT OF POWERED BY */
       .custom-toggle {
         grid-area: toggle;
         order: 2;
@@ -1864,33 +1864,35 @@
         bottom: auto;
         left: auto;
         margin: 0;
-        transform: scale(0.85);
+        transform: scale(0.9);
         z-index: 1;
         justify-self: start;
-        perspective-origin: center center;
       }
       
-      /* Make the toggle properly sized for mobile with BIG VISIBLE BALL */
+      /* Make the ball properly sized for mobile - BIG AND VISIBLE */
       .custom-toggle [type="checkbox"] + label {
-        width: 140px;
-        height: 75px;
-        border: solid 0.5rem #f0f0f0;
-        transform: rotatex(75deg) rotate(22.5deg) rotatey(22.5deg);
+        width: 160px;
+        height: 90px;
+        border: solid 0.7rem #f0f0f0;
       }
-      
+
       .custom-toggle [type="checkbox"] + label:after,
       .custom-toggle [type="checkbox"] + label:before {
-        width: 55px;
-        height: 55px;
+        width: 4.5rem;
+        height: 4.5rem;
       }
-      
+
       .custom-toggle [type="checkbox"] + label:after {
-        top: 0.5rem;
-        left: 0.5rem;
+        top: 0.75rem;
+        left: 0.75rem;
+      }
+
+      .custom-toggle [type="checkbox"] + label:before {
+        top: calc(50% + 0.75rem);
       }
       
       body.light-mode .custom-toggle [type="checkbox"] + label {
-        border: solid 0.5rem #333333;
+        border: solid 0.7rem #333333;
       }
       
       .chat-container {
@@ -1970,30 +1972,29 @@
         height: 24px;
       }
       
-      /* FURTHER ADJUSTMENT FOR VERY SMALL SCREENS - TOGGLE */
+      /* FURTHER ADJUSTMENT FOR VERY SMALL SCREENS */
       .custom-toggle {
-        transform: scale(0.75);
+        transform: scale(0.8);
       }
-      
+
       .custom-toggle [type="checkbox"] + label {
-        width: 130px;
-        height: 70px;
-        border: solid 0.45rem #f0f0f0;
+        width: 140px;
+        height: 80px;
       }
-      
+
       .custom-toggle [type="checkbox"] + label:after,
       .custom-toggle [type="checkbox"] + label:before {
-        width: 50px;
-        height: 50px;
+        width: 4rem;
+        height: 4rem;
       }
-      
+
       .custom-toggle [type="checkbox"] + label:after {
-        top: 0.4rem;
-        left: 0.4rem;
+        top: 0.65rem;
+        left: 0.65rem;
       }
-      
-      body.light-mode .custom-toggle [type="checkbox"] + label {
-        border: solid 0.45rem #333333;
+
+      .custom-toggle [type="checkbox"] + label:before {
+        top: calc(50% + 0.65rem);
       }
       
       .social-icon {
@@ -2194,7 +2195,7 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- FIXED PERFECT 3D TOGGLE - Now properly working on mobile -->
+      <!-- FIXED PERFECT 3D TOGGLE - Now positioned at bottom left of bottom-section -->
       <div class="custom-toggle">
         <input type="checkbox" id="themeToggle" />
         <label for="themeToggle">Theme toggle</label>
@@ -2207,13 +2208,13 @@
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/main_man_stephan/" target="_blank" class="social-icon" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,22,22,19.4,22,16.2V7.8A5.8,5.80,016.2,22H7.8C4.6,22,2,19.4,2,16.2V7.8A5.8,5.80,017.8,2M7.6,4A3.6,3.60,03,7.6V16.4C4,18.395.61,207.6,20A3.6,3.60,020,16.4V7.6C20,5.61,18.39,416.4,4H7.6M17.25,5.5A1.25,1.250,018.5,6.75A1.25,1.250,017.25,8A1.25,1.250,016,6.75A1.25,1.250,017.25,5.5M12,7A5,550,17,12A5,550,12,17A5,550,07,12A5,550,012,7M12,9A3,330,09,12A3,330,12,15A3,330,15,12A3,330,012,9Z"/></svg>
           </a>
           <a href="https://www.tiktok.com/@valts.gadgets" target="_blank" class="social-icon" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,00A4.278,4.2780,015.54,3h-3.09V12.4a2.592,2.5920,01-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.350,04.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
           </a>
           <a href="https://wa.me/256707859985?text=Hey%20,%20am%20interested%20in%20a%20gadget" target="_blank" class="social-icon" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462,1.065,2.875,1.213,3.074.149.198,2.096,3.2,5.077,4.487.709.306,1.262.489,1.694.625.712.227,1.36.195,1.871.118.571-.085,1.758-.719,2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45,4.436-9.884,9.888-9.884,2.64 0,5.122,1.03,6.988,2.898a9.825 9.825 0 012.893,6.994c-.003 5.45-4.437,9.884-9.885,9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142,1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683,1.448h.005c6.554 0,11.89-5.335,11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.1980-.52.074-.792.372-.272.297-1.04,1.016-1.04,2.4790,1.462,1.065,2.875,1.213,3.074.149.198,2.096,3.2,5.077,4.487.709.306,1.262.489,1.694.625.712.227,1.36.195,1.871.118.571-.085,1.758-.719,2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.4217.403h-.004a9.87,9.870,01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86,9.860,01-1.51-5.26c.001-5.45,4.436-9.884,9.888-9.884,2.64,0,5.122,1.03,6.988,2.898a9.825,9.8250,012.893,6.994c-.0035.45-4.437,9.884-9.885,9.884m8.413-18.297A11.815,11.8150,0012.05,0C5.495,0.16,5.335.157,11.892c0,2.096.547,4.142,1.588,5.945L.057,24l6.305-1.654a11.882,11.8820,005.683,1.448h.005c6.554,0,11.89-5.335,11.893-11.893a11.821,11.8210,00-3.48-8.413Z"/></svg>
           </a>
         </div>
       </div>
@@ -2255,7 +2256,7 @@
           />
           <button class="chat-send" id="chatSend">
             <svg viewBox="0 0 24 24">
-              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2z"/>
             </svg>
           </button>
         </div>
