@@ -45,8 +45,8 @@
       "height": 512
     },
     "sameAs": [
-      "https://www.instagram.com/main_man_stephan/",
-      "https://www.tiktok.com/@valts.gadgets",
+      "https://www.instagram.com/valts.gadgets",
+      "https://www.tiktok.com/@valtsgadgets",
       "https://wa.me/256707859985"
     ],
     "description": "The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!",
@@ -198,7 +198,8 @@
       }
     }
     
-    .gadgets-decrypt {
+    /* NEW: GADGETS blurring text animation */
+    .gadgets-blur {
       position: absolute;
       bottom: 40px;
       right: 40px;
@@ -206,27 +207,17 @@
       font-size: 1.8rem;
       color: #fff;
       letter-spacing: 2px;
+      animation: text-blur-animation 2s infinite alternate;
     }
     
-    .encrypted-char {
-      display: inline-block;
-      opacity: 0.7;
-    }
-    
-    .revealed-char {
-      display: inline-block;
-      color: #fff;
-      animation: charReveal 0.3s ease-out;
-    }
-    
-    @keyframes charReveal {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-      to {
+    @keyframes text-blur-animation {
+      0% {
+        filter: blur(0px);
         opacity: 1;
-        transform: translateY(0);
+      }
+      100% {
+        filter: blur(3px);
+        opacity: 0.7;
       }
     }
 
@@ -248,8 +239,8 @@
     
     body {
       font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-dark);
+      background: var(--bg-light); /* Default to light theme */
+      color: var(--text-light); /* Default to light theme */
       min-height: 100vh;
       overflow-x: hidden;
       transition: background 0.5s ease, color 0.5s ease;
@@ -257,9 +248,9 @@
       visibility: visible !important;
     }
     
-    body.light-mode {
-      background: var(--bg-light);
-      color: var(--text-light);
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     /* Subtle animated background */
@@ -276,6 +267,12 @@
       animation: background-shift 20s ease-in-out infinite;
       pointer-events: none;
       z-index: 0;
+    }
+    
+    body.dark-mode::before {
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(110, 231, 183, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(110, 231, 183, 0.05) 0%, transparent 50%);
     }
     
     @keyframes background-shift {
@@ -526,15 +523,15 @@
     .loader .face:nth-child(2) {
       width: 70%;
       height: 70%;
-      color: var(--text-dark);
+      color: var(--text-light);
       border-color: currentColor currentColor transparent transparent;
       border-width: 0.2em 0em 0em 0.2em;
       --deg: -135deg;
       animation-direction: reverse;
     }
     
-    body.light-mode .loader .face:nth-child(2) {
-      color: var(--text-light);
+    body.dark-mode .loader .face:nth-child(2) {
+      color: var(--text-dark);
     }
 
     .loader .face .circle {
@@ -615,7 +612,7 @@
       }
     }
 
-    body.light-mode .carousel-btn {
+    body.dark-mode .carousel-btn {
       animation: button-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s backwards, btn-glow-blink-light 3s ease-in-out infinite;
     }
     
@@ -643,15 +640,15 @@
     .carousel-btn svg {
       width: 28px;
       height: 28px;
-      stroke: var(--text-dark);
+      stroke: var(--text-light);
       fill: none;
       stroke-width: 2;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
       transition: stroke 0.3s ease;
     }
     
-    body.light-mode .carousel-btn svg {
-      stroke: #000000 !important;
+    body.dark-mode .carousel-btn svg {
+      stroke: #ffffff !important;
     }
 
     /* Model Name */
@@ -694,15 +691,15 @@
     .gesture-hint svg {
       width: 100%;
       height: 100%;
-      fill: var(--text-dark);
+      fill: var(--text-light);
     }
     
-    body.light-mode .gesture-hint {
+    body.dark-mode .gesture-hint {
       filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
     }
     
-    body.light-mode .gesture-hint svg {
-      fill: #000000 !important;
+    body.dark-mode .gesture-hint svg {
+      fill: #ffffff !important;
     }
 
     @keyframes gesture-blink-blur {
@@ -716,7 +713,7 @@
       }
     }
     
-    body.light-mode .gesture-hint {
+    body.dark-mode .gesture-hint {
       animation: gesture-blink-blur-light 3s ease-in-out infinite;
     }
     
@@ -756,10 +753,10 @@
     }
     
     .instructions-content {
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 20px;
       padding: 2.5rem;
       max-width: 500px;
@@ -768,9 +765,9 @@
       animation: modal-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
-    body.light-mode .instructions-content {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.15);
+    body.dark-mode .instructions-content {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     
     @keyframes modal-slide-up {
@@ -788,9 +785,9 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 50%;
       width: 35px;
       height: 35px;
@@ -798,16 +795,16 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: var(--text-dark);
+      color: var(--text-light);
       font-size: 1.2rem;
       font-weight: bold;
       transition: all 0.3s ease;
     }
     
-    body.light-mode .instructions-close {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      color: var(--text-light);
+    body.dark-mode .instructions-close {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-dark);
     }
     
     .instructions-close:hover {
@@ -819,11 +816,11 @@
       font-family: 'Iceberg', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
-      color: var(--text-dark);
+      color: var(--text-light);
       text-align: center;
     }
     
-    body.light-mode .instructions-title {
+    body.dark-mode .instructions-title {
       color: #ffffff !important;
     }
     
@@ -832,22 +829,22 @@
       line-height: 1.6;
       text-align: center;
       margin-bottom: 1rem;
-      color: var(--text-dark);
+      color: var(--text-light);
     }
     
-    body.light-mode .instructions-text {
+    body.dark-mode .instructions-text {
       color: #ffffff !important;
     }
     
     .instructions-tip {
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
       text-align: center;
       margin-top: 1.5rem;
       font-style: italic;
     }
     
-    body.light-mode .instructions-tip {
+    body.dark-mode .instructions-tip {
       color: rgba(255, 255, 255, 0.7) !important;
     }
 
@@ -972,28 +969,28 @@
     .glass-input {
       width: 100%;
       padding: 1rem 1.5rem;
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 12px;
-      color: var(--text-dark);
+      color: var(--text-light);
       font-size: 1rem;
       transition: all 0.3s ease;
     }
 
-    body.light-mode .glass-input {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      color: var(--text-light);
+    body.dark-mode .glass-input {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-dark);
     }
 
     .glass-input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(0, 0, 0, 0.6);
     }
 
-    body.light-mode .glass-input::placeholder {
-      color: rgba(0, 0, 0, 0.6);
+    body.dark-mode .glass-input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .glass-input:focus {
@@ -1012,8 +1009,8 @@
     .submit-btn {
       width: 100%;
       padding: 1rem 2.5rem;
-      background: var(--text-dark);
-      color: var(--bg-dark);
+      background: var(--text-light);
+      color: var(--bg-light);
       border: none;
       border-radius: 12px;
       font-size: 1rem;
@@ -1084,9 +1081,9 @@
       }
     }
 
-    body.light-mode .submit-btn {
-      background: var(--text-light);
-      color: var(--bg-light);
+    body.dark-mode .submit-btn {
+      background: var(--text-dark);
+      color: var(--bg-dark);
     }
 
     .submit-btn:hover {
@@ -1143,10 +1140,10 @@
     .social-icon {
       width: 50px;
       height: 50px;
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -1156,9 +1153,9 @@
       color: inherit;
     }
 
-    body.light-mode .social-icon {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+    body.dark-mode .social-icon {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .social-icon:hover {
@@ -1210,7 +1207,7 @@
       overflow: hidden;
     }
     
-    body.light-mode .bottom-loader .loader {
+    body.dark-mode .bottom-loader .loader {
       background: rgba(200, 200, 200, 0.8);
     }
     
@@ -1226,7 +1223,7 @@
       inset: 0px;
     }
     
-    body.light-mode .bottom-loader .loader .black_overlay {
+    body.dark-mode .bottom-loader .loader .black_overlay {
       background: linear-gradient(
         87deg,
         rgba(255, 255, 255, 0.7) 0%,
@@ -1253,7 +1250,7 @@
       filter: blur(1.5px);
     }
     
-    body.light-mode .bottom-loader .loader .light {
+    body.dark-mode .bottom-loader .loader .light {
       background: linear-gradient(
         87deg,
         rgba(110, 231, 183, 0) 0%,
@@ -1274,116 +1271,88 @@
       }
     }
 
-    /* ==================== FIXED TOGGLE - NOW PROPERLY WORKING ON MOBILE ==================== */
-    .custom-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
-      perspective: 32em;
+    /* ============= NEW CHECKBOX TOGGLE ============= */
+    .checkbox-wrapper-41 {
+      --size: 100px;
       position: relative;
-      z-index: 1;
+      z-index: 10;
+      width: fit-content;
+      height: 50px;
     }
-
-    .custom-toggle [type="checkbox"] {
-      position: absolute;
-      left: -1440px;
-    }
-
-    .custom-toggle [type="checkbox"] + label {
-      --s: 0;
-      position: relative;
-      border: solid 0.625rem #f0f0f0;
-      width: 176px;
-      height: 100px;
-      border-radius: 5rem;
-      transform-style: preserve-3d;
-      transform: rotatex(90deg) rotate(22.5deg) rotatey(22.5deg);
-      box-shadow:
-        0.5rem 0.875rem 0 -0.25rem #73ad6b,
-        0.625rem 0.625rem 0 -0.25rem #b9d6ac,
-        0.5rem 0.875rem 0.625rem -0.125rem rgba(44, 161, 60, 0.75),
-        inset 0.125rem -0.125rem 0.5rem rgba(196, 192, 192, 0.5),
-        inset 0.75rem 0.75rem #51754d,
-        inset 0.75rem 0.75rem 0.75rem rgba(66, 129, 82, 0.85),
-        inset 0 1rem 0.75rem rgba(93, 201, 93, 0.65);
-      color: transparent;
-      font-size: 0;
-      -webkit-tap-highlight-color: transparent;
+    
+    .checkbox-wrapper-41 input[type="checkbox"] {
+      -webkit-appearance: none;
+      width: var(--size);
+      height: calc(var(--size) / 2);
+      background-color: #ffffff; /* Light theme: white space */
+      border: 3px solid #000000; /* Light theme: black boundary */
+      border-radius: 30px 100px 100px 100px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      outline: none;
       cursor: pointer;
+      position: relative;
+      transition: all 0.5s;
     }
-
-    /* Light mode - black toggle */
-    body.light-mode .custom-toggle [type="checkbox"] + label {
-      border: solid 0.625rem #333333;
-      box-shadow:
-        0.5rem 0.875rem 0 -0.25rem #666666,
-        0.625rem 0.625rem 0 -0.25rem #888888,
-        0.5rem 0.875rem 0.625rem -0.125rem rgba(0, 0, 0, 0.75),
-        inset 0.125rem -0.125rem 0.5rem rgba(150, 150, 150, 0.5),
-        inset 0.75rem 0.75rem #ffffff,
-        inset 0.75rem 0.75rem 0.75rem rgba(200, 200, 200, 0.85),
-        inset 0 1rem 0.75rem rgba(220, 220, 220, 0.65);
+    
+    /* Dark theme styles for the toggle */
+    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"] {
+      background-color: #000000; /* Dark theme: black space */
+      border: 3px solid #ffffff; /* Dark theme: white boundary */
     }
-
-    .custom-toggle [type="checkbox"] + label:before,
-    .custom-toggle [type="checkbox"] + label:after {
-      position: absolute;
-      width: 5rem;
-      height: 5rem;
-      border-radius: 50%;
-      transition: 2s cubic-bezier(0.21, 0.61, 0.35, 1);
+    
+    .checkbox-wrapper-41 input[type="checkbox"]::before {
       content: "";
+      position: absolute;
+      width: calc(var(--size) / 2);
+      height: calc(var(--size) / 2);
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.7);
+      border: 3px solid #000000; /* Light theme: black boundary for knob */
+      border-radius: 30px 100px 100px 100px;
+      background-color: #000000; /* Light theme: black knob */
+      box-sizing: border-box;
+      transition: all 0.5s;
     }
-
-    .custom-toggle [type="checkbox"] + label:before {
-      top: calc(50% + 0.875rem);
-      transform-origin: 100% 0;
-      transform: translate(calc(var(--s) * (100% + 1rem))) scale(0.8)
-        skewx(-22.5deg);
-      background: radial-gradient(
-        at 50% 25%,
-        rgba(160, 160, 160, 0.65),
-        transparent 70%
-      );
-      filter: blur(3px);
+    
+    /* Dark theme styles for the knob */
+    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"]::before {
+      background-color: #ffffff; /* Dark theme: white knob */
+      border: 3px solid #ffffff; /* Dark theme: white boundary for knob */
     }
-
-    .custom-toggle [type="checkbox"] + label:after {
-      top: 0.875rem;
-      left: 0.75rem;
-      transform: translate(calc(var(--s) * (100% + 1rem))) rotatey(-22.5deg)
-        rotate(-22.5deg) rotatex(-90deg) translatey(-50%) rotate(45deg);
-      box-shadow: -1px 1px 0.125rem rgba(206, 255, 206, 0.5);
-      background:
-        radial-gradient(at 0 50%, #52a066, transparent 2.5rem) 0 50% / 65% 50%
-          no-repeat,
-        radial-gradient(at 50% 0%, #88d1a0 15%, #68b47d 35%, #66b47b, #77c28e 65%)
-          50% / 200%;
-      filter: grayscale(calc(1 - var(--s)));
+    
+    .checkbox-wrapper-41 input[type="checkbox"]:checked {
+      background-color: #000000; /* Checked state in light theme: black space */
+      border-radius: 100px 100px 30px 100px;
+      border: 3px solid #000000; /* Light theme: black boundary */
     }
-
-    /* Light mode - black knob */
-    body.light-mode .custom-toggle [type="checkbox"] + label:after {
-      background:
-        radial-gradient(at 0 50%, #888888, transparent 2.5rem) 0 50% / 65% 50%
-          no-repeat,
-        radial-gradient(at 50% 0%, #cccccc 15%, #aaaaaa 35%, #999999, #bbbbbb 65%)
-          50% / 200%;
+    
+    /* Dark theme checked state */
+    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"]:checked {
+      background-color: #ffffff; /* Checked state in dark theme: white space */
+      border: 3px solid #ffffff; /* Dark theme: white boundary */
     }
-
-    .custom-toggle [type="checkbox"]:checked + label {
-      --s: 1;
+    
+    .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
+      left: 50%;
+      background-color: #ffffff; /* Checked state in light theme: white knob */
+      border-radius: 100px 100px 30px 100px;
+      border: 3px solid #000000; /* Light theme: black boundary for knob */
     }
-    /* ==================== END FIXED TOGGLE ==================== */
+    
+    /* Dark theme checked state for knob */
+    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
+      background-color: #000000; /* Checked state in dark theme: black knob */
+      border: 3px solid #ffffff; /* Dark theme: white boundary for knob */
+    }
+    /* ============= END NEW CHECKBOX TOGGLE ============= */
 
     /* GET BUTTON */
     .get-button {
       margin-top: 1rem;
       padding: 0.6rem 2rem;
-      background: var(--text-dark);
-      color: var(--bg-dark);
+      background: var(--text-light);
+      color: var(--bg-light);
       border: none;
       border-radius: 8px;
       font-size: 0.95rem;
@@ -1393,9 +1362,9 @@
       font-family: 'Bricolage Grotesque', sans-serif;
     }
     
-    body.light-mode .get-button {
-      background: var(--text-light);
-      color: var(--bg-light);
+    body.dark-mode .get-button {
+      background: var(--text-dark);
+      color: var(--bg-dark);
     }
     
     .get-button:hover {
@@ -1421,15 +1390,15 @@
     .chat-icon svg {
       width: 100%;
       height: 100%;
-      fill: var(--text-dark);
+      fill: var(--text-light);
     }
     
-    body.light-mode .chat-icon {
+    body.dark-mode .chat-icon {
       filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
     }
     
-    body.light-mode .chat-icon svg {
-      fill: #000000 !important;
+    body.dark-mode .chat-icon svg {
+      fill: #ffffff !important;
     }
     
     .chat-icon:hover {
@@ -1449,7 +1418,7 @@
       }
     }
     
-    body.light-mode .chat-icon {
+    body.dark-mode .chat-icon {
       animation: chat-blink-blur-light 3s ease-in-out infinite;
     }
     
@@ -1518,9 +1487,9 @@
       position: absolute;
       top: -40px;
       right: 0;
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 50%;
       width: 35px;
       height: 35px;
@@ -1528,15 +1497,15 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: var(--text-dark);
+      color: var(--text-light);
       font-size: 1.5rem;
       transition: all 0.3s ease;
     }
     
-    body.light-mode .chat-close {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      color: var(--text-light);
+    body.dark-mode .chat-close {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-dark);
     }
     
     .chat-close:hover {
@@ -1545,10 +1514,10 @@
     }
     
     .chat-box {
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 20px;
       padding: 2rem;
       flex: 1;
@@ -1558,9 +1527,9 @@
       overflow: hidden;
     }
     
-    body.light-mode .chat-box {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+    body.dark-mode .chat-box {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .chat-messages {
@@ -1577,10 +1546,10 @@
       border-radius: 15px;
       max-width: 80%;
       animation: message-appear 0.3s ease;
-      color: var(--text-dark);
+      color: var(--text-light);
     }
     
-    body.light-mode .chat-message {
+    body.dark-mode .chat-message {
       color: #ffffff !important;
     }
     
@@ -1596,13 +1565,13 @@
     }
     
     .chat-message.bot {
-      background: var(--glass-dark);
+      background: var(--glass-light);
       align-self: flex-start;
       border: 1px solid rgba(110, 231, 183, 0.3);
     }
     
-    body.light-mode .chat-message.bot {
-      background: var(--glass-light);
+    body.dark-mode .chat-message.bot {
+      background: var(--glass-dark);
       border: 1px solid rgba(110, 231, 183, 0.3);
       color: #ffffff !important;
     }
@@ -1611,10 +1580,10 @@
       background: rgba(110, 231, 183, 0.2);
       align-self: flex-end;
       border: 1px solid rgba(110, 231, 183, 0.3);
-      color: var(--text-dark);
+      color: var(--text-light);
     }
     
-    body.light-mode .chat-message.user {
+    body.dark-mode .chat-message.user {
       background: rgba(110, 231, 183, 0.15);
       color: #ffffff !important;
     }
@@ -1640,9 +1609,9 @@
     .chat-action-btn {
       flex: 1;
       padding: 0.8rem 1.5rem;
-      background: var(--glass-dark);
-      color: var(--text-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: var(--glass-light);
+      color: var(--text-light);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
@@ -1652,10 +1621,10 @@
       -webkit-backdrop-filter: blur(10px);
     }
     
-    body.light-mode .chat-action-btn {
-      background: var(--glass-light);
+    body.dark-mode .chat-action-btn {
+      background: var(--glass-dark);
       color: #ffffff !important;
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .chat-action-btn:hover {
@@ -1665,10 +1634,10 @@
     }
     
     .chat-input-box {
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 15px;
       padding: 0.8rem 1rem;
       display: flex;
@@ -1677,31 +1646,31 @@
       margin-top: auto;
     }
     
-    body.light-mode .chat-input-box {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.3);
+    body.dark-mode .chat-input-box {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     
     .chat-input {
       flex: 1;
       background: transparent;
       border: none;
-      color: var(--text-dark);
+      color: var(--text-light);
       font-size: 1rem;
       outline: none;
       font-family: 'Bricolage Grotesque', sans-serif;
     }
     
-    body.light-mode .chat-input {
+    body.dark-mode .chat-input {
       color: #ffffff !important;
     }
     
     .chat-input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(0, 0, 0, 0.5);
       animation: placeholder-blink 2s ease-in-out infinite;
     }
     
-    body.light-mode .chat-input::placeholder {
+    body.dark-mode .chat-input::placeholder {
       color: rgba(255, 255, 255, 0.7) !important;
     }
     
@@ -1736,11 +1705,11 @@
     .chat-send svg {
       width: 20px;
       height: 20px;
-      fill: var(--bg-dark);
+      fill: var(--bg-light);
     }
     
-    body.light-mode .chat-send svg {
-      fill: var(--bg-light);
+    body.dark-mode .chat-send svg {
+      fill: var(--bg-dark);
     }
     
     /* Contact Form in Chat */
@@ -1768,19 +1737,19 @@
     
     .chat-form-input {
       padding: 0.8rem 1rem;
-      background: var(--glass-dark);
+      background: var(--glass-light);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      color: var(--text-dark);
+      color: var(--text-light);
       font-size: 0.95rem;
       outline: none;
       transition: all 0.3s ease;
     }
     
-    body.light-mode .chat-form-input {
-      background: var(--glass-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+    body.dark-mode .chat-form-input {
+      background: var(--glass-dark);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff !important;
     }
     
@@ -1790,10 +1759,10 @@
     }
     
     .chat-form-input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(0, 0, 0, 0.5);
     }
     
-    body.light-mode .chat-form-input::placeholder {
+    body.dark-mode .chat-form-input::placeholder {
       color: rgba(255, 255, 255, 0.7) !important;
     }
 
@@ -1856,41 +1825,21 @@
         margin: 0;
       }
       
-      /* FIXED TOGGLE FOR MOBILE - MUCH BETTER VISIBLE BALL */
-      .custom-toggle {
+      /* NEW CHECKBOX TOGGLE FOR MOBILE */
+      .checkbox-wrapper-41 {
         grid-area: toggle;
         order: 2;
         position: relative;
         bottom: auto;
         left: auto;
         margin: 0;
-        transform: scale(0.85);
+        transform: scale(0.9);
         z-index: 1;
         justify-self: start;
-        perspective-origin: center center;
       }
       
-      /* Make the toggle properly sized for mobile with BIG VISIBLE BALL */
-      .custom-toggle [type="checkbox"] + label {
-        width: 140px;
-        height: 75px;
-        border: solid 0.5rem #f0f0f0;
-        transform: rotatex(75deg) rotate(22.5deg) rotatey(22.5deg);
-      }
-      
-      .custom-toggle [type="checkbox"] + label:after,
-      .custom-toggle [type="checkbox"] + label:before {
-        width: 55px;
-        height: 55px;
-      }
-      
-      .custom-toggle [type="checkbox"] + label:after {
-        top: 0.5rem;
-        left: 0.5rem;
-      }
-      
-      body.light-mode .custom-toggle [type="checkbox"] + label {
-        border: solid 0.5rem #333333;
+      .checkbox-wrapper-41 {
+        --size: 80px; /* Smaller size for mobile */
       }
       
       .chat-container {
@@ -1940,7 +1889,7 @@
         width: 250px;
       }
       
-      .gadgets-decrypt {
+      .gadgets-blur {
         font-size: 1.4rem;
         bottom: 20px;
         right: 20px;
@@ -1970,30 +1919,10 @@
         height: 24px;
       }
       
-      /* FURTHER ADJUSTMENT FOR VERY SMALL SCREENS - TOGGLE */
-      .custom-toggle {
-        transform: scale(0.75);
-      }
-      
-      .custom-toggle [type="checkbox"] + label {
-        width: 130px;
-        height: 70px;
-        border: solid 0.45rem #f0f0f0;
-      }
-      
-      .custom-toggle [type="checkbox"] + label:after,
-      .custom-toggle [type="checkbox"] + label:before {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .custom-toggle [type="checkbox"] + label:after {
-        top: 0.4rem;
-        left: 0.4rem;
-      }
-      
-      body.light-mode .custom-toggle [type="checkbox"] + label {
-        border: solid 0.45rem #333333;
+      /* NEW CHECKBOX TOGGLE FOR VERY SMALL SCREENS */
+      .checkbox-wrapper-41 {
+        transform: scale(0.8);
+        --size: 70px;
       }
       
       .social-icon {
@@ -2015,7 +1944,7 @@
         width: 200px;
       }
       
-      .gadgets-decrypt {
+      .gadgets-blur {
         font-size: 1.2rem;
       }
     }
@@ -2031,7 +1960,7 @@
         <div class="light"></div>
       </div>
     </div>
-    <div class="gadgets-decrypt" id="gadgetsText"></div>
+    <div class="gadgets-blur">GADGETS</div> <!-- CHANGED: Removed encryption, added blur animation -->
   </div>
 
   <!-- 3D Instructions Modal -->
@@ -2194,10 +2123,9 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- FIXED PERFECT 3D TOGGLE - Now properly working on mobile -->
-      <div class="custom-toggle">
-        <input type="checkbox" id="themeToggle" />
-        <label for="themeToggle">Theme toggle</label>
+      <!-- NEW CHECKBOX TOGGLE - Bottom left position -->
+      <div class="checkbox-wrapper-41">
+        <input type="checkbox" id="themeToggle" checked>
       </div>
 
       <!-- Social Section WITH YOUR EXACT ICONS -->
@@ -2206,10 +2134,12 @@
           Or shop today <span class="shop-arrow">↓</span>
         </div>
         <div class="social-icons">
-          <a href="https://www.instagram.com/main_man_stephan/" target="_blank" class="social-icon" aria-label="Instagram">
+          <!-- CHANGED: Instagram link shortened -->
+          <a href="https://www.instagram.com/valts.gadgets" target="_blank" class="social-icon" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
           </a>
-          <a href="https://www.tiktok.com/@valts.gadgets" target="_blank" class="social-icon" aria-label="TikTok">
+          <!-- CHANGED: TikTok link fixed to valtsgadgets -->
+          <a href="https://www.tiktok.com/@valtsgadgets" target="_blank" class="social-icon" aria-label="TikTok">
             <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
           </a>
           <a href="https://wa.me/256707859985?text=Hey%20,%20am%20interested%20in%20a%20gadget" target="_blank" class="social-icon" aria-label="WhatsApp">
@@ -2264,59 +2194,8 @@
   </div>
 
   <script>
-    // LOADING SCREEN FUNCTIONALITY WITH FASTER DECRYPTION
+    // LOADING SCREEN FUNCTIONALITY WITH BLUR ANIMATION ONLY
     const loadingScreen = document.getElementById('loadingScreen');
-    const gadgetsTextElement = document.getElementById('gadgetsText');
-    const finalText = "Gadgets";
-    const characters = "!@#$%^&*()_+[]{}|;:,.<>?/\\|=~";
-    
-    // FASTER DECRYPTION FUNCTION - Changed interval to 80ms for faster scrambling
-    function decryptText(element, finalText, duration) {
-      let currentIteration = 0;
-      const totalIterations = finalText.length;
-      const revealInterval = duration / totalIterations; // ~714ms per letter (same as before)
-      const scrambleInterval = 80; // CHANGED: MUCH FASTER - from 100ms to 80ms
-      
-      // Set initial text to random characters
-      let initialText = "";
-      for (let i = 0; i < finalText.length; i++) {
-        initialText += characters[Math.floor(Math.random() * characters.length)];
-      }
-      element.innerHTML = initialText.split('').map(char => 
-        `<span class="encrypted-char">${char}</span>`
-      ).join('');
-      
-      // Interval for fast scrambling
-      const scramble = setInterval(() => {
-        // Update only the letters that are not yet revealed
-        const spans = element.querySelectorAll('span');
-        for (let i = currentIteration; i < finalText.length; i++) {
-          spans[i].textContent = characters[Math.floor(Math.random() * characters.length)];
-        }
-      }, scrambleInterval);
-      
-      // Interval for revealing at the same rate
-      const reveal = setInterval(() => {
-        // Reveal one more letter
-        const spans = element.querySelectorAll('span');
-        if (currentIteration < finalText.length) {
-          spans[currentIteration].textContent = finalText[currentIteration];
-          spans[currentIteration].className = 'revealed-char';
-          spans[currentIteration].style.animation = 'charReveal 0.2s ease-out'; // Slightly faster reveal
-          currentIteration++;
-        }
-        
-        if (currentIteration === totalIterations) {
-          clearInterval(scramble);
-          clearInterval(reveal);
-        }
-      }, revealInterval);
-    }
-    
-    // Start loading screen sequence
-    setTimeout(() => {
-      decryptText(gadgetsTextElement, finalText, 5000);
-    }, 500);
     
     // Fade out loading screen after 7 seconds
     setTimeout(() => {
@@ -2328,22 +2207,28 @@
       }, 2500);
     }, 7000);
     
-    // THEME TOGGLE
+    // THEME TOGGLE - Default is light mode
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     
-    // Load saved theme
+    // Load saved theme - Default to light mode
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      body.classList.add('light-mode');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.checked = false;
+    } else {
+      // Default is light mode, checkbox should be checked
       themeToggle.checked = true;
     }
 
     themeToggle.addEventListener('change', () => {
-      body.classList.toggle('light-mode');
-      
-      const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
-      localStorage.setItem('theme', theme);
+      if (themeToggle.checked) {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      }
     });
 
     // LOGO CLICK FUNCTIONALITY - Theme toggle and scroll to waitlist
