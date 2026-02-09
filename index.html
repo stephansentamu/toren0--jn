@@ -1274,7 +1274,7 @@
       }
     }
 
-    /* ==================== FIXED TOGGLE FROM VERSION 1 - EXACT WORKING COLOR THEME TOGGLE ==================== */
+    /* ==================== FIXED TOGGLE - NOW PROPERLY WORKING ON MOBILE ==================== */
     .custom-toggle {
       display: flex;
       align-items: center;
@@ -1283,7 +1283,7 @@
       perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
       perspective: 32em;
       position: relative;
-      z-index: 1; /* Lower z-index so it stays in flow */
+      z-index: 1;
     }
 
     .custom-toggle [type="checkbox"] {
@@ -1856,7 +1856,7 @@
         margin: 0;
       }
       
-      /* FIXED TOGGLE FOR MOBILE FROM VERSION 1 - PROPER BALL SIZE */
+      /* FIXED TOGGLE FOR MOBILE - MUCH BETTER VISIBLE BALL */
       .custom-toggle {
         grid-area: toggle;
         order: 2;
@@ -1864,35 +1864,33 @@
         bottom: auto;
         left: auto;
         margin: 0;
-        transform: scale(0.9);
+        transform: scale(0.85);
         z-index: 1;
         justify-self: start;
+        perspective-origin: center center;
       }
       
-      /* Make the ball properly sized for mobile - BIG AND VISIBLE - FROM VERSION 1 */
+      /* Make the toggle properly sized for mobile with BIG VISIBLE BALL */
       .custom-toggle [type="checkbox"] + label {
-        width: 160px;
-        height: 90px;
-        border: solid 0.7rem #f0f0f0;
+        width: 140px;
+        height: 75px;
+        border: solid 0.5rem #f0f0f0;
+        transform: rotatex(75deg) rotate(22.5deg) rotatey(22.5deg);
       }
-
+      
       .custom-toggle [type="checkbox"] + label:after,
       .custom-toggle [type="checkbox"] + label:before {
-        width: 4.5rem;
-        height: 4.5rem;
+        width: 55px;
+        height: 55px;
       }
-
+      
       .custom-toggle [type="checkbox"] + label:after {
-        top: 0.75rem;
-        left: 0.75rem;
-      }
-
-      .custom-toggle [type="checkbox"] + label:before {
-        top: calc(50% + 0.75rem);
+        top: 0.5rem;
+        left: 0.5rem;
       }
       
       body.light-mode .custom-toggle [type="checkbox"] + label {
-        border: solid 0.7rem #333333;
+        border: solid 0.5rem #333333;
       }
       
       .chat-container {
@@ -1972,29 +1970,30 @@
         height: 24px;
       }
       
-      /* FURTHER ADJUSTMENT FOR VERY SMALL SCREENS - FROM VERSION 1 */
+      /* FURTHER ADJUSTMENT FOR VERY SMALL SCREENS - TOGGLE */
       .custom-toggle {
-        transform: scale(0.8);
+        transform: scale(0.75);
       }
-
+      
       .custom-toggle [type="checkbox"] + label {
-        width: 140px;
-        height: 80px;
+        width: 130px;
+        height: 70px;
+        border: solid 0.45rem #f0f0f0;
       }
-
+      
       .custom-toggle [type="checkbox"] + label:after,
       .custom-toggle [type="checkbox"] + label:before {
-        width: 4rem;
-        height: 4rem;
+        width: 50px;
+        height: 50px;
       }
-
+      
       .custom-toggle [type="checkbox"] + label:after {
-        top: 0.65rem;
-        left: 0.65rem;
+        top: 0.4rem;
+        left: 0.4rem;
       }
-
-      .custom-toggle [type="checkbox"] + label:before {
-        top: calc(50% + 0.65rem);
+      
+      body.light-mode .custom-toggle [type="checkbox"] + label {
+        border: solid 0.45rem #333333;
       }
       
       .social-icon {
@@ -2195,7 +2194,7 @@
 
     <!-- BOTTOM SECTION -->
     <div class="bottom-section">
-      <!-- FIXED PERFECT 3D TOGGLE - Now positioned at bottom left of bottom-section -->
+      <!-- FIXED PERFECT 3D TOGGLE - Now properly working on mobile -->
       <div class="custom-toggle">
         <input type="checkbox" id="themeToggle" />
         <label for="themeToggle">Theme toggle</label>
