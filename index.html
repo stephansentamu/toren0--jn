@@ -953,6 +953,26 @@
     .circle-prev { left: 3px; }
     .circle-next { right: 3px; }
 
+    /* Dark theme form inputs (freelancer inquiry) */
+    .free-input {
+      color: #fff !important;
+      border-bottom-color: rgba(255,255,255,0.2) !important;
+    }
+    .free-input:focus { border-bottom-color: rgba(255,255,255,0.7) !important; }
+    .free-input::placeholder { color: rgba(255,255,255,0.25) !important; }
+    .free-chip {
+      color: rgba(255,255,255,0.7) !important;
+      border-color: rgba(255,255,255,0.2) !important;
+    }
+    .free-chip:hover { border-color: rgba(255,255,255,0.6) !important; background: rgba(255,255,255,0.06) !important; }
+    .free-chip.selected { background: #fff !important; color: #000 !important; border-color: #fff !important; }
+    .free-retainer-btn {
+      color: rgba(255,255,255,0.7) !important;
+      border-color: rgba(255,255,255,0.2) !important;
+    }
+    .free-retainer-btn:hover { border-color: rgba(255,255,255,0.6) !important; }
+    .free-retainer-btn.selected { background: #fff !important; color: #000 !important; border-color: #fff !important; }
+
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       .page-inner { padding: 0 1.2rem 3rem; }
@@ -1123,12 +1143,22 @@
       <p>From AI Winner Pack creatives to full AI Brand Builder — Rivela gives your business the visuals that stop the scroll and win the sale. Consistent models, ad-ready content, premium at every level.</p>
     </div>
 
-    <div class="fade-in fade-in-delay-4">
-      <button class="rocket-btn" onclick="getAccess()">
+    <div class="project-access-group fade-in fade-in-delay-4">
+      <button class="rocket-btn" onclick="showPage('project-info-free')">
         <div class="btn-outline"></div>
-        <div class="btn-icon">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg>
+        <div class="btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg></div>
+        <div class="btn-state btn-state-default">
+          <p><span style="--i:0">S</span><span style="--i:1">t</span><span style="--i:2">a</span><span style="--i:3">r</span><span style="--i:4">t</span><span style="--i:5">&nbsp;</span><span style="--i:6">P</span><span style="--i:7">r</span><span style="--i:8">o</span><span style="--i:9">j</span><span style="--i:10">e</span><span style="--i:11">c</span><span style="--i:12">t</span></p>
         </div>
+        <div class="btn-state-sent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span style="--i:0">D</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">e</span>
+        </div>
+      </button>
+      <div class="project-line"></div>
+      <button class="rocket-btn disabled-btn" id="getAccessFreeBtn" onclick="freeGetAccess()">
+        <div class="btn-outline"></div>
+        <div class="btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg></div>
         <div class="btn-state btn-state-default">
           <p><span style="--i:0">G</span><span style="--i:1">e</span><span style="--i:2">t</span><span style="--i:3">&nbsp;</span><span style="--i:4">A</span><span style="--i:5">c</span><span style="--i:6">c</span><span style="--i:7">e</span><span style="--i:8">s</span><span style="--i:9">s</span></p>
         </div>
@@ -1152,6 +1182,108 @@
         </a>
       </div>
       <div class="footer-logo" style="color:#fff;">RIVELA AI-STUDIO</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FREELANCER PROJECT INFO PAGE ===== -->
+<div class="page theme-dark" id="page-project-info-free">
+  <nav class="nav-dark">
+    <a class="nav-logo" onclick="showPage('freelancer')" style="cursor:pointer;">
+      <img src="https://models.valts.online/Rivela/l2.png" alt="Rivela AI-Studio" />
+    </a>
+    <div class="nav-right">
+      <button class="mode-btn" onclick="showPage('freelancer')" style="color:#fff; opacity:0.5;">← Back</button>
+    </div>
+    <button class="mobile-menu-btn" onclick="openMobileMenu()" style="color:#fff;"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="page-inner">
+    <button class="back-btn" onclick="showPage('freelancer')" style="color:#fff;">← Back</button>
+    <div class="form-container">
+      <div style="margin-bottom:2.5rem;">
+        <h1 style="font-family:var(--cinzel);font-size:clamp(1.4rem,3vw,2rem);font-weight:400;letter-spacing:0.08em;margin-bottom:0.7rem;color:#fff;">Project Inquiry</h1>
+        <p style="font-size:1.05rem;opacity:0.5;font-weight:300;line-height:1.7;color:#fff;">Tell us about your project and we'll get back to you.</p>
+      </div>
+
+      <div class="form-field fade-in">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Full Names <span class="required">*</span></label>
+        <input type="text" class="form-input free-input" id="ffi-name" placeholder="Your full name" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-1">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Phone Number or Email <span class="required">*</span></label>
+        <input type="text" class="form-input free-input" id="ffi-contact" placeholder="+256 or email@brand.com" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-2">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Your Role or Need <span class="required">*</span></label>
+        <p style="font-size:0.85rem;opacity:0.4;margin-bottom:0.5rem;color:#fff;">What exactly do you do or why Rivela?</p>
+        <input type="text" class="form-input free-input" id="ffi-role" placeholder="Eg Business, artist, learn, etc" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-2">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Project Type <span class="required">*</span> <span style="opacity:0.4;font-size:0.7rem;">Pick what applies.</span></label>
+        <div class="chips-grid" id="freeProjectTypeChips">
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">AI Product Photos</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">Social Ads (Short-form video)</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">Brand Identity</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">AI Model Identity</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">AI Winner Pack</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">AI Brand Builder</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">Content System</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">Motion Design</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">Learn</button>
+          <button class="chip free-chip" onclick="toggleFreeChip(this)">Other</button>
+        </div>
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-3">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Project Description / Purpose <span class="required">*</span></label>
+        <p style="font-size:0.85rem;opacity:0.4;margin-bottom:0.5rem;color:#fff;">One short paragraph with scope and goal.</p>
+        <textarea class="form-textarea free-input" id="ffi-desc" placeholder="Describe your project..."></textarea>
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-3">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Budget Range (UGX–USD) <span class="required">*</span></label>
+        <p style="font-size:0.85rem;opacity:0.4;margin-bottom:0.5rem;color:#fff;">Input your estimated budget for AI creativity per month.</p>
+        <input type="text" class="form-input free-input" id="ffi-budget" placeholder="e.g. UGX 100,000 / month" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-4">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Looking for a retainer? <span class="required">*</span></label>
+        <div class="retainer-btns">
+          <button class="retainer-btn free-retainer-btn" onclick="selectFreeRetainer(this, 'Yes')">Yes</button>
+          <button class="retainer-btn free-retainer-btn" onclick="selectFreeRetainer(this, 'No')">No</button>
+          <button class="retainer-btn free-retainer-btn" onclick="selectFreeRetainer(this, 'Maybe')">Maybe</button>
+        </div>
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-4">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Current Brand Assets <span style="opacity:0.4;">(Optional)</span></label>
+        <p style="font-size:0.85rem;opacity:0.4;margin-bottom:0.5rem;color:#fff;">Name all/any if you have</p>
+        <input type="text" class="form-input free-input" id="ffi-assets" placeholder="Logo, model, brand references etc" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-5">
+        <label class="form-label" style="color:rgba(255,255,255,0.6);">Anything Else? <span style="opacity:0.4;">(Optional)</span></label>
+        <textarea class="form-textarea free-input" id="ffi-extra" placeholder="References, inspirations, constraints..."></textarea>
+      </div>
+
+      <div class="form-submit-area fade-in fade-in-delay-5">
+        <button class="rocket-btn" onclick="submitFreeInquiry()" style="min-width:220px;">
+          <div class="btn-outline"></div>
+          <div class="btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg></div>
+          <div class="btn-state btn-state-default"><p>
+            <span style="--i:0">S</span><span style="--i:1">u</span><span style="--i:2">b</span><span style="--i:3">m</span><span style="--i:4">i</span><span style="--i:5">t</span>
+            <span style="--i:6">&nbsp;</span>
+            <span style="--i:7">I</span><span style="--i:8">n</span><span style="--i:9">q</span><span style="--i:10">u</span><span style="--i:11">i</span><span style="--i:12">r</span><span style="--i:13">y</span>
+          </p></div>
+          <div class="btn-state-sent">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+            <span style="--i:0">S</span><span style="--i:1">e</span><span style="--i:2">n</span><span style="--i:3">t</span>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1541,6 +1673,55 @@
       bizBtn.classList.add('active-mode'); bizBtn.classList.remove('glowing-mobile');
       freeBtn.classList.remove('active-mode'); freeBtn.classList.add('glowing-mobile');
     }
+  }
+
+  // ===== FREELANCER PROJECT INFO =====
+  let freeRetainerValue = '';
+  let freeProjectInfoFilled = false;
+
+  function toggleFreeChip(el) { el.classList.toggle('selected'); }
+
+  function selectFreeRetainer(el, val) {
+    document.querySelectorAll('.free-retainer-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    freeRetainerValue = val;
+  }
+
+  function submitFreeInquiry() {
+    const name = document.getElementById('ffi-name').value.trim();
+    const contact = document.getElementById('ffi-contact').value.trim();
+    const role = document.getElementById('ffi-role').value.trim();
+    const desc = document.getElementById('ffi-desc').value.trim();
+    const budget = document.getElementById('ffi-budget').value.trim();
+    if (!name || !contact || !role || !desc || !budget) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    const selectedTypes = [...document.querySelectorAll('.free-chip.selected')].map(c => c.textContent).join(', ');
+    const data = {
+      name, contact, role,
+      types: selectedTypes || 'Not specified',
+      desc, budget,
+      retainer: freeRetainerValue || 'Not specified',
+      assets: document.getElementById('ffi-assets').value.trim() || 'None',
+      extra: document.getElementById('ffi-extra').value.trim() || 'None'
+    };
+    sessionStorage.setItem('rivela_free_project_data', JSON.stringify(data));
+    freeProjectInfoFilled = true;
+    const getBtn = document.getElementById('getAccessFreeBtn');
+    if (getBtn) getBtn.classList.remove('disabled-btn');
+    setTimeout(() => showPage('freelancer'), 800);
+  }
+
+  function freeGetAccess() {
+    if (!freeProjectInfoFilled) return;
+    const stored = sessionStorage.getItem('rivela_free_project_data');
+    let msg = "Hey Rivela, I've completed my Project Inquiry. Here are my details:\n\n";
+    if (stored) {
+      const d = JSON.parse(stored);
+      msg += `Name: ${d.name}\nContact: ${d.contact}\nRole/Need: ${d.role}\nProject Type: ${d.types}\nDescription: ${d.desc}\nBudget: ${d.budget}\nRetainer: ${d.retainer}\nBrand Assets: ${d.assets}\nExtra: ${d.extra}`;
+    }
+    window.open('https://wa.me/256707859985?text=' + encodeURIComponent(msg), '_blank');
   }
 
   // ===== VIDEO LIGHTBOX =====
