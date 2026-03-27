@@ -1,2846 +1,1751 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Valts Gadgets™ — Smart Tech. Smarter Service.</title>
-  <meta name="description" content="The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!" />
-  <meta name="keywords" content="Valts Gadgets, Valts, phones, accessories, electronics, buy phones, sell phones, swap phones, repair phones, tech store, next-gen gadgets" />
-  <link rel="canonical" href="https://valts.online/" />
-  
-  <!-- Favicon - Fixed for GitHub Pages -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0b" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Valts Gadgets™ — Smart Tech. Smarter Service." />
-  <meta property="og:description" content="The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://valts.online/" />
-  <meta property="og:image" content="https://valts.online/logo.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Valts Gadgets™ — Smart Tech. Smarter Service." />
-  <meta name="twitter:description" content="The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!" />
-  <meta name="twitter:image" content="https://valts.online/logo.png" />
-
-  <!-- JSON-LD Structured Data - REMOVED V.A.L.T REFERENCES -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Valts Gadgets",
-    "alternateName": ["VALTS Gadgets", "Valts"],
-    "url": "https://valts.online/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://valts.online/logo.png",
-      "width": 512,
-      "height": 512
-    },
-    "sameAs": [
-      "https://www.instagram.com/valts.gadgets",
-      "https://www.tiktok.com/@valtsgadgets",
-      "https://wa.me/256707859985"
-    ],
-    "description": "The Gadget Store - Reimagined. Buy, sell, swap, and repair phones . Smart upgrades!",
-    "foundingDate": "2025",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+256707859985",
-      "contactType": "customer support"
-    }
-  }
-  </script>
-
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1211789350904422');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1211789350904422&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- ICEBERG Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
-  
-  <!-- Bricolage Grotesque Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
-  
-  <!-- Model Viewer for 3D Models -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer@3.3.0/dist/model-viewer.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivela AI-Studio</title>
+  <meta name="description" content="Rivela AI-Studio — Premium AI Creatives for Uganda's best brands. AI Winner Pack & AI Brand Builder." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* LOADING SCREEN STYLES */
+    /* ===== ROOT VARIABLES ===== */
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --grey: #888;
+      --light-grey: #ddd;
+      --dark-grey: #1a1a1a;
+      --radius: 14px;
+      --cinzel: 'Cinzel', serif;
+      --cormorant: 'Cormorant Garamond', serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--cormorant);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ===== LOADING SCREEN ===== */
     #loadingScreen {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
+      inset: 0;
+      background: #fff;
       z-index: 99999;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      transition: all 2.5s ease-in-out;
+      justify-content: center;
+      transition: opacity 1.5s ease, visibility 1.5s ease;
     }
-    
-    #loadingScreen.fade-out {
+    #loadingScreen.hide {
       opacity: 0;
       visibility: hidden;
-      backdrop-filter: blur(50px);
-      -webkit-backdrop-filter: blur(50px);
-      background: rgba(0, 0, 0, 0);
     }
-    
-    .valts-title-loading {
-      font-family: 'Iceberg', sans-serif;
-      font-size: 6rem;
-      color: #fff;
-      margin-bottom: 3rem;
-      animation: glow-and-blur 7s ease-in-out forwards;
+    .loading-title {
+      font-family: var(--cinzel);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.15em;
+      animation: loadGlow 3s ease-in-out infinite;
     }
-    
-    @keyframes glow-and-blur {
-      0% {
-        filter: blur(0px) brightness(1);
-        opacity: 1;
-        transform: scale(1);
-      }
-      30% {
-        filter: blur(0px) brightness(2);
-        opacity: 1;
-        transform: scale(1.05);
-      }
-      70% {
-        filter: blur(2px) brightness(1.5);
-        opacity: 0.7;
-        transform: scale(1);
-      }
-      100% {
-        filter: blur(15px) brightness(0.5);
-        opacity: 0;
-        transform: scale(0.95);
-      }
+    @keyframes loadGlow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; filter: blur(1px); }
     }
-    
-    .loader-container {
-      width: 300px;
-      height: 2px;
-      position: relative;
+    .loading-bar-wrap {
+      margin-top: 2rem;
+      width: 200px;
+      height: 1px;
+      background: #ddd;
       overflow: hidden;
-      border-radius: 1px;
-    }
-    
-    .loader-container .loader {
-      height: 100%;
-      width: 100%;
-      background: rgb(44, 44, 44);
       position: relative;
-      overflow: hidden;
     }
-    
-    .loader-container .loader .black_overlay {
-      background: linear-gradient(
-        87deg,
-        rgb(0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.14) 30%,
-        rgba(0, 0, 0, 0.14) 70%,
-        rgb(0, 0, 0) 100%
-      );
+    .loading-bar-light {
       position: absolute;
-      inset: 0px;
-    }
-    
-    .loader-container .loader .light {
-      width: 70px;
+      top: 0; left: -40%;
+      width: 40%;
       height: 100%;
-      position: absolute;
-      left: -20%;
-      top: 0px;
-      background: linear-gradient(
-        87deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgb(0, 204, 255) 40%,
-        rgb(0, 204, 255) 60%,
-        rgba(0, 0, 0, 0) 100%
-      );
-      animation: light 2s infinite ease-in-out;
-      filter: blur(1.5px);
+      background: linear-gradient(90deg, transparent, var(--black), transparent);
+      animation: barSweep 1.4s ease-in-out infinite;
     }
-    
-    @keyframes light {
-      from {
-        left: -30%;
-        filter: blur(1.5px);
-      }
-      to {
-        left: 100%;
-        filter: blur(1px);
-      }
+    @keyframes barSweep {
+      from { left: -40%; }
+      to { left: 100%; }
     }
-    
-    /* NEW: GADGETS blurring text animation */
-    .gadgets-blur {
-      position: absolute;
-      bottom: 40px;
-      right: 40px;
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 1.8rem;
-      color: #fff;
-      letter-spacing: 2px;
-      animation: text-blur-animation 2s infinite alternate;
-    }
-    
-    @keyframes text-blur-animation {
-      0% {
-        filter: blur(0px);
-        opacity: 1;
-      }
-      100% {
-        filter: blur(3px);
-        opacity: 0.7;
-      }
-    }
-
-    :root { 
-      --bg-dark: #0b0b0b;
-      --bg-light: #f5f5f5;
-      --text-dark: #ffffff;
-      --text-light: #000000;
-      --accent: #6ee7b7;
-      --glass-dark: rgba(255, 255, 255, 0.1);
-      --glass-light: rgba(0, 0, 0, 0.1);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: var(--bg-light); /* Default to light theme */
-      color: var(--text-light); /* Default to light theme */
-      min-height: 100vh;
-      overflow-x: hidden;
-      transition: background 0.5s ease, color 0.5s ease;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    
-    body.dark-mode {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    /* Subtle animated background */
-    body::before {
-      content: '';
+    .loading-sub {
       position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      font-family: var(--cinzel);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: #999;
+      animation: loadGlow 3s ease-in-out infinite 0.5s;
+    }
+
+    /* ===== PAGE SYSTEM ===== */
+    .page { display: none; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ===== DARK / LIGHT THEME ===== */
+    .theme-dark { background: var(--black); color: var(--white); }
+    .theme-light { background: var(--white); color: var(--black); }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
       top: 0;
-      left: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      border-bottom: 1px solid rgba(128,128,128,0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-dark { background: rgba(10,10,10,0.9); border-color: rgba(255,255,255,0.08); }
+    .nav-light { background: rgba(245,244,240,0.92); border-color: rgba(0,0,0,0.08); }
+
+    .nav-logo {
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      height: 160px;
+    }
+    .nav-logo img {
+      height: 160px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-products-btn {
+      font-family: var(--cinzel);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+      padding: 0.4rem 0.8rem;
+      position: relative;
+      transition: opacity 0.3s;
+    }
+    .nav-products-btn.glowing {
+      animation: navGlow 2s ease-in-out infinite;
+    }
+    .nav-products-btn.glowing-light {
+      animation: navGlowLight 2s ease-in-out infinite;
+    }
+    @keyframes navGlow {
+      0%, 100% { color: rgba(255,255,255,0.5); text-shadow: none; }
+      50% { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.6); }
+    }
+    @keyframes navGlowLight {
+      0%, 100% { color: rgba(0,0,0,0.4); }
+      50% { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); }
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .nav-mode-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+    }
+    .mode-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: inherit;
+      padding: 0.3rem 0.5rem;
+      transition: all 0.3s;
+      opacity: 0.45;
+    }
+    .mode-btn.active-mode { opacity: 1; font-weight: 700; }
+    .mode-btn.glowing-mode {
+      opacity: 0.6;
+      animation: navGlow 2s ease-in-out infinite;
+    }
+    .mode-btn.glowing-mode-light {
+      opacity: 0.6;
+      animation: navGlowLight 2s ease-in-out infinite;
+    }
+    .mode-separator { opacity: 0.3; font-size: 0.7rem; }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      animation: navGlow 2.5s ease-in-out infinite;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: currentColor;
+      transition: all 0.3s;
+    }
+    .mobile-menu-btn.light-mode-menu {
+      animation: navGlowLight 2.5s ease-in-out infinite;
+    }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+    }
+    .mobile-overlay.open { display: block; }
+    .mobile-panel {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(300px, 85vw);
+      height: 100vh;
+      background: #fff;
+      z-index: 201;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .mobile-panel.open { transform: translateX(0); }
+    .mobile-panel-close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+    .mobile-mode-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .mobile-mode-btn {
+      flex: 1;
+      padding: 0.7rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #f5f4f0;
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      color: #000;
+      transition: all 0.3s;
+    }
+    .mobile-mode-btn.active-mode {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+    .mobile-mode-btn.glowing-mobile {
+      animation: navGlowLight 2s ease-in-out infinite;
+      border-color: #000;
+    }
+    .mobile-panel-btn {
       width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(110, 231, 183, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(110, 231, 183, 0.05) 0%, transparent 50%);
-      animation: background-shift 20s ease-in-out infinite;
-      pointer-events: none;
+      padding: 0.85rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: #f5f4f0;
+      font-family: var(--cinzel);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      color: #000;
+      transition: all 0.3s;
+    }
+    .mobile-panel-btn:hover { background: #000; color: #fff; border-color: #000; }
+
+    /* ===== ROCKET BUTTON ===== */
+    .rocket-btn {
+      --primary: #222;
+      --neutral-1: #1a1a1a;
+      --neutral-2: #0f0f0f;
+      --radius: 12px;
+      cursor: pointer;
+      border-radius: var(--radius);
+      border: none;
+      box-shadow: 0 0.5px 0.5px 1px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.3s ease;
+      min-width: 160px;
+      padding: 14px 20px;
+      height: 52px;
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #fff;
+      background: var(--neutral-1);
+      overflow: hidden;
+    }
+    .rocket-btn:hover { transform: scale(1.02); box-shadow: 0 0 1px 2px rgba(255,255,255,0.15), 0 12px 28px rgba(0,0,0,0.35); }
+    .rocket-btn:active { transform: scale(0.98); }
+    .rocket-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+                  linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(0,0,0,0.3)) border-box;
+      z-index: 0;
+      transition: all 0.4s ease;
+    }
+    .rocket-btn::before {
+      content: "";
+      inset: 5px;
+      position: absolute;
+      background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
+      border-radius: 8px;
+      filter: blur(0.5px);
       z-index: 0;
     }
-    
-    body.dark-mode::before {
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(110, 231, 183, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(110, 231, 183, 0.05) 0%, transparent 50%);
-    }
-    
-    @keyframes background-shift {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.1) rotate(2deg); }
-    }
-
-    /* Container */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      animation: container-fade-in 1s ease-out;
-    }
-    
-    @keyframes container-fade-in {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* TOP SECTION */
-    .top-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 3rem;
-      animation: slide-down-fade 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    
-    @keyframes slide-down-fade {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Logo - Bigger size */
-    .logo-container {
-      width: 120px;
-      height: 100px;
-      align-self: flex-start;
-      margin-bottom: 2rem;
-      animation: logo-entrance 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: pointer;
-      position: relative;
-      z-index: 10;
-    }
-    
-    @keyframes logo-entrance {
-      from {
-        opacity: 0;
-        transform: scale(0.5) rotate(-180deg);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-      }
-    }
-
-    .logo-svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-      animation: float 6s ease-in-out infinite;
-      transition: all 0.3s ease;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .logo-svg:hover {
-      transform: scale(1.05) translateY(-8px);
-      filter: drop-shadow(0 0 20px rgba(110, 231, 183, 0.6));
-    }
-
-    /* VALTS GADGETS Title */
-    .main-title {
-      font-family: 'Iceberg', sans-serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      letter-spacing: 0.05em;
-      text-align: center;
-      animation: title-glitch-entrance 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-      margin-bottom: 3rem;
-    }
-    
-    @keyframes title-glitch-entrance {
-      0% {
-        opacity: 0;
-        transform: scale(0.8) translateY(30px);
-        filter: blur(10px);
-        letter-spacing: 0.5em;
-      }
-      60% {
-        opacity: 1;
-        transform: scale(1.05) translateY(-5px);
-        filter: blur(0);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        letter-spacing: 0.05em;
-      }
-    }
-    
-    /* MIDDLE SECTION - 3D Carousel */
-    .carousel-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 3rem;
-      min-height: 500px;
-      animation: carousel-entrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
-    }
-    
-    @keyframes carousel-entrance {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.9);
-        filter: blur(5px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .model-viewer-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    model-viewer {
-      width: 100%;
-      height: 100%;
-      --poster-color: transparent;
-      --progress-bar-color: var(--accent);
-      cursor: grab;
-    }
-    
-    /* Loading Overlay - NEW DESIGN */
-    .model-loading {
+    .btn-outline {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 20;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
-    
-    .model-loading.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    
-    /* Blurred Logo Background */
-    .loading-logo {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      opacity: 0.3;
-      filter: blur(8px);
-      animation: logo-pulse 2s ease-in-out infinite;
-    }
-    
-    @keyframes logo-pulse {
-      0%, 100% { 
-        transform: scale(1);
-        opacity: 0.3;
-      }
-      50% { 
-        transform: scale(1.1);
-        opacity: 0.5;
-      }
-    }
-    
-    .loading-logo svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-    
-    /* New Loader Animation */
-    .loader {
-      width: 6em;
-      height: 6em;
-      font-size: 10px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-    }
-
-    .loader .face {
-      position: absolute;
-      border-radius: 50%;
-      border-style: solid;
-      animation: animate023845 3s linear infinite;
-    }
-
-    .loader .face:nth-child(1) {
-      width: 100%;
-      height: 100%;
-      color: var(--accent);
-      border-color: currentColor transparent transparent currentColor;
-      border-width: 0.2em 0.2em 0em 0em;
-      --deg: -45deg;
-      animation-direction: normal;
-    }
-
-    .loader .face:nth-child(2) {
-      width: 70%;
-      height: 70%;
-      color: var(--text-light);
-      border-color: currentColor currentColor transparent transparent;
-      border-width: 0.2em 0em 0em 0.2em;
-      --deg: -135deg;
-      animation-direction: reverse;
-    }
-    
-    body.dark-mode .loader .face:nth-child(2) {
-      color: var(--text-dark);
-    }
-
-    .loader .face .circle {
-      position: absolute;
-      width: 50%;
-      height: 0.1em;
-      top: 50%;
-      left: 50%;
-      background-color: transparent;
-      transform: rotate(var(--deg));
-      transform-origin: left;
-    }
-
-    .loader .face .circle::before {
-      position: absolute;
-      top: -0.5em;
-      right: -0.5em;
-      content: '';
-      width: 1em;
-      height: 1em;
-      background-color: currentColor;
-      border-radius: 50%;
-      box-shadow: 0 0 2em,
-                  0 0 4em,
-                  0 0 6em,
-                  0 0 8em,
-                  0 0 10em,
-                  0 0 0 0.5em rgba(110, 231, 183, 0.1);
-    }
-
-    @keyframes animate023845 {
-      to {
-        transform: rotate(1turn);
-      }
-    }
-
-    /* Carousel Navigation Buttons - FLOATING BLUR BLINKING ICONS */
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 10;
-      animation: button-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s backwards, btn-glow-blink 3s ease-in-out infinite;
-      opacity: 0.8;
-    }
-    
-    @keyframes button-pop-in {
-      from {
-        opacity: 0;
-        transform: translateY(-50%) scale(0);
-      }
-      to {
-        opacity: 0.8;
-        transform: translateY(-50%) scale(1);
-      }
-    }
-    
-    @keyframes btn-glow-blink {
-      0%, 100% {
-        opacity: 0.8;
-        filter: drop-shadow(0 0 5px rgba(110, 231, 183, 0.5)) blur(0.5px);
-      }
-      50% {
-        opacity: 0.5;
-        filter: drop-shadow(0 0 15px rgba(110, 231, 183, 0.8)) blur(1.5px);
-      }
-    }
-
-    body.dark-mode .carousel-btn {
-      animation: button-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s backwards, btn-glow-blink-light 3s ease-in-out infinite;
-    }
-    
-    @keyframes btn-glow-blink-light {
-      0%, 100% {
-        opacity: 0.8;
-        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) blur(0.5px);
-      }
-      50% {
-        opacity: 0.5;
-        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8)) blur(1.5px);
-      }
-    }
-
-    .carousel-btn:hover {
-      transform: translateY(-50%) scale(1.15);
-      animation: none;
-      opacity: 1;
-      filter: drop-shadow(0 0 20px rgba(110, 231, 183, 0.9)) blur(0);
-    }
-
-    .carousel-btn.prev { left: -25px; }
-    .carousel-btn.next { right: -25px; }
-
-    .carousel-btn svg {
-      width: 28px;
-      height: 28px;
-      stroke: var(--text-light);
-      fill: none;
-      stroke-width: 2;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-      transition: stroke 0.3s ease;
-    }
-    
-    body.dark-mode .carousel-btn svg {
-      stroke: #ffffff !important;
-    }
-
-    /* Model Name */
-    .model-name {
-      font-family: 'Iceberg', sans-serif;
-      font-size: 1.8rem;
-      text-align: center;
-      margin-top: 1.5rem;
-      animation: model-name-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 1s backwards;
-    }
-    
-    @keyframes model-name-entrance {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(5px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    /* 3D Gesture Hint - Matches theme color */
-    .gesture-hint {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      opacity: 0.9;
-      cursor: pointer;
-      animation: gesture-blink-blur 3s ease-in-out infinite;
-      z-index: 5;
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-    }
-    
-    .gesture-hint svg {
-      width: 100%;
-      height: 100%;
-      fill: var(--text-light);
-    }
-    
-    body.dark-mode .gesture-hint {
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-    }
-    
-    body.dark-mode .gesture-hint svg {
-      fill: #ffffff !important;
-    }
-
-    @keyframes gesture-blink-blur {
-      0%, 100% { 
-        opacity: 0.9;
-        filter: blur(0) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-      }
-      50% { 
-        opacity: 0.5;
-        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-      }
-    }
-    
-    body.dark-mode .gesture-hint {
-      animation: gesture-blink-blur-light 3s ease-in-out infinite;
-    }
-    
-    @keyframes gesture-blink-blur-light {
-      0%, 100% { 
-        opacity: 0.9;
-        filter: blur(0) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-      }
-      50% { 
-        opacity: 0.5;
-        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-      }
-    }
-
-    /* 3D Instructions Modal */
-    .instructions-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10001;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    
-    .instructions-modal.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .instructions-content {
-      background: var(--glass-light);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      border-radius: 20px;
-      padding: 2.5rem;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-      animation: modal-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    
-    body.dark-mode .instructions-content {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    
-    @keyframes modal-slide-up {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-    
-    .instructions-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--glass-light);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--text-light);
-      font-size: 1.2rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    
-    body.dark-mode .instructions-close {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--text-dark);
-    }
-    
-    .instructions-close:hover {
-      transform: scale(1.1);
-      background: rgba(110, 231, 183, 0.2);
-    }
-    
-    .instructions-title {
-      font-family: 'Iceberg', sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-light);
-      text-align: center;
-    }
-    
-    body.dark-mode .instructions-title {
-      color: #ffffff !important;
-    }
-    
-    .instructions-text {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: var(--text-light);
-    }
-    
-    body.dark-mode .instructions-text {
-      color: #ffffff !important;
-    }
-    
-    .instructions-tip {
-      font-size: 1rem;
-      color: rgba(0, 0, 0, 0.7);
-      text-align: center;
-      margin-top: 1.5rem;
-      font-style: italic;
-    }
-    
-    body.dark-mode .instructions-tip {
-      color: rgba(255, 255, 255, 0.7) !important;
-    }
-
-    /* Scroll Down Arrow - Bottom left of 3D model, always visible on mobile */
-    .scroll-down-arrow {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      font-size: 2.5rem;
-      cursor: pointer;
-      z-index: 100;
-      transition: all 0.3s ease;
-      animation: arrow-blink-bounce 2.5s ease-in-out infinite;
-      filter: drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-      opacity: 0.9;
-    }
-
-    @keyframes arrow-blink-bounce {
-      0%, 100% { 
-        transform: translateY(0);
-        filter: blur(0) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-        opacity: 0.9;
-      }
-      25% {
-        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-        opacity: 0.5;
-      }
-      50% { 
-        transform: translateY(-8px);
-        filter: blur(0) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-        opacity: 0.9;
-      }
-      75% {
-        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-        opacity: 0.5;
-      }
-    }
-
-    .scroll-down-arrow:hover {
-      transform: scale(1.2);
-      animation: none;
-      opacity: 1;
-    }
-    
-    /* Hide scroll arrow on desktop */
-    @media (min-width: 768px) {
-      .scroll-down-arrow {
-        display: none;
-      }
-    }
-
-    /* MESSAGE SECTION - 6 Lines */
-    .message-section {
-      text-align: center;
-      margin: 3rem auto;
-      max-width: 800px;
-      line-height: 1.8;
-    }
-
-    .message-section p {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: message-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    
-    .message-section p:nth-child(1) { animation-delay: 1.2s; }
-    .message-section p:nth-child(2) { animation-delay: 1.4s; }
-    .message-section p:nth-child(3) { animation-delay: 1.6s; }
-    .message-section p:nth-child(4) { animation-delay: 1.8s; }
-    .message-section p:nth-child(5) { animation-delay: 2s; }
-    .message-section p:nth-child(6) { animation-delay: 2.2s; }
-    
-    @keyframes message-fade-in {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .message-section .valt-text {
-      font-family: 'Iceberg', sans-serif;
-    }
-
-    /* Arrow down with blur effect */
-    .arrow-down {
-      display: inline-block;
-      animation: arrow-blink 2s ease-in-out infinite;
-    }
-
-    @keyframes arrow-blink {
-      0%, 100% { opacity: 1; filter: blur(0); }
-      50% { opacity: 0.5; filter: blur(3px); }
-    }
-
-    /* WAITLIST FORM - 2 INPUTS ONLY */
-    .waitlist-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin: 2rem auto;
-      max-width: 500px;
-      animation: form-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 2.4s backwards;
-    }
-    
-    @keyframes form-entrance {
-      from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .glass-input {
-      width: 100%;
-      padding: 1rem 1.5rem;
-      background: var(--glass-light);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
-      color: var(--text-light);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    body.dark-mode .glass-input {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--text-dark);
-    }
-
-    .glass-input::placeholder {
-      color: rgba(0, 0, 0, 0.6);
-    }
-
-    body.dark-mode .glass-input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .glass-input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 20px rgba(110, 231, 183, 0.3);
-    }
-
-    .form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 1rem 2.5rem;
-      background: var(--text-light);
-      color: var(--bg-light);
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 0.5rem;
-      position: relative;
+      border-radius: inherit;
       overflow: hidden;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      inset: -2px -3.5px;
+    }
+    .btn-outline::before {
+      content: "";
+      position: absolute;
+      inset: -100%;
+      background: conic-gradient(from 180deg, transparent 60%, rgb(80,80,80) 80%, transparent 100%);
+      animation: btnSpin 2s linear infinite;
+      animation-play-state: paused;
+    }
+    @keyframes btnSpin { to { transform: rotate(360deg); } }
+    .rocket-btn:hover .btn-outline { opacity: 1; }
+    .rocket-btn:hover .btn-outline::before { animation-play-state: running; }
+    .btn-state {
+      padding-left: 26px;
+      z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-    }
-    
-    .submit-btn .btn-text {
-      display: inline-block;
-    }
-    
-    .submit-btn .btn-morph {
       position: relative;
-      display: inline-block;
-      width: 70px;
-      height: 1.2em;
     }
-    
-    .submit-btn .morph-word {
+    .btn-state p { display: flex; align-items: center; justify-content: center; gap: 1px; }
+    .btn-state p span {
+      display: block;
+      opacity: 0;
+      animation: btnSlideDown 0.8s ease forwards calc(var(--i) * 0.03s);
+    }
+    .rocket-btn:hover .btn-state p span {
+      opacity: 1;
+      animation: btnWave 0.5s ease forwards calc(var(--i) * 0.02s);
+    }
+    .rocket-btn:focus .btn-state p span {
+      opacity: 1;
+      animation: btnDisappear 0.6s ease forwards calc(var(--i) * 0.03s);
+    }
+    @keyframes btnWave {
+      30% { opacity:1; transform: translateY(4px); }
+      50% { opacity:1; transform: translateY(-3px); color: #aaa; }
+      100% { opacity:1; transform: translateY(0); }
+    }
+    @keyframes btnSlideDown {
+      0% { opacity:0; transform: translateY(-20px) rotate(-90deg); color: #aaa; filter: blur(5px); }
+      30% { opacity:1; transform: translateY(4px); filter: blur(0); }
+      50% { opacity:1; transform: translateY(-3px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+    @keyframes btnDisappear {
+      from { opacity:1; }
+      to { opacity:0; transform: translateX(5px) translateY(20px); filter: blur(5px); }
+    }
+    .btn-icon {
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      animation: word-morph 4s ease-in-out infinite;
+      left: 0; top: 0; bottom: 0;
+      margin: auto;
+      width: 24px; height: 24px;
+      transform: scale(1.15);
+      transition: all 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 3;
     }
-    
-    .submit-btn .morph-word:nth-child(1) {
-      animation-delay: 0s;
+    .rocket-btn:hover .btn-icon { transform: rotate(45deg) scale(1.15); }
+    .rocket-btn:focus .btn-icon { transform: scale(1.15); }
+    .rocket-btn:focus .btn-icon svg { animation: btnTakeOff 0.8s linear forwards; }
+    @keyframes btnTakeOff {
+      0% { opacity:1; }
+      60% { opacity:1; transform: translateX(60px) rotate(45deg) scale(2); }
+      100% { opacity:0; transform: translateX(140px) rotate(45deg) scale(0); }
     }
-    
-    .submit-btn .morph-word:nth-child(2) {
-      animation-delay: 2s;
+    .btn-state-sent { display: none; z-index: 2; padding-left: 26px; position: relative; }
+    .rocket-btn:focus .btn-state-default { position: absolute; }
+    .rocket-btn:focus .btn-state-sent {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: #fff;
     }
-    
-    @keyframes word-morph {
-      0% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translateY(10px);
-      }
-      10% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-      40% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-      50% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translateY(-10px);
-      }
-      100% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translateY(-10px);
-      }
+    .rocket-btn:focus .btn-state-sent span {
+      opacity:0;
+      animation: btnSlideDown 0.8s ease forwards calc(var(--i) * 0.2s);
     }
-
-    body.dark-mode .submit-btn {
-      background: var(--text-dark);
-      color: var(--bg-dark);
+    .rocket-btn:focus .btn-state-sent svg {
+      opacity:0;
+      animation: btnAppear 1.2s ease forwards 0.8s;
+    }
+    @keyframes btnAppear {
+      0% { opacity:0; transform: scale(4) rotate(-40deg); filter: blur(4px); }
+      30% { opacity:1; transform: scale(0.6); filter: blur(1px); }
+      50% { opacity:1; transform: scale(1.2); filter: blur(0); }
+      100% { opacity:1; transform: scale(1); }
     }
 
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(110, 231, 183, 0.4);
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.5;
+    /* Disabled button state */
+    .rocket-btn.disabled-btn {
+      opacity: 0.35;
+      pointer-events: none;
       cursor: not-allowed;
     }
 
-    .success-message {
-      color: var(--accent);
-      font-weight: 600;
-      text-align: center;
-      margin-top: 1rem;
-      font-family: 'Iceberg', sans-serif;
+    /* ===== MAIN LAYOUT ===== */
+    .page-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem 4rem;
     }
 
-    /* BOTTOM SECTION */
-    .bottom-section {
+    /* ===== MESSAGE SECTIONS ===== */
+    .msg-block {
+      padding: 3rem 0 2rem;
+      max-width: 680px;
+    }
+    .msg-block h1 {
+      font-family: var(--cinzel);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .msg-block p {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.8;
+      opacity: 0.7;
+      font-weight: 300;
+    }
+    .msg-bottom { padding: 2.5rem 0 1.5rem; }
+
+    /* ===== MEDIA GRID ===== */
+    .media-grid {
       display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem 0;
-      margin-top: auto;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+      margin: 2rem 0;
+      position: relative;
     }
 
-    /* Social Section */
-    .social-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .shop-today {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .shop-arrow {
-      display: inline-block;
-      animation: arrow-blink 2s ease-in-out infinite;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--glass-light);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+    /* Top two video boxes */
+    .video-box {
+      background: #111;
       border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    body.dark-mode .social-icon {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .social-icon:hover {
-      transform: translateY(-3px);
-      background: rgba(110, 231, 183, 0.2);
-      border-color: var(--accent);
-    }
-
-    .social-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-    }
-
-    /* Powered by Valts */
-    .powered-by {
-      font-size: 0.9rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      animation: text-blur-load 3s linear infinite;
-    }
-    
-    @keyframes text-blur-load {
-      0%, 90% { filter: blur(0); }
-      50% { filter: blur(3px); }
-    }
-
-    .powered-by .valts-text {
-      font-family: 'Iceberg', sans-serif;
-    }
-
-    /* New Horizontal Loader under Powered by Valts */
-    .bottom-loader {
-      width: 180px;
-      height: 2px;
       position: relative;
-      overflow: hidden;
-      border-radius: 1px;
-    }
-    
-    .bottom-loader .loader {
-      height: 100%;
-      width: 100%;
-      background: rgb(44, 44, 44);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    body.dark-mode .bottom-loader .loader {
-      background: rgba(200, 200, 200, 0.8);
-    }
-    
-    .bottom-loader .loader .black_overlay {
-      background: linear-gradient(
-        87deg,
-        rgb(0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.14) 30%,
-        rgba(0, 0, 0, 0.14) 70%,
-        rgb(0, 0, 0) 100%
-      );
-      position: absolute;
-      inset: 0px;
-    }
-    
-    body.dark-mode .bottom-loader .loader .black_overlay {
-      background: linear-gradient(
-        87deg,
-        rgba(255, 255, 255, 0.7) 0%,
-        rgba(255, 255, 255, 0.1) 30%,
-        rgba(255, 255, 255, 0.1) 70%,
-        rgba(255, 255, 255, 0.7) 100%
-      );
-    }
-    
-    .bottom-loader .loader .light {
-      width: 50px;
-      height: 100%;
-      position: absolute;
-      left: -20%;
-      top: 0px;
-      background: linear-gradient(
-        87deg,
-        rgba(110, 231, 183, 0) 0%,
-        var(--accent) 40%,
-        var(--accent) 60%,
-        rgba(110, 231, 183, 0) 100%
-      );
-      animation: light 2s infinite ease-in-out;
-      filter: blur(1.5px);
-    }
-    
-    body.dark-mode .bottom-loader .loader .light {
-      background: linear-gradient(
-        87deg,
-        rgba(110, 231, 183, 0) 0%,
-        rgba(110, 231, 183, 0.8) 40%,
-        rgba(110, 231, 183, 0.8) 60%,
-        rgba(110, 231, 183, 0) 100%
-      );
-    }
-
-    @keyframes light {
-      from {
-        left: -30%;
-        filter: blur(1.5px);
-      }
-      to {
-        left: 100%;
-        filter: blur(1px);
-      }
-    }
-
-    /* ============= NEW CHECKBOX TOGGLE ============= */
-    .checkbox-wrapper-41 {
-      --size: 100px;
-      position: relative;
-      z-index: 10;
-      width: fit-content;
-      height: 50px;
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"] {
-      -webkit-appearance: none;
-      width: var(--size);
-      height: calc(var(--size) / 2);
-      background-color: #ffffff; /* Light theme: white space */
-      border: 3px solid #000000; /* Light theme: black boundary */
-      border-radius: 30px 100px 100px 100px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      outline: none;
       cursor: pointer;
-      position: relative;
-      transition: all 0.5s;
+      transition: transform 0.3s;
     }
-    
-    /* Dark theme styles for the toggle */
-    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"] {
-      background-color: #000000; /* Dark theme: black space */
-      border: 3px solid #ffffff; /* Dark theme: white boundary */
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"]::before {
-      content: "";
-      position: absolute;
-      width: calc(var(--size) / 2);
-      height: calc(var(--size) / 2);
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%) scale(0.7);
-      border: 3px solid #000000; /* Light theme: black boundary for knob */
-      border-radius: 30px 100px 100px 100px;
-      background-color: #000000; /* Light theme: black knob */
-      box-sizing: border-box;
-      transition: all 0.5s;
-    }
-    
-    /* Dark theme styles for the knob */
-    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"]::before {
-      background-color: #ffffff; /* Dark theme: white knob */
-      border: 3px solid #ffffff; /* Dark theme: white boundary for knob */
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"]:checked {
-      background-color: #000000; /* Checked state in light theme: black space */
-      border-radius: 100px 100px 30px 100px;
-      border: 3px solid #000000; /* Light theme: black boundary */
-    }
-    
-    /* Dark theme checked state */
-    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"]:checked {
-      background-color: #ffffff; /* Checked state in dark theme: white space */
-      border: 3px solid #ffffff; /* Dark theme: white boundary */
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
-      left: 50%;
-      background-color: #ffffff; /* Checked state in light theme: white knob */
-      border-radius: 100px 100px 30px 100px;
-      border: 3px solid #000000; /* Light theme: black boundary for knob */
-    }
-    
-    /* Dark theme checked state for knob */
-    body.dark-mode .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
-      background-color: #000000; /* Checked state in dark theme: black knob */
-      border: 3px solid #ffffff; /* Dark theme: white boundary for knob */
-    }
-    /* ============= END NEW CHECKBOX TOGGLE ============= */
-
-    /* GET BUTTON */
-    .get-button {
-      margin-top: 1rem;
-      padding: 0.6rem 2rem;
-      background: var(--text-light);
-      color: var(--bg-light);
+    .video-box:hover { transform: scale(1.01); }
+    .video-box iframe, .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border: none;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Bricolage Grotesque', sans-serif;
     }
-    
-    body.dark-mode .get-button {
-      background: var(--text-dark);
-      color: var(--bg-dark);
-    }
-    
-    .get-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(110, 231, 183, 0.4);
-    }
-
-    /* CHAT ICON - Using your exact SVG */
-    .chat-icon {
-      position: absolute;
-      bottom: 20px;
-      right: 70px;
-      width: 40px;
-      height: 40px;
-      opacity: 0.9;
-      cursor: pointer;
-      animation: chat-blink-blur 3s ease-in-out infinite;
-      z-index: 5;
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-    }
-    
-    .chat-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: var(--text-light);
-    }
-    
-    body.dark-mode .chat-icon {
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-    }
-    
-    body.dark-mode .chat-icon svg {
-      fill: #ffffff !important;
-    }
-    
-    .chat-icon:hover {
-      transform: scale(1.1);
-      opacity: 1;
-      animation: none;
-    }
-
-    @keyframes chat-blink-blur {
-      0%, 100% { 
-        opacity: 0.9;
-        filter: blur(0) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-      }
-      50% { 
-        opacity: 0.5;
-        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(110, 231, 183, 0.4));
-      }
-    }
-    
-    body.dark-mode .chat-icon {
-      animation: chat-blink-blur-light 3s ease-in-out infinite;
-    }
-    
-    @keyframes chat-blink-blur-light {
-      0%, 100% { 
-        opacity: 0.9;
-        filter: blur(0) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-      }
-      50% { 
-        opacity: 0.5;
-        filter: blur(1.5px) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-      }
-    }
-
-    /* CHAT INTERFACE */
-    .chat-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    .video-placeholder {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    
-    .chat-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    body.chat-active {
-      overflow: hidden;
-    }
-    
-    .chat-container {
-      position: relative;
-      width: 90%;
-      max-width: 600px;
-      height: 70vh;
-      max-height: 600px;
-      display: flex;
-      flex-direction: column;
-      animation: chat-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    
-    @keyframes chat-slide-up {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-    
-    .chat-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      background: var(--glass-light);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--text-light);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    body.dark-mode .chat-close {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--text-dark);
-    }
-    
-    .chat-close:hover {
-      transform: scale(1.1);
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .chat-box {
-      background: var(--glass-light);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      padding: 2rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    body.dark-mode .chat-box {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .chat-messages {
-      flex: 1;
-      overflow-y: auto;
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .chat-message {
-      padding: 1rem 1.5rem;
-      border-radius: 15px;
-      max-width: 80%;
-      animation: message-appear 0.3s ease;
-      color: var(--text-light);
-    }
-    
-    body.dark-mode .chat-message {
-      color: #ffffff !important;
-    }
-    
-    @keyframes message-appear {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .chat-message.bot {
-      background: var(--glass-light);
-      align-self: flex-start;
-      border: 1px solid rgba(110, 231, 183, 0.3);
-    }
-    
-    body.dark-mode .chat-message.bot {
-      background: var(--glass-dark);
-      border: 1px solid rgba(110, 231, 183, 0.3);
-      color: #ffffff !important;
-    }
-    
-    .chat-message.user {
-      background: rgba(110, 231, 183, 0.2);
-      align-self: flex-end;
-      border: 1px solid rgba(110, 231, 183, 0.3);
-      color: var(--text-light);
-    }
-    
-    body.dark-mode .chat-message.user {
-      background: rgba(110, 231, 183, 0.15);
-      color: #ffffff !important;
-    }
-    
-    .chat-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      animation: actions-appear 0.3s ease;
-    }
-    
-    @keyframes actions-appear {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .chat-action-btn {
-      flex: 1;
-      padding: 0.8rem 1.5rem;
-      background: var(--glass-light);
-      color: var(--text-light);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    
-    body.dark-mode .chat-action-btn {
-      background: var(--glass-dark);
-      color: #ffffff !important;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .chat-action-btn:hover {
-      transform: translateY(-2px);
-      background: rgba(110, 231, 183, 0.2);
-      border-color: var(--accent);
-    }
-    
-    .chat-input-box {
-      background: var(--glass-light);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(0, 0, 0, 0.3);
-      border-radius: 15px;
-      padding: 0.8rem 1rem;
-      display: flex;
-      align-items: center;
       gap: 0.8rem;
-      margin-top: auto;
+      color: rgba(255,255,255,0.3);
+      font-family: var(--cinzel);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      height: 100%;
+      width: 100%;
     }
-    
-    body.dark-mode .chat-input-box {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .chat-input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: var(--text-light);
-      font-size: 1rem;
-      outline: none;
-      font-family: 'Bricolage Grotesque', sans-serif;
-    }
-    
-    body.dark-mode .chat-input {
-      color: #ffffff !important;
-    }
-    
-    .chat-input::placeholder {
-      color: rgba(0, 0, 0, 0.5);
-      animation: placeholder-blink 2s ease-in-out infinite;
-    }
-    
-    body.dark-mode .chat-input::placeholder {
-      color: rgba(255, 255, 255, 0.7) !important;
-    }
-    
-    @keyframes placeholder-blink {
-      0%, 100% { opacity: 1; filter: blur(0); }
-      50% { opacity: 0.5; filter: blur(0.5px); }
-    }
-    
-    .chat-send {
-      background: var(--accent);
-      border: none;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
+    .video-placeholder svg { opacity: 0.4; }
+    .video-link-input {
+      position: absolute;
+      bottom: 10px; left: 10px; right: 10px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: #fff;
+      font-family: var(--cormorant);
+      font-size: 0.85rem;
       display: none;
+    }
+
+    /* Bottom row: circles + center carousel */
+    .media-bottom-row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 90px 1fr 90px;
+      gap: 12px;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    /* Center carousel */
+    .carousel-box {
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+      cursor: pointer;
+    }
+    .carousel-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      transition: opacity 0.4s;
+    }
+    .carousel-box img.active { display: block; }
+    .carousel-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
       align-items: center;
       justify-content: center;
+      color: rgba(255,255,255,0.25);
+      font-family: var(--cinzel);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active { background: rgba(255,255,255,0.85); }
+    .carousel-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.4);
+      border: none;
+      color: #fff;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .carousel-nav:hover { background: rgba(0,0,0,0.7); }
+    .carousel-nav.prev-nav { left: 8px; }
+    .carousel-nav.next-nav { right: 8px; }
+
+    /* Circular image blocks */
+    .circle-block {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
       flex-shrink: 0;
     }
-    
-    .chat-send.visible {
-      display: flex;
+    .circle-block:hover { transform: scale(1.06); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+    .circle-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    
-    .chat-send:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(110, 231, 183, 0.6);
+    .circle-placeholder {
+      color: rgba(255,255,255,0.2);
+      font-size: 0.55rem;
+      font-family: var(--cinzel);
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 10px;
     }
-    
-    .chat-send svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--bg-light);
-    }
-    
-    body.dark-mode .chat-send svg {
-      fill: var(--bg-dark);
-    }
-    
-    /* Contact Form in Chat */
-    .chat-contact-form {
+
+    /* Lightbox */
+    .lightbox {
       display: none;
-      flex-direction: column;
-      gap: 1rem;
-      animation: form-appear 0.3s ease;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
     }
-    
-    .chat-contact-form.visible {
-      display: flex;
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: min(600px, 90vw);
+      width: 100%;
     }
-    
-    @keyframes form-appear {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .lightbox-close {
+      position: absolute;
+      top: -40px; right: 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s;
     }
-    
-    .chat-form-input {
-      padding: 0.8rem 1rem;
-      background: var(--glass-light);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+    .lightbox img {
+      width: 100%;
       border-radius: 10px;
-      color: var(--text-light);
-      font-size: 0.95rem;
+      display: block;
+    }
+
+    /* ===== BOTTOM ROW ===== */
+    .page-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 0 1rem;
+      border-top: 1px solid rgba(128,128,128,0.15);
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .social-icon-link {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+      border: 1px solid rgba(128,128,128,0.2);
+    }
+    .social-icon-link:hover { border-color: currentColor; transform: translateY(-2px); }
+    .social-icon-link svg { width: 18px; height: 18px; fill: currentColor; }
+    .footer-logo {
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      opacity: 0.4;
+    }
+
+    /* ===== PROJECT INFO FORM LINE ===== */
+    .project-access-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      margin-top: 2rem;
+      position: relative;
+    }
+    .project-line {
+      width: 1px;
+      height: 40px;
+      background: rgba(128,128,128,0.35);
+      margin-left: 80px;
+    }
+
+    /* ===== PRODUCTS PAGE ===== */
+    .products-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .product-card {
+      border: 1px solid rgba(128,128,128,0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      background: rgba(0,0,0,0.04);
+      transition: border-color 0.3s;
+    }
+    .product-card:hover { border-color: rgba(128,128,128,0.4); }
+    .product-tag {
+      font-family: var(--cinzel);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      opacity: 0.5;
+      margin-bottom: 0.7rem;
+    }
+    .product-title {
+      font-family: var(--cinzel);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .product-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      opacity: 0.65;
+      font-weight: 300;
+      margin-bottom: 1.8rem;
+    }
+    .product-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .product-price {
+      font-family: var(--cinzel);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      opacity: 0.6;
+    }
+    .back-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--cinzel);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      opacity: 0.5;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.3s;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    .back-btn:hover { opacity: 1; }
+
+    /* ===== PROJECT INFO PAGE ===== */
+    .form-container {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+    .form-field {
+      margin-bottom: 1.8rem;
+    }
+    .form-label {
+      display: block;
+      font-family: var(--cinzel);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.6rem;
+      opacity: 0.6;
+    }
+    .form-label .required { color: #999; }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      padding: 0.6rem 0;
+      font-family: var(--cormorant);
+      font-size: 1.1rem;
+      color: var(--black);
       outline: none;
-      transition: all 0.3s ease;
+      transition: border-color 0.3s;
+      font-weight: 300;
     }
-    
-    body.dark-mode .chat-form-input {
-      background: var(--glass-dark);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff !important;
+    .form-input:focus, .form-textarea:focus { border-bottom-color: var(--black); }
+    .form-textarea { resize: vertical; min-height: 160px; }
+    .form-input::placeholder, .form-textarea::placeholder { opacity: 0.3; }
+
+    /* Project type chips */
+    .chips-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.5rem;
     }
-    
-    .chat-form-input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 15px rgba(110, 231, 183, 0.3);
+    .chip {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.2);
+      font-family: var(--cormorant);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: var(--black);
+      background: transparent;
+      font-weight: 400;
     }
-    
-    .chat-form-input::placeholder {
-      color: rgba(0, 0, 0, 0.5);
+    .chip:hover { border-color: var(--black); background: rgba(0,0,0,0.04); }
+    .chip.selected { background: var(--black); color: #fff; border-color: var(--black); }
+
+    /* Retainer buttons */
+    .retainer-btns {
+      display: flex;
+      gap: 8px;
+      margin-top: 0.5rem;
     }
-    
-    body.dark-mode .chat-form-input::placeholder {
-      color: rgba(255, 255, 255, 0.7) !important;
+    .retainer-btn {
+      padding: 6px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.2);
+      font-family: var(--cormorant);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: var(--black);
+      background: transparent;
+    }
+    .retainer-btn:hover { border-color: var(--black); }
+    .retainer-btn.selected { background: var(--black); color: #fff; border-color: var(--black); }
+
+    /* Form submit button area */
+    .form-submit-area {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
     }
 
-    /* RESPONSIVE */
+    /* Video hand hint */
+    .video-hand-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      z-index: 5;
+      animation: handGlow 2s ease-in-out infinite;
+    }
+    .video-hand-hint img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
+    }
+    @keyframes handGlow {
+      0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)); }
+      50% { opacity: 0.45; filter: drop-shadow(0 0 12px rgba(255,255,255,0.8)) blur(0.5px); }
+    }
+
+    /* Video fullscreen lightbox */
+    .video-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      background: rgba(0,0,0,0.96);
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .video-lightbox.open { display: flex; }
+    .video-lightbox-inner {
+      position: relative;
+      width: min(92vw, 960px);
+    }
+    .video-lightbox-close {
+      position: absolute;
+      top: -42px;
+      right: 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s;
+    }
+    .video-lightbox-close:hover { background: rgba(255,255,255,0.22); }
+    .video-lightbox video {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      max-height: 80vh;
+    }
+
+    /* Circle prev/next nav */
+    .circle-prev, .circle-next {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      border: none;
+      color: #fff;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.65rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      z-index: 5;
+      line-height: 1;
+    }
+    .circle-prev:hover, .circle-next:hover { background: rgba(0,0,0,0.85); }
+    .circle-prev { left: 3px; }
+    .circle-next { right: 3px; }
+
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      .container {
-        padding: 1rem;
-        padding-bottom: 100px; /* Reduced space */
-      }
+      .page-inner { padding: 0 1.2rem 3rem; }
+      nav { padding: 1rem 1.2rem; }
+      .nav-center, .nav-right { display: none; }
+      .mobile-menu-btn { display: flex; }
 
-      .logo-container {
-        align-self: center;
-        margin-bottom: 1rem;
+      .media-grid { grid-template-columns: 1fr; gap: 10px; }
+      .video-box { grid-column: 1; }
+      .media-bottom-row {
+        grid-template-columns: 70px 1fr 70px;
+        gap: 8px;
       }
+      .circle-block { width: 68px; height: 68px; }
 
-      .main-title {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .carousel-container {
-        height: 400px;
-      }
-
-      .carousel-btn {
-        width: 45px;
-        height: 45px;
-      }
-
-      .carousel-btn.prev { left: -15px; }
-      .carousel-btn.next { right: -15px; }
-
-      .message-section {
-        margin: 2rem auto;
-      }
-
-      /* FIXED: Bottom section layout for mobile */
-      .bottom-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: 
-          "social social"
-          "toggle powered";
-        gap: 2rem;
-        padding-bottom: 40px;
-        text-align: center;
-        align-items: center;
-      }
-
-      .social-section {
-        grid-area: social;
-        order: 1;
-      }
-
-      .powered-by {
-        grid-area: powered;
-        order: 3;
-        justify-self: end;
-        margin: 0;
-      }
-      
-      /* NEW CHECKBOX TOGGLE FOR MOBILE */
-      .checkbox-wrapper-41 {
-        grid-area: toggle;
-        order: 2;
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin: 0;
-        transform: scale(0.9);
-        z-index: 1;
-        justify-self: start;
-      }
-      
-      .checkbox-wrapper-41 {
-        --size: 80px; /* Smaller size for mobile */
-      }
-      
-      .chat-container {
-        width: 95%;
-        height: 80vh;
-      }
-      
-      .chat-box {
-        padding: 1.5rem;
-      }
-      
-      .chat-icon {
-        right: 65px;
-        width: 35px;
-        height: 35px;
-      }
-      
-      .gesture-hint {
-        right: 15px;
-        bottom: 15px;
-        width: 35px;
-        height: 35px;
-      }
-      
-      .instructions-content {
-        padding: 1.5rem;
-      }
-      
-      .instructions-title {
-        font-size: 1.5rem;
-      }
-      
-      .instructions-text {
-        font-size: 1rem;
-      }
-      
-      .bottom-loader {
-        width: 150px;
-      }
-      
-      /* Loading screen responsive */
-      .valts-title-loading {
-        font-size: 4rem;
-      }
-      
-      .loader-container {
-        width: 250px;
-      }
-      
-      .gadgets-blur {
-        font-size: 1.4rem;
-        bottom: 20px;
-        right: 20px;
-      }
+      .product-card { padding: 1.8rem; }
+      .product-card-footer { flex-direction: column; align-items: flex-start; }
+      .project-line { margin-left: 70px; }
     }
-    
-    @media (max-width: 480px) {
-      .carousel-container {
-        height: 300px;
-      }
 
-      .chat-actions {
-        flex-direction: column;
-      }
-
-      .bottom-loader {
-        width: 120px;
-      }
-
-      .carousel-btn {
-        width: 40px;
-        height: 40px;
-      }
-
-      .carousel-btn svg {
-        width: 24px;
-        height: 24px;
-      }
-      
-      /* NEW CHECKBOX TOGGLE FOR VERY SMALL SCREENS */
-      .checkbox-wrapper-41 {
-        transform: scale(0.8);
-        --size: 70px;
-      }
-      
-      .social-icon {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .social-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-      
-      /* Loading screen mobile */
-      .valts-title-loading {
-        font-size: 3rem;
-      }
-      
-      .loader-container {
-        width: 200px;
-      }
-      
-      .gadgets-blur {
-        font-size: 1.2rem;
-      }
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards;
     }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-delay-1 { animation-delay: 0.1s; }
+    .fade-in-delay-2 { animation-delay: 0.2s; }
+    .fade-in-delay-3 { animation-delay: 0.3s; }
+    .fade-in-delay-4 { animation-delay: 0.45s; }
+    .fade-in-delay-5 { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
-  <!-- LOADING SCREEN -->
-  <div id="loadingScreen">
-    <div class="valts-title-loading">VALTS</div>
-    <div class="loader-container">
-      <div class="loader">
-        <div class="black_overlay"></div>
-        <div class="light"></div>
-      </div>
-    </div>
-    <div class="gadgets-blur">GADGETS</div> <!-- CHANGED: Removed encryption, added blur animation -->
-  </div>
 
-  <!-- 3D Instructions Modal -->
-  <div class="instructions-modal" id="instructionsModal">
-    <div class="instructions-content">
-      <button class="instructions-close" id="instructionsClose">×</button>
-      <h2 class="instructions-title">3D Model Controls</h2>
-      <p class="instructions-text">
-        This is a 3D space! You can tap, angle, zoom and preview these models infinitely.
-      </p>
-      <p class="instructions-text">
-        • Drag to rotate the model<br>
-        • Pinch or scroll to zoom<br>
-        • Use buttons or swipe to change models<br>
-        • Explore every angle in detail
-      </p>
-      <p class="instructions-tip">
-        Pro tip: Try viewing on desktop for full mouse/trackpad controls!
-      </p>
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen">
+  <div class="loading-title">RIVELA</div>
+  <div class="loading-bar-wrap">
+    <div class="loading-bar-light"></div>
+  </div>
+  <div class="loading-sub">AI-STUDIO</div>
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <img id="lightboxImg" src="" alt="" />
+    <div id="lightboxGalleryNav" style="display:none; justify-content:space-between; margin-top:0.8rem;">
+      <button onclick="lightboxPrev()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;cursor:pointer;font-family:var(--cinzel);font-size:0.8rem;letter-spacing:0.1em;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">‹ Prev</button>
+      <button onclick="lightboxNext()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;cursor:pointer;font-family:var(--cinzel);font-size:0.8rem;letter-spacing:0.1em;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Next ›</button>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <!-- TOP SECTION -->
-    <div class="top-section">
-      <!-- Logo (Bigger) - NOW CLICKABLE -->
-      <div class="logo-container" id="logoThemeToggle">
-        <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="393 196 300 260" aria-label="Valts Logo">
-          <g>
-            <path d="M439.0999755859375,198.4000244140625C437.5999755859375,200,437,201.5,437.4000244140625,202.79998779296875C437.79998779296875,203.9000244140625,444.5999755859375,217.5,452.5999755859375,233.0999755859375C460.5999755859375,248.70001220703125,469.79998779296875,266.9000244140625,473,273.5C481.29998779296875,290.5999755859375,515.7000122070312,357.79998779296875,525.2000122070312,375.29998779296875L533.2000122070312,390L531.2999877929688,393.29998779296875C530.2000122070312,395,528.7999877929688,396.5,528,396.5C526.7999877929688,396.5,516.7000122070312,379.20001220703125,504.29998779296875,356C501.79998779296875,351.29998779296875,498.5999755859375,346.29998779296875,497.0999755859375,344.79998779296875L494.5,342.0999755859375L449.79998779296875,341.4000244140625C402.9000244140625,340.70001220703125,402,340.70001220703125,402,344.9000244140625C402,345.9000244140625,403,347.5999755859375,404.20001220703125,348.70001220703125C406.5999755859375,350.79998779296875,436.5,366.70001220703125,467,382C477.20001220703125,387.0999755859375,486.5999755859375,392.20001220703125,487.79998779296875,393.4000244140625C490.0999755859375,395.4000244140625,492,398.4000244140625,509,427.5C520.2999877929688,446.79998779296875,522.2999877929688,448.5999755859375,526.7000122070312,443.79998779296875C529.4000244140625,440.79998779296875,549.2999877929688,406.9000244140625,561.5,384.4000244140625C566.9000244140625,374.5999755859375,582.5999755859375,345.79998779296875,596.5,320.5C637.7999877929688,245,660,203.5,660,201.29998779296875C660,197.29998779296875,657,196,647.4000244140625,196C638.7999877929688,196,638.2000122070312,196.0999755859375,635.7999877929688,198.70001220703125C634.4000244140625,200.29998779296875,630.9000244140625,206,628,211.5C614.7999877929688,236.4000244140625,573.0999755859375,311.9000244140625,553.7999877929688,345.70001220703125C550,352.5,546.5,358,546,358C544.5999755859375,358,534.4000244140625,338.70001220703125,500.5,272.5C465.0999755859375,203.29998779296875,464.70001220703125,202.5999755859375,461.20001220703125,198.70001220703125C458.79998779296875,196.20001220703125,458.0999755859375,196,450,196C442.0999755859375,196,441.0999755859375,196.20001220703125,439.0999755859375,198.4000244140625ZM648.7000122070312,216.0999755859375C644.0999755859375,224.5999755859375,635.2000122070312,240.9000244140625,629,252.5C622.7000122070312,264,608.4000244140625,290.4000244140625,597.2000122070312,311C585.9000244140625,331.5999755859375,570.0999755859375,360.5999755859375,562,375.5C553.9000244140625,390.29998779296875,542.9000244140625,409.9000244140625,537.5,419C532.2000122070312,428.0999755859375,526.9000244140625,437.20001220703125,525.9000244140625,439.29998779296875C524.7999877929688,441.29998779296875,523.5999755859375,443,523.0999755859375,443C522.7000122070312,443,515.7000122070312,431.5,507.5999755859375,417.5C497.70001220703125,400.4000244140625,491.79998779296875,391.20001220703125,489.70001220703125,389.5999755859375C486.9000244140625,387.5999755859375,453.20001220703125,370.0999755859375,414.70001220703125,350.70001220703125C408.20001220703125,347.4000244140625,403.0999755859375,344.5999755859375,403.20001220703125,344.5C403.4000244140625,344.4000244140625,417,344.70001220703125,433.5,345.0999755859375C450,345.5,470.5,345.9000244140625,479,345.9000244140625L494.5,346L500.9000244140625,357.70001220703125C515.7000122070312,384.79998779296875,527.2000122070312,405,528,405C528.4000244140625,405,530.9000244140625,401.70001220703125,533.4000244140625,397.5999755859375L538,390.20001220703125L534.5999755859375,384.29998779296875C527.5,372.0999755859375,512.7000122070312,343.4000244140625,483.70001220703125,286C467.20001220703125,253.29998779296875,450.79998779296875,220.9000244140625,447.0999755859375,214C443.5,207.0999755859375,440.4000244140625,201.20001220703125,440.20001220703125,200.70001220703125C439.70001220703125,199.79998779296875,457.20001220703125,199.79998779296875,458.5999755859375,200.79998779296875C459.70001220703125,201.5,468.70001220703125,218.79998779296875,493.79998779296875,268C520.7000122070312,320.79998779296875,545,367,546,367C546.2999877929688,367,547.7000122070312,364.79998779296875,549.0999755859375,362.20001220703125C550.5,359.5999755859375,561.0999755859375,340.5999755859375,572.7000122070312,320C603.2999877929688,265.5,632.7000122070312,212,636.5999755859375,203.79998779296875L638.2999877929688,200.0999755859375L647.4000244140625,199.79998779296875C652.4000244140625,199.5999755859375,656.5999755859375,199.79998779296875,656.7999877929688,200.0999755859375C656.9000244140625,200.4000244140625,653.2999877929688,207.5999755859375,648.7000122070312,216.0999755859375Z"/>
-            <path d="M531.2000122070312,251.29998779296875C530,252.5999755859375,529,254,529,254.4000244140625C529,254.79998779296875,531.5999755859375,261.0999755859375,534.7000122070312,268.29998779296875C540.5,281.9000244140625,544.0999755859375,288,546.4000244140625,288C549,288,552,283.0999755859375,558,269.0999755859375C563.5,256.20001220703125,564,254.4000244140625,562.9000244140625,252.29998779296875C560.2999877929688,247.4000244140625,553.2999877929688,248.4000244140625,550.2000122070312,254.0999755859375C546.5,260.70001220703125,546.4000244140625,260.79998779296875,544.0999755859375,256.29998779296875C540.4000244140625,249,535.2000122070312,247,531.2000122070312,251.29998779296875ZM542.5,262.5999755859375C544.5,267.79998779296875,546.5999755859375,271.79998779296875,546.9000244140625,271.29998779296875C547.2999877929688,270.9000244140625,548.9000244140625,267.0999755859375,550.5,263C552,258.9000244140625,553.7000122070312,254.9000244140625,554.2999877929688,254.20001220703125C555.2999877929688,252.9000244140625,561.4000244140625,252.5,560.7999877929688,253.70001220703125C556.7000122070312,262.0999755859375,552.5,271.5,550.2999877929688,277.5C548.7999877929688,281.5999755859375,547.0999755859375,284.9000244140625,546.7000122070312,284.70001220703125C546.2000122070312,284.5999755859375,543.7000122070312,279.29998779296875,541.0999755859375,273C538.4000244140625,266.70001220703125,535.2999877929688,259.5999755859375,534.0999755859375,257.20001220703125L532,253L535.2999877929688,253C538.5999755859375,253,538.7000122070312,253.0999755859375,542.5,262.5999755859375Z"/>
-            <path d="M597.2999877929688,342.5C594.7999877929688,343.5999755859375,592.2000122070312,347.20001220703125,583.9000244140625,361.20001220703125C571.5999755859375,382.0999755859375,561.4000244140625,398.79998779296875,554.9000244140625,409.0999755859375C552.2000122070312,413.29998779296875,550,417.70001220703125,550,419C550,421.9000244140625,559.2999877929688,439.5999755859375,562.7999877929688,443.20001220703125C564.2000122070312,444.79998779296875,565.9000244140625,446,566.5999755859375,446C568.9000244140625,446,574.4000244140625,438.4000244140625,586.5,418.5C593.0999755859375,407.70001220703125,600.0999755859375,397.0999755859375,602,395C604.7000122070312,392,613.9000244140625,386.9000244140625,644.5,371.4000244140625C666,360.5999755859375,685,350.5999755859375,686.7999877929688,349.29998779296875C690.5,346.5999755859375,690.7999877929688,345,688.2000122070312,342.70001220703125C686.5,341.20001220703125,682,341,643.4000244140625,341C609.2000122070312,341.0999755859375,599.9000244140625,341.4000244140625,597.2999877929688,342.5ZM688,344.9000244140625C688,345.4000244140625,687,346.20001220703125,685.7999877929688,346.5999755859375C682.5,347.5999755859375,676.9000244140625,350.4000244140625,636.7000122070312,370.9000244140625C609.5,384.79998779296875,600.4000244140625,389.9000244140625,598.5999755859375,392.29998779296875C597.2999877929688,394.0999755859375,589.7000122070312,406.0999755859375,581.7000122070312,419C573.7999877929688,431.9000244140625,566.9000244140625,442.5,566.4000244140625,442.70001220703125C565.9000244140625,442.79998779296875,562.7000122070312,437.5,559.2000122070312,430.79998779296875L552.9000244140625,418.70001220703125L556.7999877929688,413.0999755859375C560,408.5999755859375,581.7000122070312,372.70001220703125,595.5,349.29998779296875L597.9000244140625,345L641.2000122070312,344.70001220703125C665,344.5999755859375,685.2999877929688,344.4000244140625,686.2999877929688,344.20001220703125C687.2000122070312,344.0999755859375,688,344.4000244140625,688,344.9000244140625Z"/>
-          </g>
-        </svg>
-      </div>
+<!-- ===== VIDEO LIGHTBOX ===== -->
+<div class="video-lightbox" id="videoLightbox">
+  <div class="video-lightbox-inner">
+    <button class="video-lightbox-close" onclick="closeVideoLightbox()">×</button>
+    <video id="lightboxVideo" controls playsinline style="width:100%;border-radius:10px;display:block;max-height:80vh;">
+      <source id="lightboxVideoSrc" src="" type="video/mp4">
+    </video>
+  </div>
+</div>
 
-      <!-- VALTS GADGETS Title -->
-      <h1 class="main-title">VALTS GADGETS</h1>
+<!-- ===== MOBILE OVERLAY ===== -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-panel-close" onclick="closeMobileMenu()">×</button>
+  <div class="mobile-mode-row">
+    <button class="mobile-mode-btn" id="mobileFreeBtn" onclick="switchMode('freelancer'); closeMobileMenu()">Freelancer</button>
+    <button class="mobile-mode-btn" id="mobileBizBtn" onclick="switchMode('business'); closeMobileMenu()">Business</button>
+  </div>
+  <button class="mobile-panel-btn" onclick="showPage('products'); closeMobileMenu()">Products</button>
+  <button class="mobile-panel-btn" onclick="getAccess(); closeMobileMenu()">Get-Access</button>
+</div>
+
+<!-- ===== FREELANCER PAGE ===== -->
+<div class="page theme-dark active" id="page-freelancer">
+  <nav class="nav-dark">
+    <a class="nav-logo" onclick="showPage('freelancer')" style="cursor:pointer;">
+      <img src="https://models.valts.online/Rivela/l2.png" alt="Rivela AI-Studio" />
+    </a>
+    <div class="nav-center">
+      <button class="nav-products-btn glowing" onclick="showPage('products')" id="navProductsFreelancer" style="color:#fff;">PRODUCTS</button>
     </div>
-
-    <!-- MIDDLE SECTION - 3D Carousel -->
-    <div class="carousel-section">
-      <div class="carousel-container">
-        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous model">
-          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-
-        <div class="model-viewer-wrapper">
-          <!-- Loading Overlay - NEW DESIGN -->
-          <div class="model-loading" id="modelLoading">
-            <!-- Blurred Logo Background -->
-            <div class="loading-logo">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="393 196 300 260">
-                <g>
-                  <path d="M439.0999755859375,198.4000244140625C437.5999755859375,200,437,201.5,437.4000244140625,202.79998779296875C437.79998779296875,203.9000244140625,444.5999755859375,217.5,452.5999755859375,233.0999755859375C460.5999755859375,248.70001220703125,469.79998779296875,266.9000244140625,473,273.5C481.29998779296875,290.5999755859375,515.7000122070312,357.79998779296875,525.2000122070312,375.29998779296875L533.2000122070312,390L531.2999877929688,393.29998779296875C530.2000122070312,395,528.7999877929688,396.5,528,396.5C526.7999877929688,396.5,516.7000122070312,379.20001220703125,504.29998779296875,356C501.79998779296875,351.29998779296875,498.5999755859375,346.29998779296875,497.0999755859375,344.79998779296875L494.5,342.0999755859375L449.79998779296875,341.4000244140625C402.9000244140625,340.70001220703125,402,340.70001220703125,402,344.9000244140625C402,345.9000244140625,403,347.5999755859375,404.20001220703125,348.70001220703125C406.5999755859375,350.79998779296875,436.5,366.70001220703125,467,382C477.20001220703125,387.0999755859375,486.5999755859375,392.20001220703125,487.79998779296875,393.4000244140625C490.0999755859375,395.4000244140625,492,398.4000244140625,509,427.5C520.2999877929688,446.79998779296875,522.2999877929688,448.5999755859375,526.7000122070312,443.79998779296875C529.4000244140625,440.79998779296875,549.2999877929688,406.9000244140625,561.5,384.4000244140625C566.9000244140625,374.5999755859375,582.5999755859375,345.79998779296875,596.5,320.5C637.7999877929688,245,660,203.5,660,201.29998779296875C660,197.29998779296875,657,196,647.4000244140625,196C638.7999877929688,196,638.2000122070312,196.0999755859375,635.7999877929688,198.70001220703125C634.4000244140625,200.29998779296875,630.9000244140625,206,628,211.5C614.7999877929688,236.4000244140625,573.0999755859375,311.9000244140625,553.7999877929688,345.70001220703125C550,352.5,546.5,358,546,358C544.5999755859375,358,534.4000244140625,338.70001220703125,500.5,272.5C465.0999755859375,203.29998779296875,464.70001220703125,202.5999755859375,461.20001220703125,198.70001220703125C458.79998779296875,196.20001220703125,458.0999755859375,196,450,196C442.0999755859375,196,441.0999755859375,196.20001220703125,439.0999755859375,198.4000244140625ZM648.7000122070312,216.0999755859375C644.0999755859375,224.5999755859375,635.2000122070312,240.9000244140625,629,252.5C622.7000122070312,264,608.4000244140625,290.4000244140625,597.2000122070312,311C585.9000244140625,331.5999755859375,570.0999755859375,360.5999755859375,562,375.5C553.9000244140625,390.29998779296875,542.9000244140625,409.9000244140625,537.5,419C532.2000122070312,428.0999755859375,526.9000244140625,437.20001220703125,525.9000244140625,439.29998779296875C524.7999877929688,441.29998779296875,523.5999755859375,443,523.0999755859375,443C522.7000122070312,443,515.7000122070312,431.5,507.5999755859375,417.5C497.70001220703125,400.4000244140625,491.79998779296875,391.20001220703125,489.70001220703125,389.5999755859375C486.9000244140625,387.5999755859375,453.20001220703125,370.0999755859375,414.70001220703125,350.70001220703125C408.20001220703125,347.4000244140625,403.0999755859375,344.5999755859375,403.20001220703125,344.5C403.4000244140625,344.4000244140625,417,344.70001220703125,433.5,345.0999755859375C450,345.5,470.5,345.9000244140625,479,345.9000244140625L494.5,346L500.9000244140625,357.70001220703125C515.7000122070312,384.79998779296875,527.2000122070312,405,528,405C528.4000244140625,405,530.9000244140625,401.70001220703125,533.4000244140625,397.5999755859375L538,390.20001220703125L534.5999755859375,384.29998779296875C527.5,372.0999755859375,512.7000122070312,343.4000244140625,483.70001220703125,286C467.20001220703125,253.29998779296875,450.79998779296875,220.9000244140625,447.0999755859375,214C443.5,207.0999755859375,440.4000244140625,201.20001220703125,440.20001220703125,200.70001220703125C439.70001220703125,199.79998779296875,457.20001220703125,199.79998779296875,458.5999755859375,200.79998779296875C459.70001220703125,201.5,468.70001220703125,218.79998779296875,493.79998779296875,268C520.7000122070312,320.79998779296875,545,367,546,367C546.2999877929688,367,547.7000122070312,364.79998779296875,549.0999755859375,362.20001220703125C550.5,359.5999755859375,561.0999755859375,340.5999755859375,572.7000122070312,320C603.2999877929688,265.5,632.7000122070312,212,636.5999755859375,203.79998779296875L638.2999877929688,200.0999755859375L647.4000244140625,199.79998779296875C652.4000244140625,199.5999755859375,656.5999755859375,199.79998779296875,656.7999877929688,200.0999755859375C656.9000244140625,200.4000244140625,653.2999877929688,207.5999755859375,648.7000122070312,216.0999755859375Z"/>
-                  <path d="M531.2000122070312,251.29998779296875C530,252.5999755859375,529,254,529,254.4000244140625C529,254.79998779296875,531.5999755859375,261.0999755859375,534.7000122070312,268.29998779296875C540.5,281.9000244140625,544.0999755859375,288,546.4000244140625,288C549,288,552,283.0999755859375,558,269.0999755859375C563.5,256.20001220703125,564,254.4000244140625,562.9000244140625,252.29998779296875C560.2999877929688,247.4000244140625,553.2999877929688,248.4000244140625,550.2000122070312,254.0999755859375C546.5,260.70001220703125,546.4000244140625,260.79998779296875,544.0999755859375,256.29998779296875C540.4000244140625,249,535.2000122070312,247,531.2000122070312,251.29998779296875ZM542.5,262.5999755859375C544.5,267.79998779296875,546.5999755859375,271.79998779296875,546.9000244140625,271.29998779296875C547.2999877929688,270.9000244140625,548.9000244140625,267.0999755859375,550.5,263C552,258.9000244140625,553.7000122070312,254.9000244140625,554.2999877929688,254.20001220703125C555.2999877929688,252.9000244140625,561.4000244140625,252.5,560.7999877929688,253.70001220703125C556.7000122070312,262.0999755859375,552.5,271.5,550.2999877929688,277.5C548.7999877929688,281.5999755859375,547.0999755859375,284.9000244140625,546.7000122070312,284.70001220703125C546.2000122070312,284.5999755859375,543.7000122070312,279.29998779296875,541.0999755859375,273C538.4000244140625,266.70001220703125,535.2999877929688,259.5999755859375,534.0999755859375,257.20001220703125L532,253L535.2999877929688,253C538.5999755859375,253,538.7000122070312,253.0999755859375,542.5,262.5999755859375Z"/>
-                  <path d="M597.2999877929688,342.5C594.7999877929688,343.5999755859375,592.2000122070312,347.20001220703125,583.9000244140625,361.20001220703125C571.5999755859375,382.0999755859375,561.4000244140625,398.79998779296875,554.9000244140625,409.0999755859375C552.2000122070312,413.29998779296875,550,417.70001220703125,550,419C550,421.9000244140625,559.2999877929688,439.5999755859375,562.7999877929688,443.20001220703125C564.2000122070312,444.79998779296875,565.9000244140625,446,566.5999755859375,446C568.9000244140625,446,574.4000244140625,438.4000244140625,586.5,418.5C593.0999755859375,407.70001220703125,600.0999755859375,397.0999755859375,602,395C604.7000122070312,392,613.9000244140625,386.9000244140625,644.5,371.4000244140625C666,360.5999755859375,685,350.5999755859375,686.7999877929688,349.29998779296875C690.5,346.5999755859375,690.7999877929688,345,688.2000122070312,342.70001220703125C686.5,341.20001220703125,682,341,643.4000244140625,341C609.2000122070312,341.0999755859375,599.9000244140625,341.4000244140625,597.2999877929688,342.5ZM688,344.9000244140625C688,345.4000244140625,687,346.20001220703125,685.7999877929688,346.5999755859375C682.5,347.5999755859375,676.9000244140625,350.4000244140625,636.7000122070312,370.9000244140625C609.5,384.79998779296875,600.4000244140625,389.9000244140625,598.5999755859375,392.29998779296875C597.2999877929688,394.0999755859375,589.7000122070312,406.0999755859375,581.7000122070312,419C573.7999877929688,431.9000244140625,566.9000244140625,442.5,566.4000244140625,442.70001220703125C565.9000244140625,442.79998779296875,562.7000122070312,437.5,559.2000122070312,430.79998779296875L552.9000244140625,418.70001220703125L556.7999877929688,413.0999755859375C560,408.5999755859375,581.7000122070312,372.70001220703125,595.5,349.29998779296875L597.9000244140625,345L641.2000122070312,344.70001220703125C665,344.5999755859375,685.2999877929688,344.4000244140625,686.2999877929688,344.20001220703125C687.2000122070312,344.0999755859375,688,344.4000244140625,688,344.9000244140625Z"/>
-                </g>
-              </svg>
-            </div>
-            
-            <!-- New Loader Animation -->
-            <div class="loader">
-              <div class="face">
-                <div class="circle"></div>
-              </div>
-              <div class="face">
-                <div class="circle"></div>
-              </div>
-            </div>
-          </div>
-          
-          <model-viewer
-            id="modelViewer"
-            camera-controls
-            auto-rotate
-            shadow-intensity="1"
-            exposure="1"
-            alt="3D Product Model"
-            interaction-prompt="none"
-          ></model-viewer>
-          
-          <!-- 3D Gesture Hint - SVG Hand -->
-          <div class="gesture-hint" id="gestureHint">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="1392 1584 150 162">
-              <g>
-                <path d="M1449.6923828125,1595.5714111328125C1446.5076904296875,1595.5714111328125,1443.787841796875,1596.701416015625,1441.5341796875,1598.96142578125C1439.2806396484375,1601.2215576171875,1438.15380859375,1603.94921875,1438.15380859375,1607.142822265625L1438.15380859375,1688.142822265625L1424.5419921875,1669.8817138671875C1422.07861328125,1666.627197265625,1418.863037109375,1665,1414.896728515625,1665C1411.771240234375,1665,1409.097900390625,1666.1455078125,1406.873779296875,1668.435302734375C1404.6497802734375,1670.724853515625,1403.5384521484375,1673.43701171875,1403.5384521484375,1676.5714111328125C1403.5384521484375,1679.163330078125,1404.3201904296875,1681.482666015625,1405.8822021484375,1683.5323486328125L1440.49755859375,1729.818115234375C1442.78076171875,1732.8917236328125,1445.845703125,1734.4285888671875,1449.6923828125,1734.4285888671875L1514.415771484375,1734.4285888671875C1515.738525390625,1734.4285888671875,1516.92431640625,1734.021728515625,1517.9765625,1733.2081298828125C1519.02880859375,1732.39453125,1519.704833984375,1731.35498046875,1520.0048828125,1730.08935546875L1528.298095703125,1696.8214111328125C1529.740478515625,1691.03564453125,1530.4615478515625,1685.189208984375,1530.4615478515625,1679.283447265625L1530.4615478515625,1659.666259765625C1530.4615478515625,1657.19580078125,1529.62060546875,1655.0557861328125,1527.9375,1653.247802734375C1526.25439453125,1651.439697265625,1524.2119140625,1650.53564453125,1521.8076171875,1650.53564453125C1519.4033203125,1650.53564453125,1517.361083984375,1651.37890625,1515.677978515625,1653.06689453125C1513.99462890625,1654.7548828125,1513.15380859375,1656.802978515625,1513.15380859375,1659.21435546875L1510.269287109375,1659.21435546875L1510.269287109375,1653.69970703125C1510.269287109375,1650.806884765625,1509.30712890625,1648.3505859375,1507.384521484375,1646.33203125C1505.4619140625,1644.3134765625,1503.0576171875,1643.3035888671875,1500.173095703125,1643.3035888671875C1497.408203125,1643.3035888671875,1495.034912109375,1644.2979736328125,1493.0517578125,1646.286865234375C1491.068603515625,1648.275634765625,1490.076904296875,1650.65576171875,1490.076904296875,1653.4285888671875L1490.076904296875,1659.21435546875L1487.1923828125,1659.21435546875L1487.1923828125,1651.078125C1487.1923828125,1647.762939453125,1486.0810546875,1644.915283203125,1483.85693359375,1642.53515625C1481.6329345703125,1640.155029296875,1478.8990478515625,1638.96435546875,1475.65380859375,1638.96435546875C1472.46923828125,1638.96435546875,1469.7493896484375,1640.09423828125,1467.495849609375,1642.3543701171875C1465.2421875,1644.6143798828125,1464.115478515625,1647.342041015625,1464.115478515625,1650.53564453125L1464.115478515625,1659.21435546875L1461.230712890625,1659.21435546875L1461.230712890625,1607.685302734375C1461.230712890625,1604.3701171875,1460.119384765625,1601.5224609375,1457.8955078125,1599.142333984375C1455.67138671875,1596.76220703125,1452.9375,1595.5714111328125,1449.6923828125,1595.5714111328125M1449.6923828125,1584C1456.1220703125,1584,1461.575927734375,1586.3349609375,1466.053466796875,1591.006103515625C1470.5311279296875,1595.677490234375,1472.769287109375,1601.237060546875,1472.769287109375,1607.685302734375L1472.769287109375,1627.57373046875C1474.091796875,1627.45361328125,1475.052490234375,1627.392822265625,1475.65380859375,1627.392822265625C1481.603271484375,1627.392822265625,1486.80224609375,1629.47216796875,1491.248779296875,1633.630615234375C1494.07275390625,1632.364990234375,1497.047607421875,1631.732177734375,1500.173095703125,1631.732177734375C1506.96337890625,1631.732177734375,1512.4931640625,1634.353759765625,1516.759521484375,1639.59716796875C1518.3822021484375,1639.1748046875,1520.0654296875,1638.96435546875,1521.8076171875,1638.96435546875C1527.457275390625,1638.96435546875,1532.23486328125,1640.998291015625,1536.140625,1645.06640625C1540.04638671875,1649.134521484375,1542,1654.000732421875,1542,1659.666259765625L1542,1679.283447265625C1542,1686.274169921875,1541.1591796875,1693.05419921875,1539.4759521484375,1699.6239013671875L1531.1826171875,1732.8917236328125C1530.220703125,1736.749267578125,1528.1783447265625,1739.89794921875,1525.052978515625,1742.3387451171875C1521.927490234375,1744.779541015625,1518.3822021484375,1746,1514.415771484375,1746L1449.6923828125,1746C1446.0865478515625,1746,1442.6455078125,1745.1708984375,1439.370849609375,1743.513916015625C1436.095947265625,1741.857177734375,1433.376220703125,1739.611083984375,1431.212646484375,1736.779052734375L1396.597412109375,1690.4932861328125C1393.532470703125,1686.3955078125,1392,1681.75390625,1392,1676.5714111328125C1392,1670.2432861328125,1394.238037109375,1664.8037109375,1398.7158203125,1660.25390625C1403.193359375,1655.7041015625,1408.5865478515625,1653.4285888671875,1414.896728515625,1653.4285888671875C1419.1630859375,1653.4285888671875,1423.0701904296875,1654.483642578125,1426.615478515625,1656.5926513671875L1426.615478515625,1607.142822265625C1426.615478515625,1600.75390625,1428.868896484375,1595.30029296875,1433.376220703125,1590.7801513671875C1437.8834228515625,1586.260009765625,1443.3216552734375,1584,1449.6923828125,1584M1461.230712890625,1711.28564453125L1461.230712890625,1676.5714111328125L1458.34619140625,1676.5714111328125L1458.34619140625,1711.28564453125ZM1484.3076171875,1711.28564453125L1484.3076171875,1676.5714111328125L1481.423095703125,1676.5714111328125L1481.423095703125,1711.28564453125ZM1507.384521484375,1711.28564453125L1507.384521484375,1676.5714111328125L1504.5,1676.5714111328125L1504.5,1711.28564453125Z"/>
-              </g>
-            </svg>
-          </div>
-          
-          <!-- Chat Icon - Your exact SVG -->
-          <div class="chat-icon" id="chatIcon">
-            <svg width="1041" xmlns="http://www.w3.org/2000/svg" height="1041" viewBox="2441 2071 1041 1041" fill="none">
-              <g>
-                <g style="display:none">
-                  <g class="fills">
-                    <rect rx="0" ry="0" x="2441" y="2071" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="1041" height="1040.9999999999982" fill="none" style="fill:none">
-                    </rect>
-                  </g>
-                </g>
-                <g>
-                  <g class="fills">
-                    <path d="M3308.500244140625,2157.750244140625L2527.750244140625,2157.750244140625L2527.750244140625,3025.249755859375L2614.499755859375,3025.249755859375L2614.499755859375,2244.499755859375L3308.500244140625,2244.499755859375L3308.500244140625,2678.250244140625L3395.249755859375,2678.250244140625L3395.249755859375,2157.750244140625ZM2874.749755859375,2764.999755859375L2701.25,2764.999755859375L2701.25,2851.75L2614.499755859375,2851.75L2614.499755859375,2938.500244140625L2701.25,2938.500244140625L2701.25,2851.75L2874.749755859375,2851.75ZM3134.999755859375,2591.5L3221.75,2591.5L3221.75,2764.999755859375L3395.249755859375,2764.999755859375L3395.249755859375,2851.75L3308.500244140625,2851.75L3308.500244140625,2938.500244140625L3221.75,2938.500244140625L3221.75,3025.249755859375L3134.999755859375,3025.249755859375L3134.999755859375,2851.75L2961.5,2851.75L2961.5,2764.999755859375L3048.250244140625,2764.999755859375L3048.250244140625,2678.250244140625L3134.999755859375,2678.250244140625Z">
-                    </path>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
-          
-          <!-- Scroll Down Arrow - Bottom left of model -->
-          <div class="scroll-down-arrow" id="scrollDownBtn">↓</div>
+    <div class="nav-right">
+      <div class="nav-mode-toggle">
+        <button class="mode-btn active-mode" id="desktopFreeBtn" style="color:#fff;" onclick="switchMode('freelancer')">Freelancer</button>
+        <span class="mode-separator" style="color:#fff;">/</span>
+        <button class="mode-btn glowing-mode" id="desktopBizBtn" style="color:#fff;" onclick="switchMode('business')">Business</button>
+      </div>
+      <button class="rocket-btn" onclick="getAccess()">
+        <div class="btn-outline"></div>
+        <div class="btn-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 2L12 22M12 2L6 8M12 2L18 8"/>
+          </svg>
         </div>
-
-        <button class="carousel-btn next" id="nextBtn" aria-label="Next model">
-          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-
-      <div class="model-name" id="modelName">Loading...</div>
-      <button class="get-button" id="getButton">Get</button>
-    </div>
-
-    <!-- MESSAGE SECTION - 6 Lines -->
-    <div class="message-section">
-      <p>Gadget Store - Reimagined.</p>
-      <p>Phones, accessories, Smart upgrades.</p>
-      <p>Buy everything. Sell your old. Swap to get new. Get it fixed.</p>
-      <p>All in one place.</p>
-      <p>App Launching soon — Join the wait-list.</p>
-      <p>Get early access + Member Perks! <span class="arrow-down">↓</span></p>
-    </div>
-
-    <!-- WAITLIST FORM - 2 INPUTS ONLY -->
-    <form class="waitlist-form" id="waitlistForm">
-      <input 
-        type="text" 
-        class="glass-input" 
-        id="nameInput" 
-        placeholder="Your name" 
-        required
-      />
-      <input 
-        type="text" 
-        class="glass-input" 
-        id="contactInput" 
-        placeholder="Email / Phone number" 
-        required
-      />
-      <button type="submit" class="submit-btn" id="submitBtn">
-        <span class="btn-text">Get </span>
-        <span class="btn-morph">
-          <span class="morph-word">notified</span>
-          <span class="morph-word">perks</span>
-        </span>
+        <div class="btn-state btn-state-default">
+          <p>
+            <span style="--i:0">G</span><span style="--i:1">e</span><span style="--i:2">t</span>
+            <span style="--i:3">&nbsp;</span>
+            <span style="--i:4">A</span><span style="--i:5">c</span><span style="--i:6">c</span><span style="--i:7">e</span><span style="--i:8">s</span><span style="--i:9">s</span>
+          </p>
+        </div>
+        <div class="btn-state-sent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span style="--i:0">G</span><span style="--i:1">r</span><span style="--i:2">a</span><span style="--i:3">n</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">d</span>
+        </div>
       </button>
-      <div class="success-message" id="successMessage" style="display: none;"></div>
-    </form>
+    </div>
+    <button class="mobile-menu-btn" onclick="openMobileMenu()" style="color:#fff;">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-    <!-- BOTTOM SECTION -->
-    <div class="bottom-section">
-      <!-- NEW CHECKBOX TOGGLE - Bottom left position -->
-      <div class="checkbox-wrapper-41">
-        <input type="checkbox" id="themeToggle" checked>
-      </div>
+  <div class="page-inner">
+    <div class="msg-block fade-in fade-in-delay-1">
+      <h1>Your brand. Every setting.<br>That's AI identity.</h1>
+      <p>Mediocre content is the most expensive thing you own. It costs you customers every single day. Get a scalable, consistent pipeline all-through. Rivela AI-Studio handles the visuals. You focus on growth.</p>
+    </div>
 
-      <!-- Social Section WITH YOUR EXACT ICONS -->
-      <div class="social-section">
-        <div class="shop-today">
-          Or shop today <span class="shop-arrow">↓</span>
-        </div>
-        <div class="social-icons">
-          <!-- CHANGED: Instagram link shortened -->
-          <a href="https://www.instagram.com/valts.gadgets" target="_blank" class="social-icon" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
-          </a>
-          <!-- CHANGED: TikTok link fixed to valtsgadgets -->
-          <a href="https://www.tiktok.com/@valtsgadgets" target="_blank" class="social-icon" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
-          </a>
-          <a href="https://wa.me/256707859985?text=Hey%20,%20am%20interested%20in%20a%20gadget" target="_blank" class="social-icon" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462,1.065,2.875,1.213,3.074.149.198,2.096,3.2,5.077,4.487.709.306,1.262.489,1.694.625.712.227,1.36.195,1.871.118.571-.085,1.758-.719,2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45,4.436-9.884,9.888-9.884,2.64 0,5.122,1.03,6.988,2.898a9.825 9.825 0 012.893,6.994c-.003 5.45-4.437,9.884-9.885,9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142,1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683,1.448h.005c6.554 0,11.89-5.335,11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </a>
+    <!-- MEDIA GRID -->
+    <div class="media-grid fade-in fade-in-delay-2">
+      <!-- Top video boxes -->
+      <div class="video-box" id="videoBox1" onclick="openVideoLightbox('https://models.valts.online/Rivela/Post%201.mp4')" style="cursor:pointer;">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;" id="vid1">
+          <source src="https://models.valts.online/Rivela/Post%201.mp4" type="video/mp4">
+        </video>
+        <div class="video-hand-hint">
+          <img src="https://models.valts.online/Rivela/hand.png" alt="" onerror="this.parentElement.innerHTML='<svg viewBox=&quot;0 0 40 40&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;width:32px;height:32px;&quot;><path d=&quot;M20 8C20 6.9 19.1 6 18 6C16.9 6 16 6.9 16 8V20L14.5 18.2C13.9 17.5 12.9 17.4 12.2 17.9C11.5 18.5 11.4 19.5 11.9 20.2L16.5 26C17.4 27.2 18.7 28 20.2 28H22C24.8 28 27 25.8 27 23V17C27 15.9 26.1 15 25 15C24.4 15 23.9 15.3 23.5 15.7C23.2 14.7 22.2 14 21 14C20.4 14 19.9 14.2 19.5 14.6V8Z&quot; fill=&quot;white&quot; opacity=&quot;0.85&quot;/></svg>'"/>
         </div>
       </div>
+      <div class="video-box" id="videoBox2" onclick="openVideoLightbox('https://models.valts.online/Rivela/Post%202.mp4')" style="cursor:pointer;">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;" id="vid2">
+          <source src="https://models.valts.online/Rivela/Post%202.mp4" type="video/mp4">
+        </video>
+        <div class="video-hand-hint">
+          <img src="https://models.valts.online/Rivela/hand.png" alt="" onerror="this.parentElement.innerHTML='<svg viewBox=&quot;0 0 40 40&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;width:32px;height:32px;&quot;><path d=&quot;M20 8C20 6.9 19.1 6 18 6C16.9 6 16 6.9 16 8V20L14.5 18.2C13.9 17.5 12.9 17.4 12.2 17.9C11.5 18.5 11.4 19.5 11.9 20.2L16.5 26C17.4 27.2 18.7 28 20.2 28H22C24.8 28 27 25.8 27 23V17C27 15.9 26.1 15 25 15C24.4 15 23.9 15.3 23.5 15.7C23.2 14.7 22.2 14 21 14C20.4 14 19.9 14.2 19.5 14.6V8Z&quot; fill=&quot;white&quot; opacity=&quot;0.85&quot;/></svg>'"/>
+        </div>
+      </div>
 
-      <!-- Powered by Valts with new loader -->
-      <div class="powered-by">
-        Powered by <span class="valts-text">Valts</span>
-        <div class="bottom-loader">
-          <div class="loader">
-            <div class="black_overlay"></div>
-            <div class="light"></div>
-          </div>
+      <!-- Bottom row -->
+      <div class="media-bottom-row">
+        <!-- Left circle - female model -->
+        <div class="circle-block" id="circleLeftFree" onclick="openLightboxSingle('https://models.valts.online/Rivela/c1.png')">
+          <img src="https://models.valts.online/Rivela/c1.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+
+        <!-- Center carousel -->
+        <div class="carousel-box" id="carouselFree" style="position:relative;"></div>
+
+        <!-- Right circle - male model -->
+        <div class="circle-block" id="circleRightFree" onclick="openLightboxSingle('https://models.valts.online/Rivela/c2.png')">
+          <img src="https://models.valts.online/Rivela/c2.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;" />
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAT OVERLAY -->
-  <div class="chat-overlay" id="chatOverlay">
-    <div class="chat-container">
-      <div class="chat-close" id="chatClose">×</div>
-      <div class="chat-box">
-        <div class="chat-messages" id="chatMessages">
-          <div class="chat-message bot">
-            Welcome to Valts Gadgets! What specific gadget are you looking to get today? , we can't chat here , but input your need in the input box below and get sorted instantly ✨.
-          </div>
+    <!-- Bottom message -->
+    <div class="msg-block msg-bottom fade-in fade-in-delay-3">
+      <h1>Start owning attention with AI visuals built to sell.</h1>
+      <p>From AI Winner Pack creatives to full AI Brand Builder — Rivela gives your business the visuals that stop the scroll and win the sale. Consistent models, ad-ready content, premium at every level.</p>
+    </div>
+
+    <div class="fade-in fade-in-delay-4">
+      <button class="rocket-btn" onclick="getAccess()">
+        <div class="btn-outline"></div>
+        <div class="btn-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg>
         </div>
-        
-        <div class="chat-actions" id="chatActions" style="display: none;"></div>
-        
-        <div class="chat-contact-form" id="chatContactForm"></div>
-        
-        <div class="chat-input-box">
-          <input 
-            type="text" 
-            class="chat-input" 
-            id="chatInput" 
-            placeholder="Type..."
-          />
-          <button class="chat-send" id="chatSend">
-            <svg viewBox="0 0 24 24">
-              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-            </svg>
+        <div class="btn-state btn-state-default">
+          <p><span style="--i:0">G</span><span style="--i:1">e</span><span style="--i:2">t</span><span style="--i:3">&nbsp;</span><span style="--i:4">A</span><span style="--i:5">c</span><span style="--i:6">c</span><span style="--i:7">e</span><span style="--i:8">s</span><span style="--i:9">s</span></p>
+        </div>
+        <div class="btn-state-sent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span style="--i:0">G</span><span style="--i:1">r</span><span style="--i:2">a</span><span style="--i:3">n</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">d</span>
+        </div>
+      </button>
+    </div>
+
+    <div class="page-footer fade-in fade-in-delay-5">
+      <div class="social-icons">
+        <a href="https://www.instagram.com/rivela.aistudio" target="_blank" class="social-icon-link" style="color:#fff; border-color:rgba(255,255,255,0.15);">
+          <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@rivelaai" target="_blank" class="social-icon-link" style="color:#fff; border-color:rgba(255,255,255,0.15);">
+          <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
+        </a>
+        <a href="https://wa.me/256707859985?text=Hey%20Rivela%2C%20I%27m%20interested%20in%20AI%20creatives%20for%20my%20brand" target="_blank" class="social-icon-link" style="color:#fff; border-color:rgba(255,255,255,0.15);">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+      </div>
+      <div class="footer-logo" style="color:#fff;">RIVELA AI-STUDIO</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BUSINESS PAGE ===== -->
+<div class="page theme-light" id="page-business">
+  <nav class="nav-light">
+    <a class="nav-logo" onclick="showPage('business')" style="cursor:pointer;">
+      <img src="https://models.valts.online/Rivela/l1.png" alt="Rivela AI-Studio" />
+    </a>
+    <div class="nav-center">
+      <button class="nav-products-btn glowing-light" onclick="showPage('products')" id="navProductsBusiness">PRODUCTS</button>
+    </div>
+    <div class="nav-right">
+      <div class="nav-mode-toggle">
+        <button class="mode-btn glowing-mode-light" onclick="switchMode('freelancer')" style="color:#000;">Freelancer</button>
+        <span class="mode-separator">/</span>
+        <button class="mode-btn active-mode" onclick="switchMode('business')" style="color:#000;">Business</button>
+      </div>
+      <button class="rocket-btn" onclick="getAccess()">
+        <div class="btn-outline"></div>
+        <div class="btn-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg>
+        </div>
+        <div class="btn-state btn-state-default">
+          <p><span style="--i:0">G</span><span style="--i:1">e</span><span style="--i:2">t</span><span style="--i:3">&nbsp;</span><span style="--i:4">A</span><span style="--i:5">c</span><span style="--i:6">c</span><span style="--i:7">e</span><span style="--i:8">s</span><span style="--i:9">s</span></p>
+        </div>
+        <div class="btn-state-sent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span style="--i:0">G</span><span style="--i:1">r</span><span style="--i:2">a</span><span style="--i:3">n</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">d</span>
+        </div>
+      </button>
+    </div>
+    <button class="mobile-menu-btn light-mode-menu" onclick="openMobileMenu()" style="color:#000;">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-inner">
+    <div class="msg-block fade-in fade-in-delay-1">
+      <h1>Your brand deserves<br>the 1% visual.</h1>
+      <p>Rivela AI-Studio builds AI creatives for brands that refuse to be ignored. Premium images, consistent models, ad-ready videos — everything your business needs to stop the scroll and convert.</p>
+    </div>
+
+    <!-- MEDIA GRID (Business) -->
+    <div class="media-grid fade-in fade-in-delay-2">
+      <div class="video-box" style="background:#1a1a1a;" id="videoBoxBiz1" onclick="openVideoLightbox('https://models.valts.online/Rivela/Post%201.mp4')" style="cursor:pointer;">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="https://models.valts.online/Rivela/Post%201.mp4" type="video/mp4">
+        </video>
+        <div class="video-hand-hint">
+          <img src="https://models.valts.online/Rivela/hand.png" alt="" onerror="this.parentElement.innerHTML='<svg viewBox=&quot;0 0 40 40&quot; fill=&quot;none&quot; style=&quot;width:32px;height:32px;&quot;><path d=&quot;M20 8C20 6.9 19.1 6 18 6C16.9 6 16 6.9 16 8V20L14.5 18.2C13.9 17.5 12.9 17.4 12.2 17.9C11.5 18.5 11.4 19.5 11.9 20.2L16.5 26C17.4 27.2 18.7 28 20.2 28H22C24.8 28 27 25.8 27 23V17C27 15.9 26.1 15 25 15C24.4 15 23.9 15.3 23.5 15.7C23.2 14.7 22.2 14 21 14C20.4 14 19.9 14.2 19.5 14.6V8Z&quot; fill=&quot;white&quot; opacity=&quot;0.85&quot;/></svg>'"/>
+        </div>
+      </div>
+      <div class="video-box" style="background:#1a1a1a;" id="videoBoxBiz2" onclick="openVideoLightbox('https://models.valts.online/Rivela/Post%202.mp4')" style="cursor:pointer;">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="https://models.valts.online/Rivela/Post%202.mp4" type="video/mp4">
+        </video>
+        <div class="video-hand-hint">
+          <img src="https://models.valts.online/Rivela/hand.png" alt="" onerror="this.parentElement.innerHTML='<svg viewBox=&quot;0 0 40 40&quot; fill=&quot;none&quot; style=&quot;width:32px;height:32px;&quot;><path d=&quot;M20 8C20 6.9 19.1 6 18 6C16.9 6 16 6.9 16 8V20L14.5 18.2C13.9 17.5 12.9 17.4 12.2 17.9C11.5 18.5 11.4 19.5 11.9 20.2L16.5 26C17.4 27.2 18.7 28 20.2 28H22C24.8 28 27 25.8 27 23V17C27 15.9 26.1 15 25 15C24.4 15 23.9 15.3 23.5 15.7C23.2 14.7 22.2 14 21 14C20.4 14 19.9 14.2 19.5 14.6V8Z&quot; fill=&quot;white&quot; opacity=&quot;0.85&quot;/></svg>'"/>
+        </div>
+      </div>
+      <div class="media-bottom-row">
+        <!-- Left circle carousel - products -->
+        <div class="circle-block" id="circleLeftBiz" style="background:#1a1a1a; overflow:hidden; position:relative;" onclick="openCircleCarousel('products', circleCarousels.products.current)">
+          <img id="circleLeftBizImg" src="https://models.valts.online/Rivela/p1.png" alt="Product" style="width:100%;height:100%;object-fit:cover;" />
+          <button class="circle-prev" onclick="event.stopPropagation(); circleCarouselPrev('products')">‹</button>
+          <button class="circle-next" onclick="event.stopPropagation(); circleCarouselNext('products')">›</button>
+        </div>
+
+        <!-- Center main carousel -->
+        <div class="carousel-box" id="carouselBiz" style="background:#1a1a1a; position:relative;"></div>
+
+        <!-- Right circle carousel - avatars -->
+        <div class="circle-block" id="circleRightBiz" style="background:#1a1a1a; overflow:hidden; position:relative;" onclick="openCircleCarousel('avatars', circleCarousels.avatars.current)">
+          <img id="circleRightBizImg" src="https://models.valts.online/Rivela/a1.png" alt="Avatar" style="width:100%;height:100%;object-fit:cover;" />
+          <button class="circle-prev" onclick="event.stopPropagation(); circleCarouselPrev('avatars')">‹</button>
+          <button class="circle-next" onclick="event.stopPropagation(); circleCarouselNext('avatars')">›</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-block msg-bottom fade-in fade-in-delay-3">
+      <h1>Anything can be marketed.</h1>
+      <p>From a single AI Winner Pack to a full month of AI Brand Builder — Rivela works hand-in-hand with your brand until results show. Start with creatives. Scale with a system.</p>
+    </div>
+
+    <!-- Project info + Get Access group -->
+    <div class="project-access-group fade-in fade-in-delay-4">
+      <button class="rocket-btn" onclick="showPage('project-info')" id="projectInfoBtnBiz">
+        <div class="btn-outline"></div>
+        <div class="btn-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg>
+        </div>
+        <div class="btn-state btn-state-default">
+          <p><span style="--i:0">P</span><span style="--i:1">r</span><span style="--i:2">o</span><span style="--i:3">j</span><span style="--i:4">e</span><span style="--i:5">c</span><span style="--i:6">t</span><span style="--i:7">&nbsp;</span><span style="--i:8">I</span><span style="--i:9">n</span><span style="--i:10">f</span><span style="--i:11">o</span></p>
+        </div>
+        <div class="btn-state-sent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span style="--i:0">D</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">e</span>
+        </div>
+      </button>
+      <div class="project-line"></div>
+      <button class="rocket-btn disabled-btn" id="getAccessBizBtn" onclick="bizGetAccess()">
+        <div class="btn-outline"></div>
+        <div class="btn-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg>
+        </div>
+        <div class="btn-state btn-state-default">
+          <p><span style="--i:0">G</span><span style="--i:1">e</span><span style="--i:2">t</span><span style="--i:3">&nbsp;</span><span style="--i:4">A</span><span style="--i:5">c</span><span style="--i:6">c</span><span style="--i:7">e</span><span style="--i:8">s</span><span style="--i:9">s</span></p>
+        </div>
+        <div class="btn-state-sent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span style="--i:0">G</span><span style="--i:1">r</span><span style="--i:2">a</span><span style="--i:3">n</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">d</span>
+        </div>
+      </button>
+    </div>
+
+    <div class="page-footer fade-in fade-in-delay-5">
+      <div class="social-icons">
+        <a href="https://www.instagram.com/rivela.aistudio" target="_blank" class="social-icon-link">
+          <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@rivelaai" target="_blank" class="social-icon-link">
+          <svg viewBox="0 0 24 24"><path d="M16.6,5.82s.51.5,0,0A4.278,4.278 0 0,0 15.54,3h-3.09V12.4a2.592,2.592 0 0,1-2.59,2.5c-1.42,0-2.6-1.16-2.6-2.6c0-1.72,1.66-3.01,3.37-2.48V6.66c-3.45-.46-6.47,2.22-6.47,5.64c0,3.33,2.76,5.7,5.69,5.7c3.14,0,5.69-2.55,5.69-5.7V9.01a7.35,7.35 0 0,0 4.3,1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
+        </a>
+        <a href="https://wa.me/256707859985?text=Hey%20Rivela%2C%20I%27m%20interested%20in%20AI%20creatives%20for%20my%20brand" target="_blank" class="social-icon-link">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+      </div>
+      <div class="footer-logo">RIVELA AI-STUDIO</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRODUCTS PAGE ===== -->
+<div class="page theme-light" id="page-products">
+  <nav class="nav-light">
+    <a class="nav-logo" onclick="showPage(lastMode)" style="cursor:pointer;">
+      <img src="https://models.valts.online/Rivela/l1.png" alt="Rivela AI-Studio" />
+    </a>
+    <div class="nav-center">
+      <button class="nav-products-btn" onclick="showPage('products')" style="font-weight:700; opacity:1;">PRODUCTS</button>
+    </div>
+    <div class="nav-right">
+      <div class="nav-mode-toggle">
+        <button class="mode-btn" onclick="switchMode('freelancer')" style="color:#000;">Freelancer</button>
+        <span class="mode-separator">/</span>
+        <button class="mode-btn" onclick="switchMode('business')" style="color:#000;">Business</button>
+      </div>
+    </div>
+    <button class="mobile-menu-btn light-mode-menu" onclick="openMobileMenu()" style="color:#000;"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="page-inner">
+    <button class="back-btn" onclick="showPage(lastMode)">← Back</button>
+    <div class="products-grid">
+      <div class="product-card fade-in">
+        <div class="product-tag">TIER 01</div>
+        <div class="product-title">AI Winner Pack</div>
+        <div class="product-desc">Done-for-you AI creatives — 5 pieces (3 images + 2 videos) built to stop the scroll and win the sale. Ad-ready, premium quality. One-time delivery. No retainer, no commitment.</div>
+        <div class="product-card-footer">
+          <div class="product-price">Lock in price: UGX 70,000 for the full pack.<br><span style="font-size:0.8rem;opacity:0.5;">Need more? Additional image 10k, video 30k. Start today.</span></div>
+          <button class="rocket-btn" onclick="getAccess()">
+            <div class="btn-outline"></div>
+            <div class="btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg></div>
+            <div class="btn-state btn-state-default"><p><span style="--i:0">G</span><span style="--i:1">e</span><span style="--i:2">t</span><span style="--i:3">&nbsp;</span><span style="--i:4">A</span><span style="--i:5">c</span><span style="--i:6">c</span><span style="--i:7">e</span><span style="--i:8">s</span><span style="--i:9">s</span></p></div>
+            <div class="btn-state-sent"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg><span style="--i:0">G</span><span style="--i:1">r</span><span style="--i:2">a</span><span style="--i:3">n</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">d</span></div>
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-2">
+        <div class="product-tag">TIER 02</div>
+        <div class="product-title">AI Brand Builder</div>
+        <div class="product-desc">One month. Rivela works hand-in-hand with your brand — building your AI model identity, content library, and ad-ready creatives. Strategy + execution, together.</div>
+        <div class="product-card-footer">
+          <div class="product-price">Enterprise pricing. DM to apply.</div>
+          <button class="rocket-btn" onclick="showPage('project-info')">
+            <div class="btn-outline"></div>
+            <div class="btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg></div>
+            <div class="btn-state btn-state-default"><p><span style="--i:0">S</span><span style="--i:1">t</span><span style="--i:2">a</span><span style="--i:3">r</span><span style="--i:4">t</span><span style="--i:5">&nbsp;</span><span style="--i:6">P</span><span style="--i:7">r</span><span style="--i:8">o</span><span style="--i:9">j</span><span style="--i:10">e</span><span style="--i:11">c</span><span style="--i:12">t</span></p></div>
+            <div class="btn-state-sent"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg><span style="--i:0">D</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">e</span></div>
           </button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    // LOADING SCREEN FUNCTIONALITY WITH BLUR ANIMATION ONLY
-    const loadingScreen = document.getElementById('loadingScreen');
-    
-    // Fade out loading screen after 7 seconds
+<!-- ===== PROJECT INFO PAGE ===== -->
+<div class="page theme-light" id="page-project-info">
+  <nav class="nav-light">
+    <a class="nav-logo" onclick="showPage(lastMode)" style="cursor:pointer;">
+      <img src="https://models.valts.online/Rivela/l1.png" alt="Rivela AI-Studio" />
+    </a>
+    <div class="nav-right">
+      <button class="mode-btn" onclick="showPage(lastMode)" style="color:#000; opacity:0.5;">← Back</button>
+    </div>
+    <button class="mobile-menu-btn light-mode-menu" onclick="openMobileMenu()" style="color:#000;"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="page-inner">
+    <button class="back-btn" onclick="showPage('business')">← Back to Business</button>
+    <div class="form-container">
+      <div style="margin-bottom:2.5rem;">
+        <h1 style="font-family:var(--cinzel);font-size:clamp(1.4rem,3vw,2rem);font-weight:400;letter-spacing:0.08em;margin-bottom:0.7rem;">Project Inquiry</h1>
+        <p style="font-size:1.05rem;opacity:0.5;font-weight:300;line-height:1.7;">Tell us about your brand and we'll build something that actually sells.</p>
+      </div>
+
+      <div class="form-field fade-in">
+        <label class="form-label">Full Names <span class="required">*</span></label>
+        <input type="text" class="form-input" id="fi-name" placeholder="Your full name" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-1">
+        <label class="form-label">Phone Number or Email <span class="required">*</span></label>
+        <input type="text" class="form-input" id="fi-contact" placeholder="+256 or email@brand.com" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-2">
+        <label class="form-label">Your Company or Your Role</label>
+        <input type="text" class="form-input" id="fi-company" placeholder="Brand name / your role" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-2">
+        <label class="form-label">Project Type <span class="required">*</span> <span style="opacity:0.45;font-size:0.7rem;">Pick what applies.</span></label>
+        <div class="chips-grid" id="projectTypeChips">
+          <button class="chip" onclick="toggleChip(this)">AI Product Photos</button>
+          <button class="chip" onclick="toggleChip(this)">Social Ads (Short-form video)</button>
+          <button class="chip" onclick="toggleChip(this)">Brand Identity</button>
+          <button class="chip" onclick="toggleChip(this)">AI Model Identity</button>
+          <button class="chip" onclick="toggleChip(this)">AI Winner Pack</button>
+          <button class="chip" onclick="toggleChip(this)">AI Brand Builder</button>
+          <button class="chip" onclick="toggleChip(this)">Content System</button>
+          <button class="chip" onclick="toggleChip(this)">Motion Design</button>
+          <button class="chip" onclick="toggleChip(this)">Other</button>
+        </div>
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-3">
+        <label class="form-label">Project Description <span class="required">*</span> <span style="opacity:0.45;font-size:0.7rem;">One short paragraph with scope and goal.</span></label>
+        <textarea class="form-textarea" id="fi-desc" placeholder="Describe your project..."></textarea>
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-3">
+        <label class="form-label">Budget Range (UGX–USD) <span class="required">*</span> <span style="opacity:0.45;font-size:0.7rem;">Input your estimated content and monthly ad spend budget.</span></label>
+        <input type="text" class="form-input" id="fi-budget" placeholder="e.g. UGX 200,000 / month" />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-4">
+        <label class="form-label">Looking for a retainer? <span class="required">*</span></label>
+        <div class="retainer-btns">
+          <button class="retainer-btn" onclick="selectRetainer(this, 'Yes')">Yes</button>
+          <button class="retainer-btn" onclick="selectRetainer(this, 'No')">No</button>
+          <button class="retainer-btn" onclick="selectRetainer(this, 'Maybe')">Maybe</button>
+        </div>
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-4">
+        <label class="form-label">Current Brand Assets <span style="opacity:0.45;">(Optional)</span> <span style="opacity:0.45;font-size:0.7rem;">Name all/any if you have</span></label>
+        <input type="text" class="form-input" id="fi-assets" placeholder="Logo, model references, brand colours..." />
+      </div>
+
+      <div class="form-field fade-in fade-in-delay-5">
+        <label class="form-label">Anything Else? <span style="opacity:0.45;">(Optional)</span></label>
+        <textarea class="form-textarea" id="fi-extra" placeholder="References, inspirations, constraints..."></textarea>
+      </div>
+
+      <div class="form-submit-area fade-in fade-in-delay-5">
+        <button class="rocket-btn" onclick="submitProjectInquiry()" style="min-width:220px;">
+          <div class="btn-outline"></div>
+          <div class="btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L12 22M12 2L6 8M12 2L18 8"/></svg></div>
+          <div class="btn-state btn-state-default"><p>
+            <span style="--i:0">S</span><span style="--i:1">u</span><span style="--i:2">b</span><span style="--i:3">m</span><span style="--i:4">i</span><span style="--i:5">t</span>
+            <span style="--i:6">&nbsp;</span>
+            <span style="--i:7">I</span><span style="--i:8">n</span><span style="--i:9">q</span><span style="--i:10">u</span><span style="--i:11">i</span><span style="--i:12">r</span><span style="--i:13">y</span>
+          </p></div>
+          <div class="btn-state-sent">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+            <span style="--i:0">S</span><span style="--i:1">e</span><span style="--i:2">n</span><span style="--i:3">t</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // ===== STATE =====
+  let lastMode = 'freelancer';
+  let projectInfoFilled = false;
+  let retainerValue = '';
+
+  // Main center carousel images (same on both pages)
+  const carousels = {
+    free: {
+      images: [
+        'https://models.valts.online/Rivela/1.png',
+        'https://models.valts.online/Rivela/2.png',
+        'https://models.valts.online/Rivela/3.png',
+        'https://models.valts.online/Rivela/4.png',
+        'https://models.valts.online/Rivela/5.png'
+      ],
+      current: 0
+    },
+    biz: {
+      images: [
+        'https://models.valts.online/Rivela/1.png',
+        'https://models.valts.online/Rivela/2.png',
+        'https://models.valts.online/Rivela/3.png',
+        'https://models.valts.online/Rivela/4.png',
+        'https://models.valts.online/Rivela/5.png'
+      ],
+      current: 0
+    }
+  };
+
+  // Business circle carousels
+  const circleCarousels = {
+    products: {
+      images: [
+        'https://models.valts.online/Rivela/p1.png',
+        'https://models.valts.online/Rivela/p2.png',
+        'https://models.valts.online/Rivela/p3.png',
+        'https://models.valts.online/Rivela/p4.png',
+        'https://models.valts.online/Rivela/p5.png'
+      ],
+      current: 0
+    },
+    avatars: {
+      images: [
+        'https://models.valts.online/Rivela/a1.png',
+        'https://models.valts.online/Rivela/a2.png',
+        'https://models.valts.online/Rivela/a3.png',
+        'https://models.valts.online/Rivela/a4.png',
+        'https://models.valts.online/Rivela/a5.png'
+      ],
+      current: 0
+    }
+  };
+
+  // ===== LOADING =====
+  window.addEventListener('load', () => {
     setTimeout(() => {
-      loadingScreen.classList.add('fade-out');
-      
-      // Remove loading screen completely after transition
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 2500);
-    }, 7000);
-    
-    // THEME TOGGLE - Default is light mode
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // Load saved theme - Default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-mode');
-      themeToggle.checked = false;
+      document.getElementById('loadingScreen').classList.add('hide');
+      // Init all carousels after load
+      renderCarousel('free');
+      renderCarousel('biz');
+    }, 3200);
+  });
+
+  // ===== PAGE NAVIGATION =====
+  function showPage(pageName) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + pageName);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+    if (pageName === 'freelancer' || pageName === 'business') {
+      lastMode = pageName;
+    }
+  }
+
+  function switchMode(mode) {
+    lastMode = mode;
+    showPage(mode);
+  }
+
+  // ===== MOBILE MENU =====
+  function openMobileMenu() {
+    document.getElementById('mobileOverlay').classList.add('open');
+    document.getElementById('mobilePanel').classList.add('open');
+    updateMobileModeButtons();
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileOverlay').classList.remove('open');
+    document.getElementById('mobilePanel').classList.remove('open');
+  }
+  function updateMobileModeButtons() {
+    const freeBtn = document.getElementById('mobileFreeBtn');
+    const bizBtn = document.getElementById('mobileBizBtn');
+    if (lastMode === 'freelancer') {
+      freeBtn.classList.add('active-mode'); freeBtn.classList.remove('glowing-mobile');
+      bizBtn.classList.remove('active-mode'); bizBtn.classList.add('glowing-mobile');
     } else {
-      // Default is light mode, checkbox should be checked
-      themeToggle.checked = true;
+      bizBtn.classList.add('active-mode'); bizBtn.classList.remove('glowing-mobile');
+      freeBtn.classList.remove('active-mode'); freeBtn.classList.add('glowing-mobile');
     }
+  }
 
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-      } else {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-      }
+  // ===== VIDEO LIGHTBOX =====
+  function openVideoLightbox(src) {
+    const lb = document.getElementById('videoLightbox');
+    const vid = document.getElementById('lightboxVideo');
+    const srcEl = document.getElementById('lightboxVideoSrc');
+    srcEl.src = src;
+    vid.load();
+    vid.play();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideoLightbox() {
+    const lb = document.getElementById('videoLightbox');
+    const vid = document.getElementById('lightboxVideo');
+    vid.pause();
+    vid.currentTime = 0;
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('videoLightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeVideoLightbox();
+  });
+
+  // ===== GET ACCESS =====
+  function getAccess() {
+    const msg = encodeURIComponent("Hey Rivela, I'm interested in AI creatives for my brand. Please get me access.");
+    window.open('https://wa.me/256707859985?text=' + msg, '_blank');
+  }
+
+  function bizGetAccess() {
+    if (!projectInfoFilled) return;
+    const stored = sessionStorage.getItem('rivela_project_data');
+    let msg = "Hey Rivela, I've completed my Project Inquiry. Here are my details:\n\n";
+    if (stored) {
+      const data = JSON.parse(stored);
+      msg += `Name: ${data.name}\nContact: ${data.contact}\nCompany/Role: ${data.company}\nProject Type: ${data.types}\nDescription: ${data.desc}\nBudget: ${data.budget}\nRetainer: ${data.retainer}\nBrand Assets: ${data.assets}\nExtra: ${data.extra}`;
+    }
+    window.open('https://wa.me/256707859985?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  // ===== PROJECT INFO =====
+  function toggleChip(el) { el.classList.toggle('selected'); }
+  function selectRetainer(el, val) {
+    document.querySelectorAll('.retainer-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    retainerValue = val;
+  }
+
+  function submitProjectInquiry() {
+    const name = document.getElementById('fi-name').value.trim();
+    const contact = document.getElementById('fi-contact').value.trim();
+    const desc = document.getElementById('fi-desc').value.trim();
+    const budget = document.getElementById('fi-budget').value.trim();
+    if (!name || !contact || !desc || !budget) { alert('Please fill in all required fields.'); return; }
+    const selectedTypes = [...document.querySelectorAll('.chip.selected')].map(c => c.textContent).join(', ');
+    const data = {
+      name, contact,
+      company: document.getElementById('fi-company').value.trim(),
+      types: selectedTypes || 'Not specified',
+      desc, budget,
+      retainer: retainerValue || 'Not specified',
+      assets: document.getElementById('fi-assets').value.trim() || 'None',
+      extra: document.getElementById('fi-extra').value.trim() || 'None'
+    };
+    sessionStorage.setItem('rivela_project_data', JSON.stringify(data));
+    projectInfoFilled = true;
+    const getBtn = document.getElementById('getAccessBizBtn');
+    if (getBtn) getBtn.classList.remove('disabled-btn');
+    setTimeout(() => showPage('business'), 800);
+  }
+
+  // ===== MAIN CENTER CAROUSEL =====
+  function renderCarousel(type) {
+    const state = carousels[type];
+    const boxId = type === 'free' ? 'carouselFree' : 'carouselBiz';
+    const dotsId = type === 'free' ? 'dotsFree' : 'dotsBiz';
+    const box = document.getElementById(boxId);
+    if (!box || state.images.length === 0) return;
+
+    box.innerHTML = '';
+
+    // Images
+    state.images.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Rivela creative ' + (i + 1);
+      img.style.cssText = `width:100%;height:100%;object-fit:cover;display:${i === state.current ? 'block' : 'none'};`;
+      img.onclick = () => openLightboxSingle(src);
+      box.appendChild(img);
     });
 
-    // LOGO CLICK FUNCTIONALITY - Theme toggle and scroll to waitlist
-    const logoThemeToggle = document.getElementById('logoThemeToggle');
-    
-    logoThemeToggle.addEventListener('click', () => {
-      // Toggle theme
-      themeToggle.checked = !themeToggle.checked;
-      themeToggle.dispatchEvent(new Event('change'));
-      
-      // Scroll to waitlist section
-      const waitlistForm = document.getElementById('waitlistForm');
-      waitlistForm.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center'
-      });
-      
-      // Add a subtle animation to indicate it worked
-      logoThemeToggle.style.transform = 'scale(1.1)';
-      setTimeout(() => {
-        logoThemeToggle.style.transform = 'scale(1)';
-      }, 300);
+    // Nav buttons
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'carousel-nav prev-nav';
+    prevBtn.innerHTML = '‹';
+    prevBtn.onclick = () => prevSlide(type);
+    box.appendChild(prevBtn);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'carousel-nav next-nav';
+    nextBtn.innerHTML = '›';
+    nextBtn.onclick = () => nextSlide(type);
+    box.appendChild(nextBtn);
+
+    // Dots
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'carousel-dots';
+    dotsWrap.id = dotsId;
+    state.images.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'carousel-dot' + (i === state.current ? ' active' : '');
+      dot.onclick = () => goToSlide(type, i);
+      dotsWrap.appendChild(dot);
     });
+    box.appendChild(dotsWrap);
+  }
 
-    // 3D Models Data - Using Public R2 URL with "3D models" folder
-    const models = [
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/Iphone%2017-air.glb',
-        name: 'iPhone 17-air'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/iPhone%2017%20Pro.glb',
-        name: 'iPhone 17 Pro'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/samsung%20s25%20ultra.glb',
-        name: 'Samsung S25 Ultra'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/google_pixel_8_pro.glb',
-        name: 'Google Pixel 8 Pro'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/nothing_phone_2a.glb',
-        name: 'Nothing Phone 2A'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/instax_mini_8_instant_camera.glb',
-        name: 'Instax Mini 8 Camera'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/ps5%20pro.glb',
-        name: 'PS5 Pro'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/airpods_max.glb',
-        name: 'AirPods Max'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/AirPods%20Pro%203.glb',
-        name: 'AirPods Pro 3'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/jbl-tour-pro-2-black-android-ar-asset.glb',
-        name: 'JBL Tour Pro 2'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/jbl-tune-720bt-black-android-ar-asset.glb',
-        name: 'JBL Tune 720BT'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/clip-4-black-android-ar-asset.glb',
-        name: 'JBL Clip 4'
-      },
-      {
-        url: 'https://pub-4ceaf5d08e3e49a78c061ac1bf3cbcc8.r2.dev/3D%20models/apple_mac_mini_m1.glb',
-        name: 'Apple Mac Mini M1'
-      }
-    ];
+  function prevSlide(type) {
+    const s = carousels[type];
+    s.current = (s.current - 1 + s.images.length) % s.images.length;
+    renderCarousel(type);
+  }
+  function nextSlide(type) {
+    const s = carousels[type];
+    s.current = (s.current + 1) % s.images.length;
+    renderCarousel(type);
+  }
+  function goToSlide(type, index) {
+    carousels[type].current = index;
+    renderCarousel(type);
+  }
 
-    // 3D Model Carousel with Caching
-    let currentModelIndex = 0;
-    const modelViewer = document.getElementById('modelViewer');
-    const modelName = document.getElementById('modelName');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const modelLoading = document.getElementById('modelLoading');
-    const gestureHint = document.getElementById('gestureHint');
-    const instructionsModal = document.getElementById('instructionsModal');
-    const instructionsClose = document.getElementById('instructionsClose');
-    
-    // Cache for loaded models
-    const modelCache = new Map();
-    let isMobile = window.innerWidth < 768;
-    
-    // Preload models in background
-    async function preloadModel(url) {
-      if (modelCache.has(url)) return;
-      
-      try {
-        const response = await fetch(url);
-        const blob = await response.blob();
-        const objectURL = URL.createObjectURL(blob);
-        modelCache.set(url, objectURL);
-      } catch (error) {
-        console.log('Preload failed for:', url);
-      }
-    }
-    
-    // Preload all models after first load
-    function preloadAllModels() {
-      models.forEach((model, index) => {
-        if (index !== 0) {
-          setTimeout(() => preloadModel(model.url), index * 1000);
-        }
-      });
-    }
+  // ===== CIRCLE CAROUSELS (Business) =====
+  function circleCarouselPrev(type) {
+    const s = circleCarousels[type];
+    s.current = (s.current - 1 + s.images.length) % s.images.length;
+    updateCircleImg(type);
+  }
+  function circleCarouselNext(type) {
+    const s = circleCarousels[type];
+    s.current = (s.current + 1) % s.images.length;
+    updateCircleImg(type);
+  }
+  function updateCircleImg(type) {
+    const s = circleCarousels[type];
+    const imgId = type === 'products' ? 'circleLeftBizImg' : 'circleRightBizImg';
+    const el = document.getElementById(imgId);
+    if (el) el.src = s.images[s.current];
+  }
 
-    function showLoading() {
-      modelLoading.classList.remove('hidden');
-    }
-    
-    function hideLoading() {
-      modelLoading.classList.add('hidden');
-    }
+  // ===== LIGHTBOX =====
+  // Single image lightbox (freelancer circles + center carousel)
+  function openLightboxSingle(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxGalleryNav').style.display = 'none';
+    document.getElementById('lightbox').classList.add('open');
+    lightboxGallery = null;
+    lightboxGalleryIndex = 0;
+  }
 
-    async function loadModel(index) {
-      showLoading();
-      
-      const modelData = models[index];
-      let modelUrl = modelData.url;
-      
-      // Add slight delay to ensure logo is visible
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // Use cached version if available
-      if (modelCache.has(modelUrl)) {
-        modelUrl = modelCache.get(modelUrl);
-      } else {
-        // Cache this model for future use
-        try {
-          const response = await fetch(modelUrl);
-          const blob = await response.blob();
-          const objectURL = URL.createObjectURL(blob);
-          modelCache.set(modelData.url, objectURL);
-          modelUrl = objectURL;
-        } catch (error) {
-          console.log('Failed to cache model:', error);
-        }
-      }
-      
-      modelViewer.src = modelUrl;
-      modelName.textContent = modelData.name;
-    }
+  // Gallery lightbox (business circles - full ratio, navigable)
+  let lightboxGallery = null;
+  let lightboxGalleryIndex = 0;
 
-    function nextModel() {
-      currentModelIndex = (currentModelIndex + 1) % models.length;
-      loadModel(currentModelIndex);
-    }
+  function openCircleCarousel(type, startIndex) {
+    lightboxGallery = circleCarousels[type].images;
+    lightboxGalleryIndex = startIndex;
+    document.getElementById('lightboxImg').src = lightboxGallery[lightboxGalleryIndex];
+    document.getElementById('lightboxGalleryNav').style.display = 'flex';
+    document.getElementById('lightbox').classList.add('open');
+  }
 
-    function prevModel() {
-      currentModelIndex = (currentModelIndex - 1 + models.length) % models.length;
-      loadModel(currentModelIndex);
-    }
+  function lightboxPrev() {
+    if (!lightboxGallery) return;
+    lightboxGalleryIndex = (lightboxGalleryIndex - 1 + lightboxGallery.length) % lightboxGallery.length;
+    document.getElementById('lightboxImg').src = lightboxGallery[lightboxGalleryIndex];
+  }
+  function lightboxNext() {
+    if (!lightboxGallery) return;
+    lightboxGalleryIndex = (lightboxGalleryIndex + 1) % lightboxGallery.length;
+    document.getElementById('lightboxImg').src = lightboxGallery[lightboxGalleryIndex];
+  }
 
-    prevBtn.addEventListener('click', prevModel);
-    nextBtn.addEventListener('click', nextModel);
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
 
-    // Model viewer events for loading state
-    modelViewer.addEventListener('load', () => {
-      hideLoading();
-      
-      // Show gesture hint for 3 seconds after load
-      gestureHint.style.opacity = '1';
-      setTimeout(() => {
-        gestureHint.style.opacity = '0';
-      }, 3000);
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeLightbox(); closeMobileMenu(); closeVideoLightbox(); }
+    if (e.key === 'ArrowLeft' && lightboxGallery) lightboxPrev();
+    if (e.key === 'ArrowRight' && lightboxGallery) lightboxNext();
+  });
+
+  // ===== AUTO-ADVANCE CENTER CAROUSEL =====
+  setInterval(() => {
+    ['free', 'biz'].forEach(type => {
+      if (carousels[type].images.length > 1) nextSlide(type);
     });
-    
-    modelViewer.addEventListener('error', () => {
-      hideLoading();
-      modelName.textContent = 'Failed to load model';
-    });
-
-    // Allow desktop wheel scrolling through models
-    if (!isMobile) {
-      modelViewer.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        if (e.deltaY > 0) {
-          nextModel();
-        } else {
-          prevModel();
-        }
-      });
-    }
-
-    // Load first model and start preloading
-    setTimeout(() => {
-      loadModel(0);
-      setTimeout(preloadAllModels, 2000);
-    }, 7000);
-
-    // GET BUTTON - WhatsApp functionality
-    const getButton = document.getElementById('getButton');
-    
-    getButton.addEventListener('click', () => {
-      const currentModel = models[currentModelIndex];
-      const message = encodeURIComponent(`Hey, I want to know more about this ${currentModel.name}`);
-      const whatsappUrl = `https://wa.me/256707859985?text=${message}`;
-      window.open(whatsappUrl, '_blank');
-      
-      // Track Meta Pixel event
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout', {
-          content_name: currentModel.name,
-          content_category: 'Product Inquiry'
-        });
-      }
-    });
-
-    // 3D INSTRUCTIONS MODAL
-    gestureHint.addEventListener('click', () => {
-      instructionsModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-    
-    instructionsClose.addEventListener('click', () => {
-      instructionsModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-    
-    // Close modal when clicking outside
-    instructionsModal.addEventListener('click', (e) => {
-      if (e.target === instructionsModal) {
-        instructionsModal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-
-    // CHAT FUNCTIONALITY - WITH UPDATED SUBMISSION LOGIC
-    const chatIcon = document.getElementById('chatIcon');
-    const chatOverlay = document.getElementById('chatOverlay');
-    const chatClose = document.getElementById('chatClose');
-    const chatInput = document.getElementById('chatInput');
-    const chatSend = document.getElementById('chatSend');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatActions = document.getElementById('chatActions');
-    const chatContactForm = document.getElementById('chatContactForm');
-    
-    let userRequest = '';
-    let chatState = 'initial';
-    
-    // Chat history cleanup system (1 hour)
-    const CHAT_EXPIRY_TIME = 60 * 60 * 1000;
-    const CHAT_STORAGE_KEY = 'valts_chat_history';
-    const CHAT_TIMESTAMP_KEY = 'valts_chat_timestamp';
-    
-    function saveChatHistory() {
-      const messages = [];
-      const messageElements = chatMessages.querySelectorAll('.chat-message');
-      
-      messageElements.forEach(el => {
-        messages.push({
-          text: el.textContent,
-          type: el.classList.contains('user') ? 'user' : 'bot'
-        });
-      });
-      
-      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
-      localStorage.setItem(CHAT_TIMESTAMP_KEY, Date.now().toString());
-    }
-    
-    function loadChatHistory() {
-      const timestamp = localStorage.getItem(CHAT_TIMESTAMP_KEY);
-      
-      // Clear if older than 1 hour
-      if (timestamp && (Date.now() - parseInt(timestamp)) > CHAT_EXPIRY_TIME) {
-        localStorage.removeItem(CHAT_STORAGE_KEY);
-        localStorage.removeItem(CHAT_TIMESTAMP_KEY);
-        return false;
-      }
-      
-      const savedMessages = localStorage.getItem(CHAT_STORAGE_KEY);
-      if (savedMessages) {
-        const messages = JSON.parse(savedMessages);
-        chatMessages.innerHTML = '';
-        
-        messages.forEach(msg => {
-          const msgEl = document.createElement('div');
-          msgEl.className = `chat-message ${msg.type}`;
-          msgEl.textContent = msg.text;
-          chatMessages.appendChild(msgEl);
-        });
-        
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        return true;
-      }
-      
-      return false;
-    }
-    
-    // Load chat history on page load
-    const hasHistory = loadChatHistory();
-    if (!hasHistory) {
-      chatMessages.innerHTML = '<div class="chat-message bot">Welcome to Valts Gadgets! What specific gadget are you looking to get today? , we can\'t chat here , but input your need in the input box below and get sorted instantly ✨.</div>';
-    }
-    
-    // Open chat
-    chatIcon.addEventListener('click', () => {
-      chatOverlay.classList.add('active');
-      document.body.classList.add('chat-active');
-      chatInput.focus();
-    });
-    
-    // Close chat
-    chatClose.addEventListener('click', () => {
-      chatOverlay.classList.remove('active');
-      document.body.classList.remove('chat-active');
-      saveChatHistory();
-    });
-    
-    // Close on overlay click
-    chatOverlay.addEventListener('click', (e) => {
-      if (e.target === chatOverlay) {
-        chatOverlay.classList.remove('active');
-        document.body.classList.remove('chat-active');
-        saveChatHistory();
-      }
-    });
-    
-    // Show send button when typing
-    chatInput.addEventListener('input', () => {
-      if (chatInput.value.trim()) {
-        chatSend.classList.add('visible');
-      } else {
-        chatSend.classList.remove('visible');
-      }
-    });
-    
-    // Send message
-    function sendChatMessage() {
-      const message = chatInput.value.trim();
-      if (!message) return;
-      
-      // Add user message
-      const userMsg = document.createElement('div');
-      userMsg.className = 'chat-message user';
-      userMsg.textContent = message;
-      chatMessages.appendChild(userMsg);
-      
-      userRequest = message;
-      chatInput.value = '';
-      chatSend.classList.remove('visible');
-      
-      // Scroll to bottom
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-      
-      // Save chat history
-      saveChatHistory();
-      
-      // Show action buttons
-      setTimeout(() => {
-        showActionButtons();
-      }, 500);
-    }
-    
-    chatSend.addEventListener('click', sendChatMessage);
-    chatInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendChatMessage();
-      }
-    });
-    
-    // Show action buttons
-    function showActionButtons() {
-      chatActions.style.display = 'flex';
-      chatActions.innerHTML = `
-        <button class="chat-action-btn" id="getTodayBtn">Get today</button>
-        <button class="chat-action-btn" id="getNotifiedBtn">Get notified</button>
-      `;
-      
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-      
-      document.getElementById('getTodayBtn').addEventListener('click', () => {
-        const message = encodeURIComponent(`Hey, I want to know more about: ${userRequest}`);
-        const whatsappUrl = `https://wa.me/256707859985?text=${message}`;
-        window.open(whatsappUrl, '_blank');
-        
-        // Track event
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'Lead', {
-            content_name: 'Chat Inquiry',
-            content_category: userRequest
-          });
-        }
-        
-        // Show success message
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-message bot';
-        botMsg.textContent = 'Great! Opening WhatsApp for you...';
-        chatMessages.appendChild(botMsg);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        
-        chatActions.style.display = 'none';
-        saveChatHistory();
-      });
-      
-      document.getElementById('getNotifiedBtn').addEventListener('click', () => {
-        showContactForm();
-      });
-    }
-    
-    // Show contact form
-    function showContactForm() {
-      chatActions.style.display = 'none';
-      chatContactForm.classList.add('visible');
-      chatContactForm.innerHTML = `
-        <input 
-          type="text" 
-          class="chat-form-input" 
-          id="chatName" 
-          placeholder="Your name" 
-          required
-        />
-        <input 
-          type="text" 
-          class="chat-form-input" 
-          id="chatContact" 
-          placeholder="Email or Phone number" 
-          required
-        />
-        <button class="chat-action-btn" id="submitContactBtn">Submit</button>
-      `;
-      
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-      
-      document.getElementById('submitContactBtn').addEventListener('click', async () => {
-        const name = document.getElementById('chatName').value.trim();
-        const contact = document.getElementById('chatContact').value.trim();
-        
-        if (!name || !contact) {
-          alert('Please fill in all fields');
-          return;
-        }
-        
-        const submitBtn = document.getElementById('submitContactBtn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        
-        try {
-          const isEmail = contact.includes('@');
-          
-          // CRUCIAL FIX: Send user request in same sentence as contact
-          let contactWithRequest;
-          if (isEmail) {
-            contactWithRequest = contact + " - " + userRequest;
-          } else {
-            contactWithRequest = contact + " - " + userRequest;
-          }
-          
-          // Send to Cloudflare Worker - with user request appended to contact
-          const response = await fetch('https://signup-api.stephansentamu.workers.dev/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              name: name,
-              email: isEmail ? contactWithRequest : '', // Email field contains email + request
-              phoneNo: isEmail ? '' : contactWithRequest, // Phone field contains phone + request
-              // We still send request separately for backward compatibility
-              request: userRequest
-            })
-          });
-          
-          const result = await response.json();
-          
-          if (response.ok) {
-            // Show success message with updated text
-            chatContactForm.classList.remove('visible');
-            const botMsg = document.createElement('div');
-            botMsg.className = 'chat-message bot';
-            botMsg.innerHTML = 'We will get to you soon.😊 Welcome to <span style="font-family: \'Iceberg\', sans-serif;">valts</span>';
-            chatMessages.appendChild(botMsg);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Track event
-            if (typeof fbq !== 'undefined') {
-              fbq('track', 'Lead', {
-                content_name: 'Get Notified',
-                content_category: userRequest
-              });
-            }
-            
-            saveChatHistory();
-          } else {
-            throw new Error(result.error || 'Failed to submit');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Error submitting. Please try again.');
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit';
-        }
-      });
-    }
-
-    // Scroll Down Button
-    const scrollDownBtn = document.getElementById('scrollDownBtn');
-    const messageSection = document.querySelector('.message-section');
-
-    scrollDownBtn.addEventListener('click', () => {
-      messageSection.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
-    });
-    
-    if (window.innerWidth <= 768) {
-      window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
-        
-        if (scrollPosition > pageHeight - 300) {
-          scrollDownBtn.classList.add('hidden');
-        } else {
-          scrollDownBtn.classList.remove('hidden');
-        }
-      });
-    }
-
-    // Waitlist Form Submission - CLOUDFLARE WORKER
-    const waitlistForm = document.getElementById('waitlistForm');
-    const nameInput = document.getElementById('nameInput');
-    const contactInput = document.getElementById('contactInput');
-    const submitBtn = document.getElementById('submitBtn');
-    const successMessage = document.getElementById('successMessage');
-
-    waitlistForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const name = nameInput.value.trim();
-      const contact = contactInput.value.trim();
-      
-      if (!name || !contact) {
-        successMessage.textContent = '❌ Please fill in both fields';
-        successMessage.style.display = 'block';
-        successMessage.style.color = '#ff6b6b';
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 3000);
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Submitting...';
-
-      try {
-        // Determine if contact is email or phone
-        const isEmail = contact.includes('@');
-        
-        // Send to Cloudflare Worker - REGULAR WAITLIST (no request)
-        const response = await fetch('https://signup-api.stephansentamu.workers.dev/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            email: isEmail ? contact : '',
-            phoneNo: isEmail ? '' : contact
-            // No request field for regular waitlist
-          })
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          // Show success message with updated text
-          successMessage.innerHTML = '✅ Welcome to <span style="font-family: \'Iceberg\', sans-serif;">valts</span>😶‍🌫️';
-          successMessage.style.display = 'block';
-          successMessage.style.color = '#6ee7b7';
-          
-          // Track Meta Pixel conversion
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'Lead');
-          }
-          
-          // Reset form
-          nameInput.value = '';
-          contactInput.value = '';
-          
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 5000);
-        } else {
-          throw new Error(result.error || 'Failed to submit');
-        }
-        
-      } catch (error) {
-        console.error('Error:', error);
-        successMessage.textContent = '❌ Error submitting. Please try again.';
-        successMessage.style.display = 'block';
-        successMessage.style.color = '#ff6b6b';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span class="btn-text">Get </span><span class="btn-morph"><span class="morph-word">notified</span><span class="morph-word">perks</span></span>';
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 5000);
-      }
-    });
-  </script>
+  }, 4000);
+</script>
 </body>
 </html>
