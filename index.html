@@ -873,7 +873,104 @@
       justify-content: center;
     }
 
-    /* Video hand hint */
+    /* ===== TOP CIRCLE VIDEO ===== */
+    .media-grid-wrap {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .top-circle-video {
+      position: absolute;
+      top: -48px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 0 0 rgba(255,255,255,0.3);
+      animation: circleVideoPulse 2.5s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
+    .top-circle-video:hover { transform: translateX(-50%) scale(1.08); }
+    @keyframes circleVideoPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.35); border-color: rgba(255,255,255,0.15); }
+      50% { box-shadow: 0 0 0 8px rgba(255,255,255,0); border-color: rgba(255,255,255,0.5); }
+    }
+    .top-circle-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Play hint overlay on circle video */
+    .circle-video-hint {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .circle-video-hint svg {
+      width: 22px;
+      height: 22px;
+      opacity: 0.75;
+      animation: playHintGlow 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));
+    }
+    @keyframes playHintGlow {
+      0%, 100% { opacity: 0.75; filter: drop-shadow(0 0 4px rgba(255,255,255,0.5)); }
+      50% { opacity: 0.35; filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)) blur(0.5px); }
+    }
+    /* Light theme version for business page */
+    .top-circle-video.light-circle {
+      border-color: rgba(0,0,0,0.15);
+      animation: circleVideoPulseLight 2.5s ease-in-out infinite;
+    }
+    @keyframes circleVideoPulseLight {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.2); border-color: rgba(0,0,0,0.12); }
+      50% { box-shadow: 0 0 0 8px rgba(0,0,0,0); border-color: rgba(0,0,0,0.4); }
+    }
+    .top-circle-video.light-circle .circle-video-hint svg {
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.4));
+    }
+    @keyframes playHintGlowDark {
+      0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 4px rgba(0,0,0,0.4)); }
+      50% { opacity: 0.25; filter: drop-shadow(0 0 10px rgba(0,0,0,0.7)) blur(0.5px); }
+    }
+    .top-circle-video.light-circle .circle-video-hint svg {
+      animation: playHintGlowDark 2.5s ease-in-out infinite;
+    }
+
+    /* Bottom circle video (below carousel, above message) */
+    .bottom-circle-video-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0 0.5rem;
+    }
+    .bottom-circle-video {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.15);
+      animation: circleVideoPulse 2.5s ease-in-out infinite;
+      transition: transform 0.3s;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .bottom-circle-video:hover { transform: scale(1.08); }
+    .bottom-circle-video video { width:100%; height:100%; object-fit:cover; display:block; }
+    .bottom-circle-video.light-circle {
+      border-color: rgba(0,0,0,0.15);
+      animation: circleVideoPulseLight 2.5s ease-in-out infinite;
+    }
+
+    /* ===== TOP CIRCLE VIDEO ===== */
     .video-hand-hint {
       position: absolute;
       bottom: 10px;
@@ -1101,7 +1198,18 @@
     </div>
 
     <!-- MEDIA GRID -->
-    <div class="media-grid fade-in fade-in-delay-2">
+    <div class="media-grid-wrap fade-in fade-in-delay-2">
+      <!-- Top circle video -->
+      <div class="top-circle-video" onclick="openVideoLightbox('https://models.valts.online/Rivela/y1.mp4')">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="https://models.valts.online/Rivela/y1.mp4" type="video/mp4">
+        </video>
+        <div class="circle-video-hint">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+
+      <div class="media-grid" style="margin:0; padding-top: 55px;">
       <!-- Top video boxes -->
       <div class="video-box" id="videoBox1" onclick="openVideoLightbox('https://models.valts.online/Rivela/Post%201.mp4')" style="cursor:pointer;">
         <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;" id="vid1">
@@ -1133,6 +1241,19 @@
         <!-- Right circle - male model -->
         <div class="circle-block" id="circleRightFree" onclick="openLightboxSingle('https://models.valts.online/Rivela/c2.png')">
           <img src="https://models.valts.online/Rivela/c2.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+    </div><!-- end media-grid-wrap -->
+
+    <!-- Bottom circle video -->
+    <div class="bottom-circle-video-wrap fade-in fade-in-delay-3">
+      <div class="bottom-circle-video" onclick="openVideoLightbox('https://models.valts.online/Rivela/y2.mp4')">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="https://models.valts.online/Rivela/y2.mp4" type="video/mp4">
+        </video>
+        <div class="circle-video-hint">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
     </div>
@@ -1329,7 +1450,18 @@
     </div>
 
     <!-- MEDIA GRID (Business) -->
-    <div class="media-grid fade-in fade-in-delay-2">
+    <div class="media-grid-wrap fade-in fade-in-delay-2">
+      <!-- Top circle video (light theme) -->
+      <div class="top-circle-video light-circle" onclick="openVideoLightbox('https://models.valts.online/Rivela/y1.mp4')">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="https://models.valts.online/Rivela/y1.mp4" type="video/mp4">
+        </video>
+        <div class="circle-video-hint">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+
+      <div class="media-grid" style="margin:0; padding-top: 55px;">
       <div class="video-box" style="background:#1a1a1a;" id="videoBoxBiz1" onclick="openVideoLightbox('https://models.valts.online/Rivela/Post%201.mp4')" style="cursor:pointer;">
         <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
           <source src="https://models.valts.online/Rivela/Post%201.mp4" type="video/mp4">
@@ -1362,6 +1494,19 @@
           <img id="circleRightBizImg" src="https://models.valts.online/Rivela/a1.png" alt="Avatar" style="width:100%;height:100%;object-fit:cover;" />
           <button class="circle-prev" onclick="event.stopPropagation(); circleCarouselPrev('avatars')">‹</button>
           <button class="circle-next" onclick="event.stopPropagation(); circleCarouselNext('avatars')">›</button>
+        </div>
+      </div>
+    </div>
+    </div><!-- end media-grid-wrap -->
+
+    <!-- Bottom circle video -->
+    <div class="bottom-circle-video-wrap fade-in fade-in-delay-3">
+      <div class="bottom-circle-video light-circle" onclick="openVideoLightbox('https://models.valts.online/Rivela/y2.mp4')">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="https://models.valts.online/Rivela/y2.mp4" type="video/mp4">
+        </video>
+        <div class="circle-video-hint">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
     </div>
